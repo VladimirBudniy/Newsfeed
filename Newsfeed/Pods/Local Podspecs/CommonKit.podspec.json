@@ -1,0 +1,28 @@
+{
+  "name": "CommonKit",
+  "version": "0.1.1",
+  "summary": "Common methods used for both AppKit and IDPKit",
+  "homepage": "https://github.com/idapgroup/CommonKit",
+  "license": {
+    "type": "New BSD",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "IDAP Group": "admin@idapgroup.com"
+  },
+  "platforms": {
+    "ios": "7.0",
+    "osx": "10.8"
+  },
+  "source": {
+    "git": "https://github.com/idapgroup/CommonKit.git",
+    "tag": "0.1.1"
+  },
+  "source_files": [
+    "Module",
+    "Module/*.{h,m}"
+  ],
+  "public_header_files": "Module/*.h",
+  "frameworks": "Foundation",
+  "requires_arc": false
+}

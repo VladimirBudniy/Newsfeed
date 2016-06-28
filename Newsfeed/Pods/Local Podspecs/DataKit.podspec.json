@@ -1,0 +1,32 @@
+{
+  "name": "DataKit",
+  "version": "0.1.1",
+  "summary": "Basic IDAP Group classes",
+  "homepage": "https://github.com/idapgroup/DataKit",
+  "license": {
+    "type": "New BSD",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "IDAP Group": "admin@idapgroup.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/idapgroup/DataKit.git",
+    "tag": "0.1.1"
+  },
+  "source_files": [
+    "Module",
+    "Module/**/*.{h,m,c}"
+  ],
+  "public_header_files": "Module/**/*.h",
+  "frameworks": "Foundation",
+  "dependencies": {
+    "CommonKit": [
+
+    ]
+  },
+  "requires_arc": false
+}
