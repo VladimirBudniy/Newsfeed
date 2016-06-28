@@ -9,7 +9,6 @@
 #import "VBHotNewsViewController.h"
 #import "VBHotNewsView.h"
 
-
 @interface VBHotNewsViewController ()
 @property (nonatomic, readonly) VBHotNewsView  *rootView;
 
