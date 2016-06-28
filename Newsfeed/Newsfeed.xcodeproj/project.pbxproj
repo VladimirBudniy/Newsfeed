@@ -43,6 +43,10 @@
 		E7EB56D61D228C6A00D3C470 /* VBLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7EB56B61D228C6A00D3C470 /* VBLoadingView.xib */; };
 		E7EB56D71D228C6A00D3C470 /* VBViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB56B81D228C6A00D3C470 /* VBViewModel.m */; };
 		E7EB56DD1D228F8F00D3C470 /* VBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB56DC1D228F8F00D3C470 /* VBAppDelegate.m */; };
+		E7EB56E81D22943F00D3C470 /* VBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB56E71D22943F00D3C470 /* VBViewController.m */; };
+		E7EB56EC1D22945700D3C470 /* VBHotNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB56EA1D22945700D3C470 /* VBHotNewsViewController.m */; };
+		E7EB56ED1D22945700D3C470 /* VBHotNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7EB56EB1D22945700D3C470 /* VBHotNewsViewController.xib */; };
+		E7EB56F11D22950100D3C470 /* VBHotNewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB56F01D22950100D3C470 /* VBHotNewsView.m */; };
 		EC4AFEA25532932D3980E5E3 /* libPods-Newsfeed.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D3B616A04CAC57C83611987 /* libPods-Newsfeed.a */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +128,13 @@
 		E7EB56D91D228D1400D3C470 /* VBConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VBConstants.h; sourceTree = "<group>"; };
 		E7EB56DB1D228F8F00D3C470 /* VBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBAppDelegate.h; sourceTree = "<group>"; };
 		E7EB56DC1D228F8F00D3C470 /* VBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBAppDelegate.m; sourceTree = "<group>"; };
+		E7EB56E61D22943F00D3C470 /* VBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBViewController.h; sourceTree = "<group>"; };
+		E7EB56E71D22943F00D3C470 /* VBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBViewController.m; sourceTree = "<group>"; };
+		E7EB56E91D22945700D3C470 /* VBHotNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBHotNewsViewController.h; sourceTree = "<group>"; };
+		E7EB56EA1D22945700D3C470 /* VBHotNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBHotNewsViewController.m; sourceTree = "<group>"; };
+		E7EB56EB1D22945700D3C470 /* VBHotNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBHotNewsViewController.xib; sourceTree = "<group>"; };
+		E7EB56EF1D22950100D3C470 /* VBHotNewsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBHotNewsView.h; sourceTree = "<group>"; };
+		E7EB56F01D22950100D3C470 /* VBHotNewsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBHotNewsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +228,8 @@
 		E7EB56521D228C3E00D3C470 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E7EB56DE1D22923E00D3C470 /* VBViewController */,
+				E7EB56E21D22938700D3C470 /* VBHotNewsViewController */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -573,6 +586,35 @@
 			path = VBAppDelegate;
 			sourceTree = "<group>";
 		};
+		E7EB56DE1D22923E00D3C470 /* VBViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E7EB56E61D22943F00D3C470 /* VBViewController.h */,
+				E7EB56E71D22943F00D3C470 /* VBViewController.m */,
+			);
+			path = VBViewController;
+			sourceTree = "<group>";
+		};
+		E7EB56E21D22938700D3C470 /* VBHotNewsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E7EB56EE1D22949D00D3C470 /* VBHotNewsView */,
+				E7EB56E91D22945700D3C470 /* VBHotNewsViewController.h */,
+				E7EB56EA1D22945700D3C470 /* VBHotNewsViewController.m */,
+				E7EB56EB1D22945700D3C470 /* VBHotNewsViewController.xib */,
+			);
+			path = VBHotNewsViewController;
+			sourceTree = "<group>";
+		};
+		E7EB56EE1D22949D00D3C470 /* VBHotNewsView */ = {
+			isa = PBXGroup;
+			children = (
+				E7EB56EF1D22950100D3C470 /* VBHotNewsView.h */,
+				E7EB56F01D22950100D3C470 /* VBHotNewsView.m */,
+			);
+			path = VBHotNewsView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -636,6 +678,7 @@
 				E7EB56D61D228C6A00D3C470 /* VBLoadingView.xib in Resources */,
 				E7EB56431D2289C500D3C470 /* LaunchScreen.storyboard in Resources */,
 				E7EB56401D2289C500D3C470 /* Assets.xcassets in Resources */,
+				E7EB56ED1D22945700D3C470 /* VBHotNewsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,6 +742,8 @@
 				E7EB56BA1D228C6A00D3C470 /* NSBundle+VBCategory.m in Sources */,
 				E7EB56BD1D228C6A00D3C470 /* NSString+VBCategory.m in Sources */,
 				E7EB56D31D228C6A00D3C470 /* VBObjectCache.m in Sources */,
+				E7EB56F11D22950100D3C470 /* VBHotNewsView.m in Sources */,
+				E7EB56EC1D22945700D3C470 /* VBHotNewsViewController.m in Sources */,
 				E7EB56D01D228C6A00D3C470 /* VBObserverObject.m in Sources */,
 				E7EB56D21D228C6A00D3C470 /* VBImageModel.m in Sources */,
 				E7EB56C61D228C6A00D3C470 /* VBSaveArrayModel.m in Sources */,
@@ -716,6 +761,7 @@
 				E7EB56BF1D228C6A00D3C470 /* UIImage+VBCategory.m in Sources */,
 				E7EB56C71D228C6A00D3C470 /* VBModel.m in Sources */,
 				E7EB56C11D228C6A00D3C470 /* UITableView+VBCategory.m in Sources */,
+				E7EB56E81D22943F00D3C470 /* VBViewController.m in Sources */,
 				E7EB56CE1D228C6A00D3C470 /* VBObserver.m in Sources */,
 				E7EB56CF1D228C6A00D3C470 /* VBObserverArray.m in Sources */,
 				E7EB56321D2289C500D3C470 /* main.m in Sources */,
