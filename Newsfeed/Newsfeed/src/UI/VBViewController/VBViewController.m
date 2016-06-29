@@ -60,6 +60,12 @@ static NSString * const kVBRightButtonName    = @"home.png";
 }
 
 - (void)showNavigationBar {
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+//                                                  forBarMetrics:UIBarMetricsDefault]; //UIImageNamed:@"transparent.png"
+//    self.navigationController.navigationBar.shadowImage = [UIImage new];////UIImageNamed:@"transparent.png"
+//    self.navigationController.navigationBar.translucent = YES;
+//    self.navigationController.view.backgroundColor = [UIColor clearColor];
+
     self.navigationController.navigationBarHidden = NO;
     self.navigationItem.title = self.barTitle;
     [self leftButtonWithImageName:self.leftButtonName];

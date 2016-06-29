@@ -11,12 +11,41 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="VBHotNewsView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenImage" translatesAutoresizingMaskIntoConstraints="NO" id="okf-1W-Nc6">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4FB-f9-DmR">
+                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Fpt-mz-doa"/>
+                        <outlet property="delegate" destination="-1" id="OyP-Mk-Jrs"/>
+                    </connections>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="4FB-f9-DmR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="36D-5N-WTV"/>
+                <constraint firstAttribute="trailing" secondItem="4FB-f9-DmR" secondAttribute="trailing" id="3oN-09-l43"/>
+                <constraint firstAttribute="bottom" secondItem="okf-1W-Nc6" secondAttribute="bottom" id="7cm-fm-2ih"/>
+                <constraint firstAttribute="bottom" secondItem="4FB-f9-DmR" secondAttribute="bottom" id="DDD-RP-ijZ"/>
+                <constraint firstItem="4FB-f9-DmR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="LtE-H2-LaO"/>
+                <constraint firstItem="okf-1W-Nc6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SxH-Ul-1Oc"/>
+                <constraint firstAttribute="trailing" secondItem="okf-1W-Nc6" secondAttribute="trailing" id="bRb-Bw-afn"/>
+                <constraint firstItem="okf-1W-Nc6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vKA-S6-5QZ"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outlet property="tableView" destination="4FB-f9-DmR" id="b9F-kO-7C8"/>
+            </connections>
             <point key="canvasLocation" x="323" y="309"/>
         </view>
     </objects>
+    <resources>
+        <image name="LaunchScreenImage" width="375" height="667"/>
+    </resources>
 </document>

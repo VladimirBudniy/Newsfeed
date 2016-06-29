@@ -11,16 +11,17 @@
 #import "VBAppDelegate.h"
 #import "VBHotNewsViewController.h"
 
-static NSString * const kVBCoraDataName = @"NewsfeedCoreData";
+static NSString * const kVBCoraDataName = @"Newsfeed";
 
 @implementation VBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     [IDPCoreDataManager sharedManagerWithMomName:kVBCoraDataName];
     
     UIWindow *window = [UIWindow window];
     self.window = window;
-    
+      
     VBHotNewsViewController *viewController = [VBHotNewsViewController new];
     UINavigationController *controller = [[UINavigationController alloc]
                                           initWithRootViewController:viewController];
@@ -28,9 +29,6 @@ static NSString * const kVBCoraDataName = @"NewsfeedCoreData";
     window.rootViewController = controller;
     [window makeKeyAndVisible];
     
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    
-
     return YES;
 }
 

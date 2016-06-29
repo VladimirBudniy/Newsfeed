@@ -22,6 +22,7 @@
 #import "UIImage+VBCategory.h"
 #import "NSFileManager+VBCategory.h"
 #import "NSString+VBCategory.h"
+#import "NSDate+VBCategory.h"
 
 #import "UIBarButtonItem+VBCategory.h"
 

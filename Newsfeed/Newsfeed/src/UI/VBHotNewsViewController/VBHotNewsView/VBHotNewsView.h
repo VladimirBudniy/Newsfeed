@@ -10,5 +10,6 @@
 #import "VBLoadingView.h"
 
 @interface VBHotNewsView : VBViewModel
+@property (nonatomic, strong) IBOutlet UITableView  *tableView;
 
 @end

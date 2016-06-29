@@ -8,6 +8,9 @@
 
 #import "VBViewController.h"
 
-@interface VBHotNewsViewController : VBViewController
+@class VBNewsParser;
+
+@interface VBHotNewsViewController : VBViewController <UITableViewDelegate>
+@property (nonatomic, strong) VBNewsParser *newsParser;
 
 @end
