@@ -8,8 +8,9 @@
 
 #import "VBTableViewCell.h"
 #import "VBImageView.h"
-
 #import "VBNewsModel.h"
+
+static NSString * const kVBCellDateTextFormat = @"MMM d, H:mm";
 
 @implementation VBTableViewCell
 
@@ -19,6 +20,16 @@
 - (void)fillWithNews:(VBNewsModel *)newsModel {
     self.cellLabel.text = newsModel.title;
     self.cellImage.URL = [NSURL URLWithString:newsModel.urlString];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"uk_BI"];
+    [formatter setLocale:locale];
+    [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    [formatter setDateFormat:kVBCellDateTextFormat];
+    NSString *currentStringDate = [formatter stringFromDate:newsModel.pubDate];
+    
+    self.cellDateLabel.text = currentStringDate;
 }
 
 @end

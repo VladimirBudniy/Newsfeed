@@ -44,23 +44,29 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
             VBWeakSelfMacro;
             [_newsParser addHandler:^(VBNewsParser *parser) {
                 VBStrongSelfAndReturnNilMacro;
-                [strongSelf.newsArray addObjectsFromArray:parser.allNews];
+                strongSelf.newsArray = [NSMutableArray arrayWithArray:parser.allNews];
+//                [strongSelf.newsArray addObjectsFromArray:parser.allNews];
             } forState:kVBModelLoadedState
-                             object:self];
+                             object:self];   
         }
         
-        [_newsParser parseXML];
+//        [_newsParser parseXML];
+        [_newsParser load];
     }
 }
 
 #pragma mark -
 #pragma mark View LifeCycle
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.newsParser = [[VBNewsParser alloc] initWithURL:[NSURL URLWithString:kVBTsnRssUrlString]];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
-    
-    self.newsParser = [[VBNewsParser alloc] initWithURL:[NSURL URLWithString:kVBTsnRssUrlString]];
 }
 
 #pragma mark -

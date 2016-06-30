@@ -9,6 +9,9 @@
 #import "VBNewsParser.h"
 #import "VBNewsModel.h"
 
+NSString * const kVBCurrentDateFormat  = @"E, d MMM yyyy HH:mm:ss Z";
+NSString * const kVBCorrectDateFormate = @"yyyy-MM-dd HH:mm";
+
 @interface VBNewsParser ()
 @property (nonatomic, strong) NSMutableArray *newsArray;
 @property (nonatomic, strong) NSXMLParser    *parser;
@@ -20,7 +23,6 @@
 @property (nonatomic, strong) NSString  *currentFullText;
 @property (nonatomic, strong) NSDate    *currentPubDate;
 @property (nonatomic, strong) NSString  *currentCategory;
-
 
 @end
 
@@ -50,10 +52,23 @@
 #pragma mark Public
 
 - (void)parseXML {
+//    self.parser = [[NSXMLParser alloc] initWithContentsOfURL:self.URL];
+//    self.parser.delegate = self;
+//    
+//    [self.parser parse];
+}
+
+- (void)prepareToLoad {
     self.parser = [[NSXMLParser alloc] initWithContentsOfURL:self.URL];
     self.parser.delegate = self;
     
     [self.parser parse];
+}
+
+- (void)finishLoad {
+//    if (self.newsArray.count == 30) {
+        [self setState:kVBModelLoadedState withObject:self];
+//    }
 }
 
 #pragma mark -
@@ -66,6 +81,9 @@ didStartElement:(NSString *)elementName
      attributes:(NSDictionary *)attributeDict
 {
     self.element = elementName;
+    if ([self.element isEqualToString:@"enclosure"]) {
+        self.currentUrlString = [attributeDict valueForKey:@"url"];
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
@@ -77,8 +95,6 @@ didStartElement:(NSString *)elementName
         self.currentCategory = string;
     } else if ([self.element isEqualToString:@"pubDate"]) {
         self.currentPubDate = [NSDate dateWithString:string];
-    } else if ([self.element isEqualToString:@"enclosure"]) { ///////////////
-        self.currentUrlString = string;
     }
 }
 
@@ -96,9 +112,12 @@ didStartElement:(NSString *)elementName
         
         [self.newsArray addObject:news];
     }
+//    
+//    if (self.newsArray.count == 30) {
+//        [self setState:kVBModelLoadedState withObject:self];
+//    }
+//    
     self.element = nil;
-    
-//    [self setState:kVBModelLoadedState withObject:self];
 }
 
 @end

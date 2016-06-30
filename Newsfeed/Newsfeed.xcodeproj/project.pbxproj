@@ -265,8 +265,8 @@
 				E7EB567F1D228C6A00D3C470 /* Macro */,
 				E7EB56811D228C6A00D3C470 /* Models */,
 				E7EB568E1D228C6A00D3C470 /* ObjCLibrary */,
-				E7EB56A71D228C6A00D3C470 /* VBLibrary.h */,
 				E7EB56A81D228C6A00D3C470 /* Views */,
+				E7EB56A71D228C6A00D3C470 /* VBLibrary.h */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -558,9 +558,9 @@
 		E7EB56AA1D228C6A00D3C470 /* VBImageModel */ = {
 			isa = PBXGroup;
 			children = (
+				E7EB56AD1D228C6A00D3C470 /* VBObjectCache */,
 				E7EB56AB1D228C6A00D3C470 /* VBImageModel.h */,
 				E7EB56AC1D228C6A00D3C470 /* VBImageModel.m */,
-				E7EB56AD1D228C6A00D3C470 /* VBObjectCache */,
 			);
 			path = VBImageModel;
 			sourceTree = "<group>";

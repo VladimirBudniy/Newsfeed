@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const kVBCurrentDateFormat;
+extern NSString * const kVBCorrectDateFormate;
+
 @interface NSDate (VBCategory)
 
 + (NSDate *)dateWithString:(NSString *)date;
