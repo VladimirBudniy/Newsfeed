@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E700448C1D27144700DB189F /* VBSelectedNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E700448A1D27144700DB189F /* VBSelectedNewsViewController.m */; };
+		E700448D1D27144700DB189F /* VBSelectedNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E700448B1D27144700DB189F /* VBSelectedNewsViewController.xib */; };
+		E70044911D2718C700DB189F /* VBSelectedNewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E70044901D2718C700DB189F /* VBSelectedNewsView.m */; };
 		E7EB56321D2289C500D3C470 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB56311D2289C500D3C470 /* main.m */; };
 		E7EB56401D2289C500D3C470 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7EB563F1D2289C500D3C470 /* Assets.xcassets */; };
 		E7EB56431D2289C500D3C470 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7EB56411D2289C500D3C470 /* LaunchScreen.storyboard */; };
@@ -62,6 +65,11 @@
 		23B603BEE2A16D9B3A67081F /* Pods-Newsfeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Newsfeed.release.xcconfig"; path = "Pods/Target Support Files/Pods-Newsfeed/Pods-Newsfeed.release.xcconfig"; sourceTree = "<group>"; };
 		3D3B616A04CAC57C83611987 /* libPods-Newsfeed.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Newsfeed.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C629D2B45CEDC0C40BD29FF /* Pods-Newsfeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Newsfeed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Newsfeed/Pods-Newsfeed.debug.xcconfig"; sourceTree = "<group>"; };
+		E70044891D27144700DB189F /* VBSelectedNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBSelectedNewsViewController.h; sourceTree = "<group>"; };
+		E700448A1D27144700DB189F /* VBSelectedNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBSelectedNewsViewController.m; sourceTree = "<group>"; };
+		E700448B1D27144700DB189F /* VBSelectedNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBSelectedNewsViewController.xib; sourceTree = "<group>"; };
+		E700448F1D2718C700DB189F /* VBSelectedNewsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBSelectedNewsView.h; sourceTree = "<group>"; };
+		E70044901D2718C700DB189F /* VBSelectedNewsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBSelectedNewsView.m; sourceTree = "<group>"; };
 		E7EB562D1D2289C500D3C470 /* Newsfeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newsfeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7EB56311D2289C500D3C470 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E7EB563F1D2289C500D3C470 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -189,6 +197,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E70044881D27142E00DB189F /* VBSelectedNewsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E700448E1D27187300DB189F /* VBSelectedNewsView */,
+				E70044891D27144700DB189F /* VBSelectedNewsViewController.h */,
+				E700448A1D27144700DB189F /* VBSelectedNewsViewController.m */,
+				E700448B1D27144700DB189F /* VBSelectedNewsViewController.xib */,
+			);
+			path = VBSelectedNewsViewController;
+			sourceTree = "<group>";
+		};
+		E700448E1D27187300DB189F /* VBSelectedNewsView */ = {
+			isa = PBXGroup;
+			children = (
+				E700448F1D2718C700DB189F /* VBSelectedNewsView.h */,
+				E70044901D2718C700DB189F /* VBSelectedNewsView.m */,
+			);
+			path = VBSelectedNewsView;
+			sourceTree = "<group>";
+		};
 		E7EB56241D2289C500D3C470 = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				E7EB56DE1D22923E00D3C470 /* VBViewController */,
+				E70044881D27142E00DB189F /* VBSelectedNewsViewController */,
 				E7EB56E21D22938700D3C470 /* VBHotNewsViewController */,
 			);
 			path = UI;
@@ -755,6 +784,7 @@
 			files = (
 				E7EB56D61D228C6A00D3C470 /* VBLoadingView.xib in Resources */,
 				E7EB56431D2289C500D3C470 /* LaunchScreen.storyboard in Resources */,
+				E700448D1D27144700DB189F /* VBSelectedNewsViewController.xib in Resources */,
 				E7EB56401D2289C500D3C470 /* Assets.xcassets in Resources */,
 				E7EB56FB1D22C35000D3C470 /* VBTableViewCell.xib in Resources */,
 				E7EB56ED1D22945700D3C470 /* VBHotNewsViewController.xib in Resources */,
@@ -846,11 +876,13 @@
 				E7EB571A1D24506200D3C470 /* VBNewsModel+CoreDataProperties.m in Sources */,
 				E7EB56C71D228C6A00D3C470 /* VBModel.m in Sources */,
 				E7EB56C11D228C6A00D3C470 /* UITableView+VBCategory.m in Sources */,
+				E700448C1D27144700DB189F /* VBSelectedNewsViewController.m in Sources */,
 				E7EB56E81D22943F00D3C470 /* VBViewController.m in Sources */,
 				E7EB56CE1D228C6A00D3C470 /* VBObserver.m in Sources */,
 				E7EB56CF1D228C6A00D3C470 /* VBObserverArray.m in Sources */,
 				E7EB570E1D244EC500D3C470 /* VBNewsImage.m in Sources */,
 				E7EB56321D2289C500D3C470 /* main.m in Sources */,
+				E70044911D2718C700DB189F /* VBSelectedNewsView.m in Sources */,
 				E7EB56BE1D228C6A00D3C470 /* UIBarButtonItem+VBCategory.m in Sources */,
 				E7EB56B91D228C6A00D3C470 /* CGGeometry+VBCategory.m in Sources */,
 				E7EB56CC1D228C6A00D3C470 /* VBAlphabet.m in Sources */,

@@ -12,6 +12,5 @@
 @property (nonatomic, readonly) NSArray *allNews;
 
 - (instancetype)initWithURL:(NSURL *)URL;
-- (void)parseXML;
 
 @end

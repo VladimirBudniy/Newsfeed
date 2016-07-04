@@ -9,6 +9,8 @@
 #import "VBImageModel.h"
 #import "VBObjectCache.h"
 
+static NSString * const kVBStringNameFormat = @"%@_%@";
+
 @interface VBImageModel ()
 @property (nonatomic, readonly, getter=isCached) BOOL       cached;
 @property (nonatomic, readonly)                  NSString   *path;
@@ -84,7 +86,7 @@
 
 - (NSString *)fileName {
     NSArray *componentsArray = [self.URL pathComponents];
-    NSString *fileName = [NSString stringWithFormat:@"%@_%@",
+    NSString *fileName = [NSString stringWithFormat:kVBStringNameFormat,
                           componentsArray[1], [self.URL lastPathComponent]];
     return fileName;
 }

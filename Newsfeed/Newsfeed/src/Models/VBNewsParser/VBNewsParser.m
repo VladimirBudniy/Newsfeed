@@ -9,8 +9,9 @@
 #import "VBNewsParser.h"
 #import "VBNewsModel.h"
 
-NSString * const kVBCurrentDateFormat  = @"E, d MMM yyyy HH:mm:ss Z";
-NSString * const kVBCorrectDateFormate = @"yyyy-MM-dd HH:mm";
+static NSString * const kVBCurrentDateFormat  = @"E, d MMM yyyy HH:mm:ss Z";
+static NSString * const kVBCorrectDateFormate = @"yyyy-MM-dd HH:mm";
+static NSUInteger const kVBSecondsFromGMT     = 0;
 
 @interface VBNewsParser ()
 @property (nonatomic, strong) NSMutableArray *newsArray;
@@ -51,17 +52,9 @@ NSString * const kVBCorrectDateFormate = @"yyyy-MM-dd HH:mm";
 #pragma mark -
 #pragma mark Public
 
-- (void)parseXML {
-//    self.parser = [[NSXMLParser alloc] initWithContentsOfURL:self.URL];
-//    self.parser.delegate = self;
-//    
-//    [self.parser parse];
-}
-
 - (void)prepareToLoad {
     self.parser = [[NSXMLParser alloc] initWithContentsOfURL:self.URL];
     self.parser.delegate = self;
-    
     [self.parser parse];
 }
 
@@ -76,8 +69,8 @@ NSString * const kVBCorrectDateFormate = @"yyyy-MM-dd HH:mm";
 
 - (void) parser:(NSXMLParser *)parser
 didStartElement:(NSString *)elementName
-   namespaceURI:(nullable NSString *)namespaceURI
-  qualifiedName:(nullable NSString *)qName
+   namespaceURI:(NSString *)namespaceURI
+  qualifiedName:(NSString *)qName
      attributes:(NSDictionary *)attributeDict
 {
     self.element = elementName;
@@ -94,14 +87,16 @@ didStartElement:(NSString *)elementName
     } else if ([self.element isEqualToString:@"category"]) {
         self.currentCategory = string;
     } else if ([self.element isEqualToString:@"pubDate"]) {
-        self.currentPubDate = [NSDate dateWithString:string];
+        NSDate *currentDate = [NSDate dateWithString:string dateFormate:kVBCurrentDateFormat];
+        self.currentPubDate = [currentDate convertDateFormate:kVBCorrectDateFormate
+                                               secondsFromGMT:kVBSecondsFromGMT];
     }
 }
 
 - (void)parser:(NSXMLParser *)parser
  didEndElement:(NSString *)elementName
-  namespaceURI:(nullable NSString *)namespaceURI
- qualifiedName:(nullable NSString *)qName
+  namespaceURI:(NSString *)namespaceURI
+ qualifiedName:(NSString *)qName
 {
     if ([elementName isEqualToString:@"item"]) {
         VBNewsModel *news = [VBNewsModel newsModelWithTitle:self.currentTitle
@@ -112,11 +107,7 @@ didStartElement:(NSString *)elementName
         
         [self.newsArray addObject:news];
     }
-//    
-//    if (self.newsArray.count == 30) {
-//        [self setState:kVBModelLoadedState withObject:self];
-//    }
-//    
+    
     self.element = nil;
 }
 

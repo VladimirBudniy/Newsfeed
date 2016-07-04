@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * const kVBCurrentDateFormat;
-extern NSString * const kVBCorrectDateFormate;
-
 @interface NSDate (VBCategory)
 
-+ (NSDate *)dateWithString:(NSString *)date;
++ (NSDate *)dateWithString:(NSString *)stringDate dateFormate:(NSString *)dateFormate;
+
++ (NSString *)stringFromDate:(NSDate *)date
+            localeIdentifier:(NSString *)localeIdentifier
+                 dateFormate:(NSString *)dateFormate
+              secondsFromGMT:(NSUInteger)secondsFromGMT;
+
+- (NSDate *)convertDateFormate:(NSString *)dateFormate secondsFromGMT:(NSUInteger)secondsFromGMT;
 
 @end

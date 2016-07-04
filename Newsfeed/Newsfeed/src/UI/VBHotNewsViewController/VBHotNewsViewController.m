@@ -7,11 +7,13 @@
 //
 
 #import "VBHotNewsViewController.h"
+#import "VBSelectedNewsViewController.h"
 #import "VBHotNewsView.h"
 #import "VBNewsParser.h"
 #import "VBTableViewCell.h"
 
-static NSString * const kVBTsnRssUrlString = @"http://tsn.ua/rss";
+static NSString * const kVBTsnRssUrlString    = @"http://tsn.ua/rss";
+static NSString * const kVBNavigationItemText = @"Всі новини";
 
 @interface VBHotNewsViewController ()
 @property (nonatomic, readonly) VBHotNewsView  *rootView;
@@ -25,6 +27,10 @@ static NSString * const kVBTsnRssUrlString = @"http://tsn.ua/rss";
 #pragma mark Accessors
 
 VBRootViewAndReturnIfNilMacro(VBHotNewsView);
+
+-(NSString *)barTitle {
+    return kVBNavigationItemText;
+}
 
 - (void)setNewsArray:(NSMutableArray *)newsArray {
     if (_newsArray != newsArray) {
@@ -45,12 +51,10 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
             [_newsParser addHandler:^(VBNewsParser *parser) {
                 VBStrongSelfAndReturnNilMacro;
                 strongSelf.newsArray = [NSMutableArray arrayWithArray:parser.allNews];
-//                [strongSelf.newsArray addObjectsFromArray:parser.allNews];
             } forState:kVBModelLoadedState
                              object:self];   
         }
-        
-//        [_newsParser parseXML];
+
         [_newsParser load];
     }
 }
@@ -87,8 +91,9 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-//    [self.navigationController pushViewController:[VBLableViewController new] animated:YES];
-//    self.navigationController.navigationBar.hidden = NO;
+    VBSelectedNewsViewController *controller = [VBSelectedNewsViewController new];
+    controller.news = self.newsArray[indexPath.row];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

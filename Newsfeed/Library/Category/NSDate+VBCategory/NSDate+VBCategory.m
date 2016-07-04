@@ -12,18 +12,37 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (NSDate *)dateWithString:(NSString *)stringDate {
++ (NSDate *)dateWithString:(NSString *)stringDate dateFormate:(NSString *)dateFormate {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:kVBCurrentDateFormat];
-    NSDate *currentDate  = [formatter dateFromString:stringDate];
+    [formatter setDateFormat:dateFormate];
+
+    return [formatter dateFromString:stringDate];
+}
+
++ (NSString *)stringFromDate:(NSDate *)date
+            localeIdentifier:(NSString *)localeIdentifier
+                 dateFormate:(NSString *)dateFormate
+              secondsFromGMT:(NSUInteger)secondsFromGMT
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:localeIdentifier];
+    [formatter setLocale:locale];
+    [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:secondsFromGMT]];
+    [formatter setDateFormat:dateFormate];
+   
+    return [formatter stringFromDate:date];
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (NSDate *)convertDateFormate:(NSString *)dateFormate secondsFromGMT:(NSUInteger)secondsFromGMT {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:dateFormate];
+    NSString *currentStringDate = [formatter stringFromDate:self];
+    [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:secondsFromGMT]];
     
-//     Convert to new Date Format
-    [formatter setDateFormat:kVBCorrectDateFormate];
-    NSString *currentStringDate = [formatter stringFromDate:currentDate];
-    [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-    NSDate *correctDate = [formatter dateFromString:currentStringDate];
-    
-    return correctDate;
+    return [formatter dateFromString:currentStringDate];
 }
 
 @end
