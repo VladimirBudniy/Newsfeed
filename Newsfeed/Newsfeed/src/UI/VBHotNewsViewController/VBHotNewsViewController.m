@@ -16,8 +16,12 @@ static NSString * const kVBTsnRssUrlString    = @"http://tsn.ua/rss";
 static NSString * const kVBNavigationItemText = @"Всі новини";
 
 @interface VBHotNewsViewController ()
-@property (nonatomic, readonly) VBHotNewsView  *rootView;
-@property (nonatomic, strong)   NSMutableArray *newsArray;
+@property (nonatomic, readonly) VBHotNewsView    *rootView;
+@property (nonatomic, strong)   NSMutableArray   *newsArray;
+@property (nonatomic, strong)   UIRefreshControl *refreshControl;
+
+- (void)parseXML;
+- (void)refresh;
 
 @end
 
@@ -32,6 +36,10 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
     return kVBNavigationItemText;
 }
 
+- (NSString *)leftButtonName {
+    return nil;
+}
+
 - (void)setNewsArray:(NSMutableArray *)newsArray {
     if (_newsArray != newsArray) {
         _newsArray = newsArray;
@@ -39,6 +47,7 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
         VBHotNewsView *rootView = self.rootView;
         [rootView removeLoadingViewAnimated:YES];
         [rootView.tableView reloadData];
+        [self.refreshControl endRefreshing];
     }
 }
 
@@ -55,22 +64,37 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
                              object:self];   
         }
 
-        [_newsParser load];
+        [self parseXML];
     }
 }
 
 #pragma mark -
 #pragma mark View LifeCycle
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    self.newsParser = [[VBNewsParser alloc] initWithURL:[NSURL URLWithString:kVBTsnRssUrlString]];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // in private mothod
+    self.newsParser = [[VBNewsParser alloc] initWithURL:[NSURL URLWithString:kVBTsnRssUrlString]];
     [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
+    [self refresh];
+    /////////////////////
+    
+}
+
+#pragma mark -
+#pragma mark View Private
+
+- (void)parseXML {
+    self.newsParser.state = kVBModelDefaultState;
+    [self.newsParser load];
+}
+
+- (void)refresh {
+    UIRefreshControl *control = [[UIRefreshControl alloc] init];
+    [control addTarget:self action:@selector(parseXML) forControlEvents:UIControlEventValueChanged];
+    [self.rootView.tableView addSubview:control];
+    self.refreshControl = control;
 }
 
 #pragma mark -
@@ -97,18 +121,19 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-
+//
 ////cell's method for adding and removing
 //- (void)        tableView:(UITableView *)tableView
 //       commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 //        forRowAtIndexPath:(NSIndexPath *)indexPath
 //{
-//    VBArrayModel *model = self.arrayModel;
+//    NSMutableArray *model = self.newsArray;
 //    if (editingStyle == UITableViewCellEditingStyleDelete) {
 //        [model removeObjectAtIndex:indexPath.row];
-//    } else {
-//        [model insertObject:[VBStringModel new] atIndex:indexPath.row];
 //    }
+////    else {
+////        [model insertObject:[VBStringModel new] atIndex:indexPath.row];
+////    }
 //}
 //
 //// cell's method for moving
@@ -138,7 +163,5 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 //        return UITableViewCellEditingStyleDelete;
 //    }
 //}
-
-
 
 @end

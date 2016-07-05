@@ -52,7 +52,12 @@ static NSUInteger const kVBSecondsFromGMT     = 0;
 #pragma mark -
 #pragma mark Public
 
+- (void)setupLoad {
+    [self.newsArray removeAllObjects];
+}
+
 - (void)prepareToLoad {
+    // убрать задвоение селф.парсер
     self.parser = [[NSXMLParser alloc] initWithContentsOfURL:self.URL];
     self.parser.delegate = self;
     [self.parser parse];

@@ -8,8 +8,8 @@
 
 #import "VBViewController.h"
 
-static NSString * const kVBLeftButtonName     = @"left_arrow.png";
-static NSString * const kVBRightButtonName    = @"home.png";
+static NSString * const kVBLeftButtonName     = @"Back_button";
+static NSString * const kVBRightButtonName    = @"Home_button";
 
 @interface VBViewController ()
 
@@ -18,8 +18,6 @@ static NSString * const kVBRightButtonName    = @"home.png";
 
 - (void)leftButtonWithImageName:(NSString *)name;
 - (void)rightButtonWithImageName:(NSString *)name;
-
-- (void)addHandlers;
 
 @end
 
@@ -62,41 +60,19 @@ static NSString * const kVBRightButtonName    = @"home.png";
 - (void)showNavigationBar {
 //    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
 //                                                  forBarMetrics:UIBarMetricsDefault]; //UIImageNamed:@"transparent.png"
+    
 //    self.navigationController.navigationBar.shadowImage = [UIImage new];////UIImageNamed:@"transparent.png"
 //    self.navigationController.navigationBar.translucent = YES;
 //    self.navigationController.view.backgroundColor = [UIColor clearColor];
-
+    
     self.navigationController.navigationBarHidden = NO;
     self.navigationItem.title = self.barTitle;
     [self leftButtonWithImageName:self.leftButtonName];
     [self rightButtonWithImageName:self.rightButtonName];
 }
 
-- (void)successLoadObject:(id)object {
-    
-}
-
-- (void)faildLoadObject:(id)object {
-    
-}
-
 #pragma mark -
 #pragma mark Private
-
-- (void)addHandlers {
-    //    VBWeakSelfMacro;
-    //    [_context addHandler:^(id object) {
-    //        VBStrongSelfAndReturnNilMacro;
-    //        [strongSelf successLoadObject:object];
-    //    } forState:kVBModelLoadedState
-    //                  object:self];
-    //
-    //    [_context addHandler:^(id object) {
-    //        VBStrongSelfAndReturnNilMacro;
-    //        [strongSelf faildLoadObject:object];
-    //    } forState:kVBModelFailedState
-    //                  object:self];
-}
 
 - (void)leftButtonWithImageName:(NSString *)name {
     UIImage *leftImage = [UIImage imageNamed:name];
