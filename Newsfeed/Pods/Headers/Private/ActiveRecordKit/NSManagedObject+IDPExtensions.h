@@ -1,0 +1,1 @@
+../../../ActiveRecordKit/Module/NSManagedObject+IDPExtensions.h

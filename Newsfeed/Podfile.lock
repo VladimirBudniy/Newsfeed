@@ -1,0 +1,48 @@
+PODS:
+  - ActiveRecordKit (0.1.1):
+    - CommonKit
+  - CommonKit (0.1.1)
+  - DataKit (0.1.1):
+    - CommonKit
+  - UIKit (0.1.1):
+    - CommonKit
+
+DEPENDENCIES:
+  - ActiveRecordKit (from `https://github.com/idapgroup/ActiveRecordKit.git`)
+  - CommonKit (from `https://github.com/idapgroup/CommonKit.git`)
+  - DataKit (from `https://github.com/idapgroup/DataKit.git`)
+  - UIKit (from `https://github.com/idapgroup/UIKit.git`)
+
+EXTERNAL SOURCES:
+  ActiveRecordKit:
+    :git: https://github.com/idapgroup/ActiveRecordKit.git
+  CommonKit:
+    :git: https://github.com/idapgroup/CommonKit.git
+  DataKit:
+    :git: https://github.com/idapgroup/DataKit.git
+  UIKit:
+    :git: https://github.com/idapgroup/UIKit.git
+
+CHECKOUT OPTIONS:
+  ActiveRecordKit:
+    :commit: ab378ac270f1ddf05ca307ea4216984619084f05
+    :git: https://github.com/idapgroup/ActiveRecordKit.git
+  CommonKit:
+    :commit: 7f5f46defcebfd0befc6f29d37847514da04ee2b
+    :git: https://github.com/idapgroup/CommonKit.git
+  DataKit:
+    :commit: cca9f5a805cb57d559c69f5a0c631f7511b7ae99
+    :git: https://github.com/idapgroup/DataKit.git
+  UIKit:
+    :commit: 69906b319ea40dac4004a85bf9d59ae14c14adb7
+    :git: https://github.com/idapgroup/UIKit.git
+
+SPEC CHECKSUMS:
+  ActiveRecordKit: 1587ebb33846cb815c8548fa517fa842241255b8
+  CommonKit: 8a665f2df9bac5b8e7143ad522e909a1ea147a81
+  DataKit: bf4d10d2e14053920eb3102420a905bf2cea0344
+  UIKit: 9865090cbc23667672052acd7dc0bca3a32914b9
+
+PODFILE CHECKSUM: c4a1a43b144c7a017fed98fcd8deebcfcc53bc76
+
+COCOAPODS: 1.0.1

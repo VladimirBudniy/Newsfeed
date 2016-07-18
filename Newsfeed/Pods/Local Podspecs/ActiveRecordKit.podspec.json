@@ -1,0 +1,35 @@
+{
+  "name": "ActiveRecordKit",
+  "version": "0.1.1",
+  "summary": "Basic IDAP Group classes",
+  "homepage": "https://github.com/idapgroup/ActiveRecordKit",
+  "license": {
+    "type": "New BSD",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "IDAP Group": "admin@idapgroup.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/idapgroup/ActiveRecordKit.git",
+    "tag": "0.1.1"
+  },
+  "source_files": [
+    "Module",
+    "Module/*.{h,m}"
+  ],
+  "public_header_files": "Module/*.h",
+  "frameworks": [
+    "Foundation",
+    "CoreData"
+  ],
+  "dependencies": {
+    "CommonKit": [
+
+    ]
+  },
+  "requires_arc": false
+}

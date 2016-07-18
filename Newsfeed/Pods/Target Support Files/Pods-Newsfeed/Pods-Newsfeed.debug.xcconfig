@@ -1,0 +1,8 @@
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ActiveRecordKit" "${PODS_ROOT}/Headers/Public/CommonKit" "${PODS_ROOT}/Headers/Public/DataKit" "${PODS_ROOT}/Headers/Public/UIKit"
+LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/ActiveRecordKit" "$PODS_CONFIGURATION_BUILD_DIR/CommonKit" "$PODS_CONFIGURATION_BUILD_DIR/DataKit" "$PODS_CONFIGURATION_BUILD_DIR/UIKit"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/ActiveRecordKit" -isystem "${PODS_ROOT}/Headers/Public/CommonKit" -isystem "${PODS_ROOT}/Headers/Public/DataKit" -isystem "${PODS_ROOT}/Headers/Public/UIKit"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"ActiveRecordKit" -l"CommonKit" -l"DataKit" -l"UIKit" -framework "CoreData" -framework "Foundation"
+PODS_BUILD_DIR = $BUILD_DIR
+PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_ROOT = ${SRCROOT}/Pods
