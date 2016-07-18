@@ -37,7 +37,7 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 }
 
 - (NSString *)leftButtonName {
-    return nil;
+    return nil; //// вставить пустышку ///////////////////////////////////////////////
 }
 
 - (void)setNewsArray:(NSMutableArray *)newsArray {
@@ -98,13 +98,6 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 #pragma mark TableView DataSource Protocol
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    VBTableViewCell *cell = [tableView dequeueReusableCellWithBundleClass:[VBTableViewCell class]];
-//    CGFloat cellHeigh = cell.frame.size.height;
-//    CGFloat rootViewHeigh = self.rootView.frame.size.height;
-//    
-//    NSUInteger count = rootViewHeigh / cellHeigh;
-//    
-//    return count;
     return self.newsArray.count;
 }
 

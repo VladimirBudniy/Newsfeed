@@ -33,6 +33,8 @@ static NSUInteger const kVBSecondsFromGMT     = 0;
 @property (nonatomic, strong) NSDate    *currentPubDate;
 @property (nonatomic, strong) NSString  *currentCategory;
 
+- (void)writeNewsCharacters:(NSString *)string;
+
 @end
 
 @implementation VBNewsParser
@@ -45,7 +47,6 @@ static NSUInteger const kVBSecondsFromGMT     = 0;
     if (self) {
         self.URL = URL;
         self.newsArray = [NSMutableArray array];
-//        self.newsDictionary = [NSMutableDictionary dictionary];  ////////////////////////////////////////////////
     }
     
     return self;
@@ -62,12 +63,10 @@ static NSUInteger const kVBSecondsFromGMT     = 0;
 #pragma mark Public
 
 - (void)setupLoad {
-//    [self.newsDictionary removeAllObjects];  ////////////////////////////////////////////////
     [self.newsArray removeAllObjects];
 }
 
 - (void)prepareToLoad {
-    // убрать задвоение селф.парсер
     self.parser = [[NSXMLParser alloc] initWithContentsOfURL:self.URL];
     self.parser.delegate = self;
     [self.parser parse];
@@ -76,6 +75,45 @@ static NSUInteger const kVBSecondsFromGMT     = 0;
 - (void)finishLoad {
     [self setState:kVBModelLoadedState withObject:self];
     [self.parser abortParsing];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)writeNewsCharacters:(NSString *)string {
+    if ([self.element isEqualToString:kVBTitleKey]) {
+        self.currentTitle = string;
+    }
+    
+    if ([self.element isEqualToString:kVBFulltextKey]) {
+        self.currentFullText = string;
+    }
+    
+    if ([self.element isEqualToString:kVBCategoryKey]) {
+        // запустить метот проверки категории если она нужная записать ели нет то пропуск, вынести метот проверки категории в предыдущий метот там где url
+        self.currentCategory = string;
+    }
+    
+    if ([self.element isEqualToString:kVBPubDateKey]) {
+        NSDate *currentDate = [NSDate dateWithString:string dateFormate:kVBCurrentDateFormat];
+        self.currentPubDate = [currentDate convertDateFormate:kVBCorrectDateFormate
+                                               secondsFromGMT:kVBSecondsFromGMT];
+        
+        NSCalendar* calendar = [NSCalendar currentCalendar];
+        NSUInteger flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+        
+        NSDate *startDate = [NSDate dateWithTimeIntervalSinceNow:-86400];
+        
+        NSDateComponents *currentDateComponents = [calendar components:flags fromDate:self.currentPubDate];
+        NSDateComponents *lastDatecomponents = [calendar components:flags fromDate:startDate];
+        
+        NSDate *newsDate = [calendar dateFromComponents:currentDateComponents];
+        NSDate *startingDate = [calendar dateFromComponents:lastDatecomponents];
+
+        if ([newsDate isEqual:startingDate]) {
+            [self.parser abortParsing];
+        }
+    }
 }
 
 #pragma mark -
@@ -94,18 +132,7 @@ didStartElement:(NSString *)elementName
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-    if ([self.element isEqualToString:kVBTitleKey]) {
-        self.currentTitle = string;
-    } else if ([self.element isEqualToString:kVBFulltextKey]) {
-        self.currentFullText = string;
-    } else if ([self.element isEqualToString:kVBCategoryKey]) {
-        self.currentCategory = string;
-    } else if ([self.element isEqualToString:kVBPubDateKey]) {
-        NSDate *currentDate = [NSDate dateWithString:string dateFormate:kVBCurrentDateFormat];
-        self.currentPubDate = [currentDate convertDateFormate:kVBCorrectDateFormate
-                                               secondsFromGMT:kVBSecondsFromGMT];
-        //если дата ранее чем сегодня прервать парсинг
-    }
+    [self writeNewsCharacters:string];
 }
 
 - (void)parser:(NSXMLParser *)parser
@@ -119,8 +146,6 @@ didStartElement:(NSString *)elementName
                                                     pubDate:self.currentPubDate
                                                    fullText:self.currentFullText
                                                   urlString:self.currentUrlString];
-
-//        [self.newsDictionary setObject:news forKey:self.currentCategory];  /////////////////////////
         [self.newsArray addObject:news];
     }
 
