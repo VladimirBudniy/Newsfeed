@@ -20,8 +20,7 @@ static NSString * const kVBItemKey          = @"item";
 static NSString * const kVBCurrentDateFormat  = @"E, d MMM yyyy HH:mm:ss Z";
 static NSString * const kVBCorrectDateFormate = @"yyyy-MM-dd HH:mm";
 static NSUInteger const kVBSecondsFromGMT     = 0;
-static NSUInteger const kVBNewsCount          = 30;
-static NSInteger  const kVBTimeInterval       = -43200;
+static NSUInteger const kVBNewsCount          = 50;
 
 @interface VBNewsParser ()
 @property (nonatomic, strong) NSMutableArray *newsArray;
@@ -36,7 +35,6 @@ static NSInteger  const kVBTimeInterval       = -43200;
 @property (nonatomic, strong) NSString  *currentCategory;
 
 - (void)writeNewsCharacters:(NSString *)string;
-- (void)completionParse;
 
 @end
 
@@ -92,7 +90,6 @@ static NSInteger  const kVBTimeInterval       = -43200;
     }
     
     if ([self.element isEqualToString:kVBCategoryKey]) {
-        // запустить метот проверки категории если она нужная записать ели нет то пропуск, вынести метот проверки категории в предыдущий метот там где url
         self.currentCategory = string;
     }
     
@@ -100,24 +97,6 @@ static NSInteger  const kVBTimeInterval       = -43200;
         NSDate *currentDate = [NSDate dateWithString:string dateFormate:kVBCurrentDateFormat];
         self.currentPubDate = [currentDate convertDateFormate:kVBCorrectDateFormate
                                                secondsFromGMT:kVBSecondsFromGMT];
-        [self completionParse];
-    }
-}
-
-- (void)completionParse {
-    NSCalendar* calendar = [NSCalendar currentCalendar];
-    NSUInteger flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
-    
-    NSDate *finalDate = [NSDate dateWithTimeIntervalSinceNow:kVBTimeInterval];
-    
-    NSDateComponents *currentDateComponents = [calendar components:flags fromDate:self.currentPubDate];
-    NSDateComponents *lastDatecomponents = [calendar components:flags fromDate:finalDate];
-    
-    NSDate *newsDate = [calendar dateFromComponents:currentDateComponents];
-    NSDate *startingDate = [calendar dateFromComponents:lastDatecomponents];
-    
-    if ([newsDate isEqual:startingDate]) {
-        [self.parser abortParsing];
     }
 }
 
@@ -150,6 +129,7 @@ didStartElement:(NSString *)elementName
  qualifiedName:(NSString *)qName
 {
     if ([elementName isEqualToString:kVBItemKey]) {
+        //////// удалить кордату в таком виде, модель сделать простым объектом хранить только массив
         VBNewsModel *news = [VBNewsModel newsModelWithTitle:self.currentTitle
                                                    category:self.currentCategory
                                                     pubDate:self.currentPubDate

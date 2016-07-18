@@ -42,7 +42,9 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 
 - (void)setNewsArray:(NSMutableArray *)newsArray {
     if (_newsArray != newsArray) {
+        //удалить из кор даты/////////////////////////////////////////
         _newsArray = newsArray;
+        //сохранить в кор дату////////////////////////////////////////
         
         VBHotNewsView *rootView = self.rootView;
         [rootView removeLoadingViewAnimated:YES];
@@ -116,61 +118,19 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
     controller.news = self.newsArray[indexPath.row];
     [self.navigationController pushViewController:controller animated:YES];
 }
+
+
 ////////////////////
-- (void)tableView:(UITableView *)tableView
-  willDisplayCell:(UITableViewCell *)cell
-forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-//    tableView insertRowsAtIndexPaths:<#(nonnull NSArray<NSIndexPath *> *)#> withRowAnimation:<#(UITableViewRowAnimation)#>
-    // вызывается при появлении следующей ячейки, если она есть......
-}
+//- (void)tableView:(UITableView *)tableView
+//  willDisplayCell:(UITableViewCell *)cell
+//forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+////    tableView insertRowsAtIndexPaths:<#(nonnull NSArray<NSIndexPath *> *)#> withRowAnimation:<#(UITableViewRowAnimation)#>
+//    // вызывается при появлении следующей ячейки, если она есть......
+//}
 
 //- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath {
 //    // вызывается когда долистали таблицу до конца......
-//}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-//
-////cell's method for adding and removing
-//- (void)        tableView:(UITableView *)tableView
-//       commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-//        forRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    NSMutableArray *model = self.newsArray;
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        [model removeObjectAtIndex:indexPath.row];
-//    }
-////    else {
-////        [model insertObject:[VBStringModel new] atIndex:indexPath.row];
-////    }
-//}
-//
-//// cell's method for moving
-//- (BOOL)            tableView:(UITableView *)tableView
-//        canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return YES;
-//}
-//
-//- (void)            tableView:(UITableView *)tableView
-//           moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
-//                  toIndexPath:(NSIndexPath *)toIndexPath
-//{
-//    [self.newsArray exchangeObjectAtIndex:fromIndexPath.row withObjectAtIndex:toIndexPath.row];
-//}
-//
-//#pragma mark -
-//#pragma mark TableView Delegate Protocol
-//
-//// cell's method adding UITableViewCellEditingStyle
-//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
-//           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if (indexPath.row < 1) {
-//        return UITableViewCellEditingStyleInsert;
-//    } else {
-//        return UITableViewCellEditingStyleDelete;
-//    }
 //}
 
 @end
