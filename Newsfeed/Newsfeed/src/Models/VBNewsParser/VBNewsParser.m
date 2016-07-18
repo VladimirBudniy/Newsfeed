@@ -20,6 +20,8 @@ static NSString * const kVBItemKey          = @"item";
 static NSString * const kVBCurrentDateFormat  = @"E, d MMM yyyy HH:mm:ss Z";
 static NSString * const kVBCorrectDateFormate = @"yyyy-MM-dd HH:mm";
 static NSUInteger const kVBSecondsFromGMT     = 0;
+static NSUInteger const kVBNewsCount          = 30;
+static NSInteger  const kVBTimeInterval       = -43200;
 
 @interface VBNewsParser ()
 @property (nonatomic, strong) NSMutableArray *newsArray;
@@ -34,6 +36,7 @@ static NSUInteger const kVBSecondsFromGMT     = 0;
 @property (nonatomic, strong) NSString  *currentCategory;
 
 - (void)writeNewsCharacters:(NSString *)string;
+- (void)completionParse;
 
 @end
 
@@ -74,7 +77,6 @@ static NSUInteger const kVBSecondsFromGMT     = 0;
 
 - (void)finishLoad {
     [self setState:kVBModelLoadedState withObject:self];
-    [self.parser abortParsing];
 }
 
 #pragma mark -
@@ -98,21 +100,24 @@ static NSUInteger const kVBSecondsFromGMT     = 0;
         NSDate *currentDate = [NSDate dateWithString:string dateFormate:kVBCurrentDateFormat];
         self.currentPubDate = [currentDate convertDateFormate:kVBCorrectDateFormate
                                                secondsFromGMT:kVBSecondsFromGMT];
-        
-        NSCalendar* calendar = [NSCalendar currentCalendar];
-        NSUInteger flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
-        
-        NSDate *startDate = [NSDate dateWithTimeIntervalSinceNow:-86400];
-        
-        NSDateComponents *currentDateComponents = [calendar components:flags fromDate:self.currentPubDate];
-        NSDateComponents *lastDatecomponents = [calendar components:flags fromDate:startDate];
-        
-        NSDate *newsDate = [calendar dateFromComponents:currentDateComponents];
-        NSDate *startingDate = [calendar dateFromComponents:lastDatecomponents];
+        [self completionParse];
+    }
+}
 
-        if ([newsDate isEqual:startingDate]) {
-            [self.parser abortParsing];
-        }
+- (void)completionParse {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSUInteger flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+    
+    NSDate *finalDate = [NSDate dateWithTimeIntervalSinceNow:kVBTimeInterval];
+    
+    NSDateComponents *currentDateComponents = [calendar components:flags fromDate:self.currentPubDate];
+    NSDateComponents *lastDatecomponents = [calendar components:flags fromDate:finalDate];
+    
+    NSDate *newsDate = [calendar dateFromComponents:currentDateComponents];
+    NSDate *startingDate = [calendar dateFromComponents:lastDatecomponents];
+    
+    if ([newsDate isEqual:startingDate]) {
+        [self.parser abortParsing];
     }
 }
 
@@ -133,6 +138,10 @@ didStartElement:(NSString *)elementName
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
     [self writeNewsCharacters:string];
+    
+    if (self.newsArray.count == kVBNewsCount) {
+        [self.parser abortParsing];
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser
