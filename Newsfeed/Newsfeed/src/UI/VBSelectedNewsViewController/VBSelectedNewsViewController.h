@@ -12,4 +12,5 @@
 
 @interface VBSelectedNewsViewController : VBViewController
 @property (nonatomic, strong)  VBNewsModel  *news;
+
 @end

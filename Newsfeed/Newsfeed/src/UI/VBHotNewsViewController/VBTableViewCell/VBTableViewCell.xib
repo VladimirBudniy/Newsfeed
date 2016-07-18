@@ -18,53 +18,53 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNW-9G-y9I" userLabel="Background View">
                         <rect key="frame" x="2" y="2" width="316" height="53"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYt-Aa-GV6" customClass="VBImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="74" height="53"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="74" id="mEL-oN-dfZ"/>
+                                    <constraint firstAttribute="height" constant="53" id="zLt-E2-fEY"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wV4-tC-9ua">
-                                <rect key="frame" x="86" y="0.0" width="230" height="45"/>
+                                <rect key="frame" x="82" y="0.0" width="234" height="45"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="uWS-0M-zXS"/>
+                                    <constraint firstAttribute="height" constant="45" id="osF-hH-XP1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date of news" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMm-BQ-ZIn">
-                                <rect key="frame" x="86" y="43" width="230" height="10"/>
+                                <rect key="frame" x="82" y="43" width="234" height="10"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="10" id="CPs-SA-3jc"/>
+                                    <constraint firstAttribute="height" constant="10" id="Vqh-dy-jJW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYt-Aa-GV6" customClass="VBImageView">
-                                <rect key="frame" x="0.0" y="0.0" width="78" height="53"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="53" id="HPU-Z8-tIO"/>
-                                    <constraint firstAttribute="width" constant="78" id="bij-PE-w9X"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="wV4-tC-9ua" secondAttribute="trailing" id="0cJ-c3-HCG"/>
-                            <constraint firstAttribute="bottom" secondItem="TMm-BQ-ZIn" secondAttribute="bottom" id="H6R-Th-PhI"/>
-                            <constraint firstItem="aYt-Aa-GV6" firstAttribute="top" secondItem="qNW-9G-y9I" secondAttribute="top" id="aCa-do-OQy"/>
-                            <constraint firstItem="wV4-tC-9ua" firstAttribute="top" secondItem="qNW-9G-y9I" secondAttribute="top" id="acH-yD-5lk"/>
-                            <constraint firstItem="wV4-tC-9ua" firstAttribute="leading" secondItem="aYt-Aa-GV6" secondAttribute="trailing" constant="8" id="fM6-aS-2Nv"/>
-                            <constraint firstItem="aYt-Aa-GV6" firstAttribute="leading" secondItem="qNW-9G-y9I" secondAttribute="leading" id="hgV-1s-0rX"/>
-                            <constraint firstItem="TMm-BQ-ZIn" firstAttribute="leading" secondItem="aYt-Aa-GV6" secondAttribute="trailing" constant="8" id="iEy-Lt-pqQ"/>
-                            <constraint firstAttribute="trailing" secondItem="TMm-BQ-ZIn" secondAttribute="trailing" id="yZe-0P-Pib"/>
+                            <constraint firstItem="TMm-BQ-ZIn" firstAttribute="leading" secondItem="aYt-Aa-GV6" secondAttribute="trailing" constant="8" id="LhY-GS-Z2y"/>
+                            <constraint firstItem="wV4-tC-9ua" firstAttribute="top" secondItem="qNW-9G-y9I" secondAttribute="top" id="Wd0-Ce-Z5G"/>
+                            <constraint firstAttribute="bottom" secondItem="TMm-BQ-ZIn" secondAttribute="bottom" id="YtY-9W-5DD"/>
+                            <constraint firstAttribute="trailing" secondItem="wV4-tC-9ua" secondAttribute="trailing" id="hG2-BF-V5f"/>
+                            <constraint firstAttribute="trailing" secondItem="TMm-BQ-ZIn" secondAttribute="trailing" id="jbo-ha-XM0"/>
+                            <constraint firstItem="wV4-tC-9ua" firstAttribute="leading" secondItem="aYt-Aa-GV6" secondAttribute="trailing" constant="8" id="ke7-up-gOE"/>
+                            <constraint firstItem="aYt-Aa-GV6" firstAttribute="leading" secondItem="qNW-9G-y9I" secondAttribute="leading" id="qWE-As-eQ3"/>
+                            <constraint firstItem="aYt-Aa-GV6" firstAttribute="top" secondItem="qNW-9G-y9I" secondAttribute="top" id="rUp-Fw-JKS"/>
                         </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="qNW-9G-y9I" secondAttribute="bottom" constant="-7" id="bUh-jk-uI7"/>
-                    <constraint firstItem="qNW-9G-y9I" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-6" id="cSR-4V-D3T"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="qNW-9G-y9I" secondAttribute="trailing" constant="-6" id="h9B-kM-UHL"/>
-                    <constraint firstItem="qNW-9G-y9I" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-6" id="nfn-1Q-Pxb"/>
+                    <constraint firstItem="qNW-9G-y9I" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-6" id="58Q-bB-9FN"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="qNW-9G-y9I" secondAttribute="trailing" constant="-6" id="Wdd-Sm-K3p"/>
+                    <constraint firstItem="qNW-9G-y9I" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-6" id="Zsi-lU-z1t"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="qNW-9G-y9I" secondAttribute="bottom" constant="-7" id="hxJ-Z8-UKP"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

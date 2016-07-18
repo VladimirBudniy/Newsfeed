@@ -10,10 +10,6 @@
 #import "VBImageView.h"
 #import "VBNewsModel.h"
 
-static NSString * const kVBCellDateTextFormat = @"MMM d, H:mm";
-static NSString * const kVBLocaleIdentifier   = @"uk_BI";
-static NSUInteger const kVBSecondsFromGMT     = 0;
-
 @implementation VBTableViewCell
 
 #pragma mark -
@@ -22,13 +18,7 @@ static NSUInteger const kVBSecondsFromGMT     = 0;
 - (void)fillWithNews:(VBNewsModel *)newsModel {
     self.cellLabel.text = newsModel.title;
     self.cellImage.URL = [NSURL URLWithString:newsModel.urlString];
-    
-    NSString *stringDate = [NSDate stringFromDate:newsModel.pubDate
-                                            localeIdentifier:kVBLocaleIdentifier
-                                             dateFormate:kVBCellDateTextFormat
-                                          secondsFromGMT:kVBSecondsFromGMT];
-    
-    self.cellDateLabel.text = stringDate;
+    self.cellDateLabel.text = [NSDate stringFromDate:newsModel.pubDate];
 }
 
 @end

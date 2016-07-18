@@ -21,7 +21,7 @@ static NSString * const kVBNavigationItemText = @"Всі новини";
 @property (nonatomic, strong)   UIRefreshControl *refreshControl;
 
 - (void)parseXML;
-- (void)refresh;
+- (void)addRefreshControl;
 
 @end
 
@@ -63,7 +63,7 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
             } forState:kVBModelLoadedState
                              object:self];   
         }
-
+        
         [self parseXML];
     }
 }
@@ -73,13 +73,10 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // in private mothod
+
     self.newsParser = [[VBNewsParser alloc] initWithURL:[NSURL URLWithString:kVBTsnRssUrlString]];
     [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
-    [self refresh];
-    /////////////////////
-    
+    [self addRefreshControl];
 }
 
 #pragma mark -
@@ -90,7 +87,7 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
     [self.newsParser load];
 }
 
-- (void)refresh {
+- (void)addRefreshControl {
     UIRefreshControl *control = [[UIRefreshControl alloc] init];
     [control addTarget:self action:@selector(parseXML) forControlEvents:UIControlEventValueChanged];
     [self.rootView.tableView addSubview:control];
@@ -101,6 +98,13 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 #pragma mark TableView DataSource Protocol
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    VBTableViewCell *cell = [tableView dequeueReusableCellWithBundleClass:[VBTableViewCell class]];
+//    CGFloat cellHeigh = cell.frame.size.height;
+//    CGFloat rootViewHeigh = self.rootView.frame.size.height;
+//    
+//    NSUInteger count = rootViewHeigh / cellHeigh;
+//    
+//    return count;
     return self.newsArray.count;
 }
 
@@ -119,6 +123,18 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
     controller.news = self.newsArray[indexPath.row];
     [self.navigationController pushViewController:controller animated:YES];
 }
+////////////////////
+- (void)tableView:(UITableView *)tableView
+  willDisplayCell:(UITableViewCell *)cell
+forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    tableView insertRowsAtIndexPaths:<#(nonnull NSArray<NSIndexPath *> *)#> withRowAnimation:<#(UITableViewRowAnimation)#>
+    // вызывается при появлении следующей ячейки, если она есть......
+}
+
+//- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath {
+//    // вызывается когда долистали таблицу до конца......
+//}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //

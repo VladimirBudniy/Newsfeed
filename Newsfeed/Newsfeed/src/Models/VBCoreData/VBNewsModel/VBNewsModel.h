@@ -15,13 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VBNewsModel : NSManagedObject
 
-//@property (nonatomic, strong) NSString  *title;
-//@property (nonatomic, strong) NSString  *urlString;
-//@property (nonatomic, strong) NSString  *fullText;
-//@property (nonatomic, strong) NSDate    *pubDate;
-//@property (nonatomic, strong) NSString  *category;
-
-
 + (instancetype)newsModelWithTitle:(NSString *)title
                            category:(NSString *)category
                            pubDate:(NSDate *)pubDate

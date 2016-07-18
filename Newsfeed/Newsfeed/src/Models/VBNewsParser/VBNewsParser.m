@@ -9,6 +9,14 @@
 #import "VBNewsParser.h"
 #import "VBNewsModel.h"
 
+static NSString * const kVBEnclosureKey     = @"enclosure";
+static NSString * const kVBUrlKey           = @"url";
+static NSString * const kVBTitleKey         = @"title";
+static NSString * const kVBFulltextKey      = @"fulltext";
+static NSString * const kVBCategoryKey      = @"category";
+static NSString * const kVBPubDateKey       = @"pubDate";
+static NSString * const kVBItemKey          = @"item";
+
 static NSString * const kVBCurrentDateFormat  = @"E, d MMM yyyy HH:mm:ss Z";
 static NSString * const kVBCorrectDateFormate = @"yyyy-MM-dd HH:mm";
 static NSUInteger const kVBSecondsFromGMT     = 0;
@@ -37,6 +45,7 @@ static NSUInteger const kVBSecondsFromGMT     = 0;
     if (self) {
         self.URL = URL;
         self.newsArray = [NSMutableArray array];
+//        self.newsDictionary = [NSMutableDictionary dictionary];  ////////////////////////////////////////////////
     }
     
     return self;
@@ -53,6 +62,7 @@ static NSUInteger const kVBSecondsFromGMT     = 0;
 #pragma mark Public
 
 - (void)setupLoad {
+//    [self.newsDictionary removeAllObjects];  ////////////////////////////////////////////////
     [self.newsArray removeAllObjects];
 }
 
@@ -64,9 +74,8 @@ static NSUInteger const kVBSecondsFromGMT     = 0;
 }
 
 - (void)finishLoad {
-//    if (self.newsArray.count == 30) {
-        [self setState:kVBModelLoadedState withObject:self];
-//    }
+    [self setState:kVBModelLoadedState withObject:self];
+    [self.parser abortParsing];
 }
 
 #pragma mark -
@@ -79,22 +88,23 @@ didStartElement:(NSString *)elementName
      attributes:(NSDictionary *)attributeDict
 {
     self.element = elementName;
-    if ([self.element isEqualToString:@"enclosure"]) {
-        self.currentUrlString = [attributeDict valueForKey:@"url"];
+    if ([self.element isEqualToString:kVBEnclosureKey]) {
+        self.currentUrlString = [attributeDict valueForKey:kVBUrlKey];
     }
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-    if ([self.element isEqualToString:@"title"]) {
+    if ([self.element isEqualToString:kVBTitleKey]) {
         self.currentTitle = string;
-    } else if ([self.element isEqualToString:@"fulltext"]) {
+    } else if ([self.element isEqualToString:kVBFulltextKey]) {
         self.currentFullText = string;
-    } else if ([self.element isEqualToString:@"category"]) {
+    } else if ([self.element isEqualToString:kVBCategoryKey]) {
         self.currentCategory = string;
-    } else if ([self.element isEqualToString:@"pubDate"]) {
+    } else if ([self.element isEqualToString:kVBPubDateKey]) {
         NSDate *currentDate = [NSDate dateWithString:string dateFormate:kVBCurrentDateFormat];
         self.currentPubDate = [currentDate convertDateFormate:kVBCorrectDateFormate
                                                secondsFromGMT:kVBSecondsFromGMT];
+        //если дата ранее чем сегодня прервать парсинг
     }
 }
 
@@ -103,16 +113,17 @@ didStartElement:(NSString *)elementName
   namespaceURI:(NSString *)namespaceURI
  qualifiedName:(NSString *)qName
 {
-    if ([elementName isEqualToString:@"item"]) {
+    if ([elementName isEqualToString:kVBItemKey]) {
         VBNewsModel *news = [VBNewsModel newsModelWithTitle:self.currentTitle
                                                    category:self.currentCategory
                                                     pubDate:self.currentPubDate
                                                    fullText:self.currentFullText
                                                   urlString:self.currentUrlString];
-        
+
+//        [self.newsDictionary setObject:news forKey:self.currentCategory];  /////////////////////////
         [self.newsArray addObject:news];
     }
-    
+
     self.element = nil;
 }
 

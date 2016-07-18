@@ -28,15 +28,6 @@ VBRootViewAndReturnIfNilMacro(VBSelectedNewsView);
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.rootView fillWithNews:self.news];
-//    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
-}
-
-- (void)setNews:(VBNewsModel *)news {
-    if (_news != news) {
-        _news = news;
-    }
-    
-    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
 }
 
 @end

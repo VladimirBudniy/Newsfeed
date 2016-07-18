@@ -11,7 +11,7 @@
 @interface NSDate (VBCategory)
 
 + (NSDate *)dateWithString:(NSString *)stringDate dateFormate:(NSString *)dateFormate;
-
++ (NSString *)stringFromDate:(NSDate *)date;
 + (NSString *)stringFromDate:(NSDate *)date
             localeIdentifier:(NSString *)localeIdentifier
                  dateFormate:(NSString *)dateFormate

@@ -14,7 +14,6 @@
 @property (nonatomic, strong) IBOutlet UIView                  *backgroundCellView;
 @property (nonatomic, strong) IBOutlet UILabel                 *cellLabel;
 @property (nonatomic, strong) IBOutlet UILabel                 *cellDateLabel;
-
 @property (nonatomic, strong) IBOutlet VBImageView             *cellImage;
 
 - (void)fillWithNews:(VBNewsModel *)newsModel;

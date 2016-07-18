@@ -12,7 +12,6 @@
 
 static NSString * const kVBTitleKey = @"title";
 
-
 @implementation VBNewsModel
 
 #pragma mark -

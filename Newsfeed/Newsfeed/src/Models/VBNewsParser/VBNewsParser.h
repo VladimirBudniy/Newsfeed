@@ -11,6 +11,8 @@
 @interface VBNewsParser : VBModel <NSXMLParserDelegate>
 @property (nonatomic, readonly) NSArray *allNews;
 
+//@property (nonatomic, strong) NSMutableDictionary *newsDictionary;
+
 - (instancetype)initWithURL:(NSURL *)URL;
 
 @end

@@ -7,6 +7,10 @@
 //
 #import "NSDate+VBCategory.h"
 
+static NSString * const kVBDateFormat = @"MMM d, H:mm";
+static NSString * const kVBLocaleIdentifier   = @"uk_BI";
+static NSUInteger const kVBSecondsFromGMT     = 0;
+
 @implementation NSDate (VBCategory)
 
 #pragma mark -
@@ -31,6 +35,13 @@
     [formatter setDateFormat:dateFormate];
    
     return [formatter stringFromDate:date];
+}
+
++ (NSString *)stringFromDate:(NSDate *)date {
+    return [NSDate stringFromDate:date
+                 localeIdentifier:kVBLocaleIdentifier
+                      dateFormate:kVBDateFormat
+                   secondsFromGMT:kVBSecondsFromGMT];
 }
 
 #pragma mark -
