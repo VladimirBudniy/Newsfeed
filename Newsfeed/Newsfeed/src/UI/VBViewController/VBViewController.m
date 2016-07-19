@@ -8,8 +8,8 @@
 
 #import "VBViewController.h"
 
-static NSString * const kVBLeftButtonName     = @"Back_button";
-static NSString * const kVBRightButtonName    = @"Home_button";
+static NSString * const kVBLeftButtonName     = @"Categories";
+static NSString * const kVBRightButtonName    = @"Settings";
 
 @interface VBViewController ()
 
@@ -47,25 +47,35 @@ static NSString * const kVBRightButtonName    = @"Home_button";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self defaultNavigationBar];
     [self showNavigationBar];
 }
 
 #pragma mark -
 #pragma mark Public
 
+- (void)clearNavigationBar { //////////////change name of method
+    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+    navigationBar.backgroundColor = [UIColor clearColor];
+    [navigationBar setShadowImage:[[UIImage alloc] init]];
+    [navigationBar setBackgroundImage:[[UIImage alloc] init]
+                        forBarMetrics:UIBarMetricsDefault];
+}
+
+- (void)defaultNavigationBar {
+    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+    [navigationBar setShadowImage:nil];
+    [navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+}
+
 - (void)hideNavigationBar {
     self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)showNavigationBar {
-//    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
-//                                                  forBarMetrics:UIBarMetricsDefault]; //UIImageNamed:@"transparent.png"
-    
-//    self.navigationController.navigationBar.shadowImage = [UIImage new];////UIImageNamed:@"transparent.png"
-//    self.navigationController.navigationBar.translucent = YES;
-//    self.navigationController.view.backgroundColor = [UIColor clearColor];
-    
-    self.navigationController.navigationBarHidden = NO;
+    UINavigationController *navigationController = self.navigationController;
+    navigationController.navigationBarHidden = NO;
+    navigationController.navigationBar.backgroundColor = [UIColor blueColor];
     self.navigationItem.title = self.barTitle;
     [self leftButtonWithImageName:self.leftButtonName];
     [self rightButtonWithImageName:self.rightButtonName];

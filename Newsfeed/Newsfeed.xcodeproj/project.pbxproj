@@ -49,15 +49,11 @@
 		E7EB56EC1D22945700D3C470 /* VBHotNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB56EA1D22945700D3C470 /* VBHotNewsViewController.m */; };
 		E7EB56ED1D22945700D3C470 /* VBHotNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7EB56EB1D22945700D3C470 /* VBHotNewsViewController.xib */; };
 		E7EB56F11D22950100D3C470 /* VBHotNewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB56F01D22950100D3C470 /* VBHotNewsView.m */; };
-		E7EB56F51D22AC8900D3C470 /* Newsfeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7EB56F31D22AC8900D3C470 /* Newsfeed.xcdatamodeld */; };
 		E7EB56FA1D22C35000D3C470 /* VBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB56F81D22C35000D3C470 /* VBTableViewCell.m */; };
 		E7EB56FB1D22C35000D3C470 /* VBTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7EB56F91D22C35000D3C470 /* VBTableViewCell.xib */; };
-		E7EB570E1D244EC500D3C470 /* VBNewsImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB570B1D244EC500D3C470 /* VBNewsImage.m */; };
-		E7EB570F1D244EC500D3C470 /* VBNewsImage+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB570D1D244EC500D3C470 /* VBNewsImage+CoreDataProperties.m */; };
-		E7EB571A1D24506200D3C470 /* VBNewsModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB57171D24506200D3C470 /* VBNewsModel+CoreDataProperties.m */; };
-		E7EB571B1D24506200D3C470 /* VBNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB57191D24506200D3C470 /* VBNewsModel.m */; };
 		E7EB571F1D2450EC00D3C470 /* VBNewsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB571E1D2450EC00D3C470 /* VBNewsParser.m */; };
 		E7EB57231D24586C00D3C470 /* NSDate+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB57221D24586C00D3C470 /* NSDate+VBCategory.m */; };
+		E7FBC5201D3EB03400BE28CA /* VBNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FBC51F1D3EB03400BE28CA /* VBNewsModel.m */; };
 		EC4AFEA25532932D3980E5E3 /* libPods-Newsfeed.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D3B616A04CAC57C83611987 /* libPods-Newsfeed.a */; };
 /* End PBXBuildFile section */
 
@@ -150,22 +146,15 @@
 		E7EB56EB1D22945700D3C470 /* VBHotNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBHotNewsViewController.xib; sourceTree = "<group>"; };
 		E7EB56EF1D22950100D3C470 /* VBHotNewsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBHotNewsView.h; sourceTree = "<group>"; };
 		E7EB56F01D22950100D3C470 /* VBHotNewsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBHotNewsView.m; sourceTree = "<group>"; };
-		E7EB56F41D22AC8900D3C470 /* Newsfeed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Newsfeed.xcdatamodel; sourceTree = "<group>"; };
 		E7EB56F71D22C35000D3C470 /* VBTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBTableViewCell.h; sourceTree = "<group>"; };
 		E7EB56F81D22C35000D3C470 /* VBTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBTableViewCell.m; sourceTree = "<group>"; };
 		E7EB56F91D22C35000D3C470 /* VBTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBTableViewCell.xib; sourceTree = "<group>"; };
-		E7EB570A1D244EC500D3C470 /* VBNewsImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBNewsImage.h; sourceTree = "<group>"; };
-		E7EB570B1D244EC500D3C470 /* VBNewsImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBNewsImage.m; sourceTree = "<group>"; };
-		E7EB570C1D244EC500D3C470 /* VBNewsImage+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VBNewsImage+CoreDataProperties.h"; sourceTree = "<group>"; };
-		E7EB570D1D244EC500D3C470 /* VBNewsImage+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VBNewsImage+CoreDataProperties.m"; sourceTree = "<group>"; };
-		E7EB57161D24506200D3C470 /* VBNewsModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VBNewsModel+CoreDataProperties.h"; sourceTree = "<group>"; };
-		E7EB57171D24506200D3C470 /* VBNewsModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VBNewsModel+CoreDataProperties.m"; sourceTree = "<group>"; };
-		E7EB57181D24506200D3C470 /* VBNewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBNewsModel.h; sourceTree = "<group>"; };
-		E7EB57191D24506200D3C470 /* VBNewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBNewsModel.m; sourceTree = "<group>"; };
 		E7EB571D1D2450EC00D3C470 /* VBNewsParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBNewsParser.h; sourceTree = "<group>"; };
 		E7EB571E1D2450EC00D3C470 /* VBNewsParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBNewsParser.m; sourceTree = "<group>"; };
 		E7EB57211D24586C00D3C470 /* NSDate+VBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+VBCategory.h"; sourceTree = "<group>"; };
 		E7EB57221D24586C00D3C470 /* NSDate+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+VBCategory.m"; sourceTree = "<group>"; };
+		E7FBC51E1D3EB03400BE28CA /* VBNewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBNewsModel.h; sourceTree = "<group>"; };
+		E7FBC51F1D3EB03400BE28CA /* VBNewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBNewsModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,8 +260,8 @@
 		E7EB56511D228C3E00D3C470 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E7FBC51D1D3EB00C00BE28CA /* VBNewsModel */,
 				E7EB571C1D2450CF00D3C470 /* VBNewsParser */,
-				E7EB56F21D22AC8900D3C470 /* VBCoreData */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -662,16 +651,6 @@
 			path = VBHotNewsView;
 			sourceTree = "<group>";
 		};
-		E7EB56F21D22AC8900D3C470 /* VBCoreData */ = {
-			isa = PBXGroup;
-			children = (
-				E7EB56FC1D244E8100D3C470 /* VBNewsImage */,
-				E7EB56FD1D244E8100D3C470 /* VBNewsModel */,
-				E7EB56F31D22AC8900D3C470 /* Newsfeed.xcdatamodeld */,
-			);
-			path = VBCoreData;
-			sourceTree = "<group>";
-		};
 		E7EB56F61D22C35000D3C470 /* VBTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -680,28 +659,6 @@
 				E7EB56F91D22C35000D3C470 /* VBTableViewCell.xib */,
 			);
 			path = VBTableViewCell;
-			sourceTree = "<group>";
-		};
-		E7EB56FC1D244E8100D3C470 /* VBNewsImage */ = {
-			isa = PBXGroup;
-			children = (
-				E7EB570A1D244EC500D3C470 /* VBNewsImage.h */,
-				E7EB570B1D244EC500D3C470 /* VBNewsImage.m */,
-				E7EB570C1D244EC500D3C470 /* VBNewsImage+CoreDataProperties.h */,
-				E7EB570D1D244EC500D3C470 /* VBNewsImage+CoreDataProperties.m */,
-			);
-			path = VBNewsImage;
-			sourceTree = "<group>";
-		};
-		E7EB56FD1D244E8100D3C470 /* VBNewsModel */ = {
-			isa = PBXGroup;
-			children = (
-				E7EB57181D24506200D3C470 /* VBNewsModel.h */,
-				E7EB57191D24506200D3C470 /* VBNewsModel.m */,
-				E7EB57161D24506200D3C470 /* VBNewsModel+CoreDataProperties.h */,
-				E7EB57171D24506200D3C470 /* VBNewsModel+CoreDataProperties.m */,
-			);
-			path = VBNewsModel;
 			sourceTree = "<group>";
 		};
 		E7EB571C1D2450CF00D3C470 /* VBNewsParser */ = {
@@ -720,6 +677,15 @@
 				E7EB57221D24586C00D3C470 /* NSDate+VBCategory.m */,
 			);
 			path = "NSDate+VBCategory";
+			sourceTree = "<group>";
+		};
+		E7FBC51D1D3EB00C00BE28CA /* VBNewsModel */ = {
+			isa = PBXGroup;
+			children = (
+				E7FBC51E1D3EB03400BE28CA /* VBNewsModel.h */,
+				E7FBC51F1D3EB03400BE28CA /* VBNewsModel.m */,
+			);
+			path = VBNewsModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -855,7 +821,6 @@
 				E7EB56EC1D22945700D3C470 /* VBHotNewsViewController.m in Sources */,
 				E7EB56D01D228C6A00D3C470 /* VBObserverObject.m in Sources */,
 				E7EB56D21D228C6A00D3C470 /* VBImageModel.m in Sources */,
-				E7EB570F1D244EC500D3C470 /* VBNewsImage+CoreDataProperties.m in Sources */,
 				E7EB56C61D228C6A00D3C470 /* VBSaveArrayModel.m in Sources */,
 				E7EB56C21D228C6A00D3C470 /* UIView+VBCategory.m in Sources */,
 				E7EB56D51D228C6A00D3C470 /* VBLoadingView.m in Sources */,
@@ -866,21 +831,18 @@
 				E7EB56C81D228C6A00D3C470 /* VBStateModel.m in Sources */,
 				E7EB56BC1D228C6A00D3C470 /* NSObject+VBCategory.m in Sources */,
 				E7EB56D11D228C6A00D3C470 /* VBObserverStateObject.m in Sources */,
-				E7EB56F51D22AC8900D3C470 /* Newsfeed.xcdatamodeld in Sources */,
 				E7EB56C91D228C6A00D3C470 /* VBArrayAlphabet.m in Sources */,
 				E7EB56CA1D228C6A00D3C470 /* VBRangeAlphabet.m in Sources */,
 				E7EB56BF1D228C6A00D3C470 /* UIImage+VBCategory.m in Sources */,
 				E7EB57231D24586C00D3C470 /* NSDate+VBCategory.m in Sources */,
 				E7EB56FA1D22C35000D3C470 /* VBTableViewCell.m in Sources */,
-				E7EB571B1D24506200D3C470 /* VBNewsModel.m in Sources */,
-				E7EB571A1D24506200D3C470 /* VBNewsModel+CoreDataProperties.m in Sources */,
+				E7FBC5201D3EB03400BE28CA /* VBNewsModel.m in Sources */,
 				E7EB56C71D228C6A00D3C470 /* VBModel.m in Sources */,
 				E7EB56C11D228C6A00D3C470 /* UITableView+VBCategory.m in Sources */,
 				E700448C1D27144700DB189F /* VBSelectedNewsViewController.m in Sources */,
 				E7EB56E81D22943F00D3C470 /* VBViewController.m in Sources */,
 				E7EB56CE1D228C6A00D3C470 /* VBObserver.m in Sources */,
 				E7EB56CF1D228C6A00D3C470 /* VBObserverArray.m in Sources */,
-				E7EB570E1D244EC500D3C470 /* VBNewsImage.m in Sources */,
 				E7EB56321D2289C500D3C470 /* main.m in Sources */,
 				E70044911D2718C700DB189F /* VBSelectedNewsView.m in Sources */,
 				E7EB56BE1D228C6A00D3C470 /* UIBarButtonItem+VBCategory.m in Sources */,
@@ -1044,19 +1006,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		E7EB56F31D22AC8900D3C470 /* Newsfeed.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				E7EB56F41D22AC8900D3C470 /* Newsfeed.xcdatamodel */,
-			);
-			currentVersion = E7EB56F41D22AC8900D3C470 /* Newsfeed.xcdatamodel */;
-			path = Newsfeed.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = E7EB56251D2289C500D3C470 /* Project object */;
 }

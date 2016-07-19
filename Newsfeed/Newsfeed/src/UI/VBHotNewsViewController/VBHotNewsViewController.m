@@ -36,12 +36,10 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
     return kVBNavigationItemText;
 }
 
-- (NSString *)leftButtonName {
-    return nil; //// вставить пустышку ///////////////////////////////////////////////
-}
-
 - (void)setNewsArray:(NSMutableArray *)newsArray {
     if (_newsArray != newsArray) {
+        [_newsArray removeAllObjects];
+        
         //удалить из кор даты/////////////////////////////////////////
         _newsArray = newsArray;
         //сохранить в кор дату////////////////////////////////////////
@@ -97,6 +95,17 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 }
 
 #pragma mark -
+#pragma mark NavigationBar Action
+
+- (void)leftButtonClick {
+    
+}
+
+- (void)rightButtonClick {
+    
+}
+
+#pragma mark -
 #pragma mark TableView DataSource Protocol
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -118,19 +127,5 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
     controller.news = self.newsArray[indexPath.row];
     [self.navigationController pushViewController:controller animated:YES];
 }
-
-
-////////////////////
-//- (void)tableView:(UITableView *)tableView
-//  willDisplayCell:(UITableViewCell *)cell
-//forRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-////    tableView insertRowsAtIndexPaths:<#(nonnull NSArray<NSIndexPath *> *)#> withRowAnimation:<#(UITableViewRowAnimation)#>
-//    // вызывается при появлении следующей ячейки, если она есть......
-//}
-
-//- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath {
-//    // вызывается когда долистали таблицу до конца......
-//}
 
 @end

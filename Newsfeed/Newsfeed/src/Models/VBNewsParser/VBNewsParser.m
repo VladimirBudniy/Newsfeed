@@ -20,7 +20,7 @@ static NSString * const kVBItemKey          = @"item";
 static NSString * const kVBCurrentDateFormat  = @"E, d MMM yyyy HH:mm:ss Z";
 static NSString * const kVBCorrectDateFormate = @"yyyy-MM-dd HH:mm";
 static NSUInteger const kVBSecondsFromGMT     = 0;
-static NSUInteger const kVBNewsCount          = 50;
+static NSUInteger const kVBNewsCount          = 20;
 
 @interface VBNewsParser ()
 @property (nonatomic, strong) NSMutableArray *newsArray;

@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Automatic">
-    <entity name="VBNewsImage" representedClassName="VBNewsImage" syncable="YES">
-        <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="news" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VBNewsModel" inverseName="image" inverseEntity="VBNewsModel" syncable="YES"/>
-    </entity>
     <entity name="VBNewsModel" representedClassName="VBNewsModel" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fullText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pubDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VBNewsImage" inverseName="news" inverseEntity="VBNewsImage" syncable="YES"/>
     </entity>
     <elements>
-        <element name="VBNewsModel" positionX="-63" positionY="-18" width="128" height="133"/>
-        <element name="VBNewsImage" positionX="142" positionY="27" width="128" height="75"/>
+        <element name="VBNewsModel" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>

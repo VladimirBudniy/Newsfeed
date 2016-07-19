@@ -16,4 +16,7 @@
 
 - (void)showNavigationBar;
 - (void)hideNavigationBar;
+- (void)clearNavigationBar; //////////////change name of method
+- (void)defaultNavigationBar; 
+
 @end

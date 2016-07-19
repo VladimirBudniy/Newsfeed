@@ -17,7 +17,7 @@ static NSString * const kVBCoraDataName = @"Newsfeed";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [IDPCoreDataManager sharedManagerWithMomName:kVBCoraDataName];
+//    [IDPCoreDataManager sharedManagerWithMomName:kVBCoraDataName];
     
     UIWindow *window = [UIWindow window];
     self.window = window;

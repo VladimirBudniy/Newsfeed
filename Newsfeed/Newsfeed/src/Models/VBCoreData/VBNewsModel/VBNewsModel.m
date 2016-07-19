@@ -8,7 +8,6 @@
 #import "IDPActiveRecordKit.h"
 
 #import "VBNewsModel.h"
-#import "VBNewsImage.h"
 
 static NSString * const kVBTitleKey = @"title";
 
