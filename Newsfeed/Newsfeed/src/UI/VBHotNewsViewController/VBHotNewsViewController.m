@@ -80,7 +80,7 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 }
 
 #pragma mark -
-#pragma mark View Private
+#pragma mark Private
 
 - (void)parseXML {
     self.newsParser.state = kVBModelDefaultState;

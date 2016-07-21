@@ -301,7 +301,6 @@
 				E7EB56681D228C6A00D3C470 /* UIBarButtonItem+VBCategory */,
 				E7EB566B1D228C6A00D3C470 /* UICollectionView+VBCategory */,
 				E7EB566C1D228C6A00D3C470 /* UIImage+VBCategory */,
-				E7EB566F1D228C6A00D3C470 /* UINavigationItem+VBCategory */,
 				E7EB56701D228C6A00D3C470 /* UINib+VBCategory */,
 				E7EB56731D228C6A00D3C470 /* UITableView+VBCategory */,
 				E7EB56761D228C6A00D3C470 /* UIView+VBCategory */,
@@ -379,13 +378,6 @@
 				E7EB566E1D228C6A00D3C470 /* UIImage+VBCategory.m */,
 			);
 			path = "UIImage+VBCategory";
-			sourceTree = "<group>";
-		};
-		E7EB566F1D228C6A00D3C470 /* UINavigationItem+VBCategory */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "UINavigationItem+VBCategory";
 			sourceTree = "<group>";
 		};
 		E7EB56701D228C6A00D3C470 /* UINib+VBCategory */ = {

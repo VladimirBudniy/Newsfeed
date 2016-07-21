@@ -16,8 +16,11 @@ static NSString * const kVBRightButtonName    = @"Settings";
 - (void)leftButtonClick;
 - (void)rightButtonClick;
 
-- (void)leftButtonWithImageName:(NSString *)name;
-- (void)rightButtonWithImageName:(NSString *)name;
+//- (void)leftButtonWithImageName:(NSString *)name;
+//- (void)rightButtonWithImageName:(NSString *)name;
+
+- (void)leftButtonWithImageName:(NSString *)name action:(SEL)selector target:(id)object;
+- (void)rightButtonWithImageName:(NSString *)name action:(SEL)selector target:(id)object;
 
 @end
 
@@ -77,28 +80,49 @@ static NSString * const kVBRightButtonName    = @"Settings";
     navigationController.navigationBarHidden = NO;
     navigationController.navigationBar.backgroundColor = [UIColor blueColor];
     self.navigationItem.title = self.barTitle;
-    [self leftButtonWithImageName:self.leftButtonName];
-    [self rightButtonWithImageName:self.rightButtonName];
+    
+//    [self leftButtonWithImageName:self.leftButtonName];
+//    [self rightButtonWithImageName:self.rightButtonName];
+//    
+    [self leftButtonWithImageName:self.leftButtonName action:@selector(leftButtonClick) target:self];
+    [self rightButtonWithImageName:self.rightButtonName action:@selector(rightButtonClick) target:self];
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)leftButtonWithImageName:(NSString *)name {
+
+- (void)leftButtonWithImageName:(NSString *)name action:(SEL)selector target:(id)object {
     UIImage *leftImage = [UIImage imageNamed:name];
     leftImage = [leftImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem leftButtonWithImage:leftImage
-                                                                          action:@selector(leftButtonClick)
-                                                                          target:self];
+                                                                          action:selector
+                                                                          target:object];
 }
 
-- (void)rightButtonWithImageName:(NSString *)name {
+- (void)rightButtonWithImageName:(NSString *)name action:(SEL)selector target:(id)object {
     UIImage *rightImage = [UIImage imageNamed:name];
     rightImage = [rightImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem leftButtonWithImage:rightImage
-                                                                           action:@selector(rightButtonClick)
-                                                                           target:self];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem rightButtonWithImage:rightImage
+                                                                          action:selector
+                                                                          target:object];
 }
+
+//- (void)leftButtonWithImageName:(NSString *)name {
+//    UIImage *leftImage = [UIImage imageNamed:name];
+//    leftImage = [leftImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    self.navigationItem.leftBarButtonItem = [UIBarButtonItem leftButtonWithImage:leftImage
+//                                                                          action:@selector(leftButtonClick)
+//                                                                          target:self];
+//}
+//
+//- (void)rightButtonWithImageName:(NSString *)name {
+//    UIImage *rightImage = [UIImage imageNamed:name];
+//    rightImage = [rightImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    self.navigationItem.rightBarButtonItem = [UIBarButtonItem rightButtonWithImage:rightImage
+//                                                                           action:@selector(rightButtonClick)
+//                                                                           target:self];
+//}
 
 - (void)leftButtonClick {
     [self.navigationController popViewControllerAnimated:YES];

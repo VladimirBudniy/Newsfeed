@@ -10,9 +10,9 @@
 #import "IDPActiveRecordKit.h"
 
 @interface VBViewController : UIViewController
-@property (nonatomic, readonly) NSString * barTitle;
-@property (nonatomic, readonly) NSString * leftButtonName;
-@property (nonatomic, readonly) NSString * rightButtonName;
+@property (nonatomic, readonly) NSString *barTitle;
+@property (nonatomic, readonly) NSString *leftButtonName;
+@property (nonatomic, readonly) NSString *rightButtonName;
 
 - (void)showNavigationBar;
 - (void)hideNavigationBar;
