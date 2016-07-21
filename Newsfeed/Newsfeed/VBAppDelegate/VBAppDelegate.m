@@ -9,24 +9,24 @@
 #import "IDPActiveRecordKit.h"
 
 #import "VBAppDelegate.h"
-#import "VBHotNewsViewController.h"
+//#import "VBHotNewsViewController.h"
+#import "VBMainSlideMenuViewController.h"
 
 static NSString * const kVBCoraDataName = @"Newsfeed";
 
 @implementation VBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
 //    [IDPCoreDataManager sharedManagerWithMomName:kVBCoraDataName];
     
-    UIWindow *window = [UIWindow window];
-    self.window = window;
-      
-    VBHotNewsViewController *viewController = [VBHotNewsViewController new];
+    VBMainSlideMenuViewController *viewController = [VBMainSlideMenuViewController new];
+    //    VBHotNewsViewController *viewController = [VBHotNewsViewController new];
     UINavigationController *controller = [[UINavigationController alloc]
                                           initWithRootViewController:viewController];
     
+    UIWindow *window = [UIWindow window];
     window.rootViewController = controller;
+    self.window = window;
     [window makeKeyAndVisible];
     
     return YES;

@@ -95,17 +95,6 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 }
 
 #pragma mark -
-#pragma mark NavigationBar Action
-
-- (void)leftButtonClick {
-    
-}
-
-- (void)rightButtonClick {
-    
-}
-
-#pragma mark -
 #pragma mark TableView DataSource Protocol
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -119,7 +108,9 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
     return cell;
 }
 
-// cell's method for catches press
+#pragma mark
+#pragma mark TableView Delegate
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     

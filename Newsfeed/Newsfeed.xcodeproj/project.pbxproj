@@ -10,6 +10,22 @@
 		E700448C1D27144700DB189F /* VBSelectedNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E700448A1D27144700DB189F /* VBSelectedNewsViewController.m */; };
 		E700448D1D27144700DB189F /* VBSelectedNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E700448B1D27144700DB189F /* VBSelectedNewsViewController.xib */; };
 		E70044911D2718C700DB189F /* VBSelectedNewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E70044901D2718C700DB189F /* VBSelectedNewsView.m */; };
+		E71EF6021D40BDAB00422DE7 /* AMSlideMenuContentSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF5F41D40BDAB00422DE7 /* AMSlideMenuContentSegue.m */; };
+		E71EF6031D40BDAB00422DE7 /* AMSlideMenuLeftMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF5F61D40BDAB00422DE7 /* AMSlideMenuLeftMenuSegue.m */; };
+		E71EF6041D40BDAB00422DE7 /* AMSlideMenuLeftTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF5F81D40BDAB00422DE7 /* AMSlideMenuLeftTableViewController.m */; };
+		E71EF6051D40BDAB00422DE7 /* AMSlideMenuMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF5FA1D40BDAB00422DE7 /* AMSlideMenuMainViewController.m */; };
+		E71EF6061D40BDAB00422DE7 /* AMSlideMenuRightMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF5FD1D40BDAB00422DE7 /* AMSlideMenuRightMenuSegue.m */; };
+		E71EF6071D40BDAB00422DE7 /* AMSlideMenuRightTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF5FF1D40BDAB00422DE7 /* AMSlideMenuRightTableViewController.m */; };
+		E71EF6081D40BDAB00422DE7 /* UIViewController+AMSlideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF6011D40BDAB00422DE7 /* UIViewController+AMSlideMenu.m */; };
+		E71EF60D1D40BE5500422DE7 /* VBMainSlideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF60C1D40BE5500422DE7 /* VBMainSlideMenuViewController.m */; };
+		E71EF6291D40C25D00422DE7 /* VBRightSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF6271D40C25D00422DE7 /* VBRightSlideViewController.m */; };
+		E71EF62A1D40C25D00422DE7 /* VBRightSlideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E71EF6281D40C25D00422DE7 /* VBRightSlideViewController.xib */; };
+		E71EF62E1D40C27E00422DE7 /* VBLeftSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF62C1D40C27E00422DE7 /* VBLeftSlideViewController.m */; };
+		E71EF62F1D40C27E00422DE7 /* VBLeftSlideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E71EF62D1D40C27E00422DE7 /* VBLeftSlideViewController.xib */; };
+		E71EF6341D40CB0600422DE7 /* VBRightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF6321D40CB0600422DE7 /* VBRightTableViewCell.m */; };
+		E71EF6351D40CB0600422DE7 /* VBRightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E71EF6331D40CB0600422DE7 /* VBRightTableViewCell.xib */; };
+		E71EF63A1D40CB9100422DE7 /* VBLeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF6381D40CB9100422DE7 /* VBLeftTableViewCell.m */; };
+		E71EF63B1D40CB9100422DE7 /* VBLeftTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E71EF6391D40CB9100422DE7 /* VBLeftTableViewCell.xib */; };
 		E7EB56321D2289C500D3C470 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB56311D2289C500D3C470 /* main.m */; };
 		E7EB56401D2289C500D3C470 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7EB563F1D2289C500D3C470 /* Assets.xcassets */; };
 		E7EB56431D2289C500D3C470 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7EB56411D2289C500D3C470 /* LaunchScreen.storyboard */; };
@@ -66,6 +82,35 @@
 		E700448B1D27144700DB189F /* VBSelectedNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBSelectedNewsViewController.xib; sourceTree = "<group>"; };
 		E700448F1D2718C700DB189F /* VBSelectedNewsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBSelectedNewsView.h; sourceTree = "<group>"; };
 		E70044901D2718C700DB189F /* VBSelectedNewsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBSelectedNewsView.m; sourceTree = "<group>"; };
+		E71EF5F31D40BDAB00422DE7 /* AMSlideMenuContentSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSlideMenuContentSegue.h; sourceTree = "<group>"; };
+		E71EF5F41D40BDAB00422DE7 /* AMSlideMenuContentSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSlideMenuContentSegue.m; sourceTree = "<group>"; };
+		E71EF5F51D40BDAB00422DE7 /* AMSlideMenuLeftMenuSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSlideMenuLeftMenuSegue.h; sourceTree = "<group>"; };
+		E71EF5F61D40BDAB00422DE7 /* AMSlideMenuLeftMenuSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSlideMenuLeftMenuSegue.m; sourceTree = "<group>"; };
+		E71EF5F71D40BDAB00422DE7 /* AMSlideMenuLeftTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSlideMenuLeftTableViewController.h; sourceTree = "<group>"; };
+		E71EF5F81D40BDAB00422DE7 /* AMSlideMenuLeftTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSlideMenuLeftTableViewController.m; sourceTree = "<group>"; };
+		E71EF5F91D40BDAB00422DE7 /* AMSlideMenuMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSlideMenuMainViewController.h; sourceTree = "<group>"; };
+		E71EF5FA1D40BDAB00422DE7 /* AMSlideMenuMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSlideMenuMainViewController.m; sourceTree = "<group>"; };
+		E71EF5FB1D40BDAB00422DE7 /* AMSlideMenuProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSlideMenuProtocols.h; sourceTree = "<group>"; };
+		E71EF5FC1D40BDAB00422DE7 /* AMSlideMenuRightMenuSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSlideMenuRightMenuSegue.h; sourceTree = "<group>"; };
+		E71EF5FD1D40BDAB00422DE7 /* AMSlideMenuRightMenuSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSlideMenuRightMenuSegue.m; sourceTree = "<group>"; };
+		E71EF5FE1D40BDAB00422DE7 /* AMSlideMenuRightTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSlideMenuRightTableViewController.h; sourceTree = "<group>"; };
+		E71EF5FF1D40BDAB00422DE7 /* AMSlideMenuRightTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSlideMenuRightTableViewController.m; sourceTree = "<group>"; };
+		E71EF6001D40BDAB00422DE7 /* UIViewController+AMSlideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AMSlideMenu.h"; sourceTree = "<group>"; };
+		E71EF6011D40BDAB00422DE7 /* UIViewController+AMSlideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AMSlideMenu.m"; sourceTree = "<group>"; };
+		E71EF60B1D40BE5500422DE7 /* VBMainSlideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMainSlideMenuViewController.h; sourceTree = "<group>"; };
+		E71EF60C1D40BE5500422DE7 /* VBMainSlideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBMainSlideMenuViewController.m; sourceTree = "<group>"; };
+		E71EF6261D40C25D00422DE7 /* VBRightSlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBRightSlideViewController.h; sourceTree = "<group>"; };
+		E71EF6271D40C25D00422DE7 /* VBRightSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBRightSlideViewController.m; sourceTree = "<group>"; };
+		E71EF6281D40C25D00422DE7 /* VBRightSlideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBRightSlideViewController.xib; sourceTree = "<group>"; };
+		E71EF62B1D40C27E00422DE7 /* VBLeftSlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLeftSlideViewController.h; sourceTree = "<group>"; };
+		E71EF62C1D40C27E00422DE7 /* VBLeftSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBLeftSlideViewController.m; sourceTree = "<group>"; };
+		E71EF62D1D40C27E00422DE7 /* VBLeftSlideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBLeftSlideViewController.xib; sourceTree = "<group>"; };
+		E71EF6311D40CB0600422DE7 /* VBRightTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBRightTableViewCell.h; sourceTree = "<group>"; };
+		E71EF6321D40CB0600422DE7 /* VBRightTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBRightTableViewCell.m; sourceTree = "<group>"; };
+		E71EF6331D40CB0600422DE7 /* VBRightTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBRightTableViewCell.xib; sourceTree = "<group>"; };
+		E71EF6371D40CB9100422DE7 /* VBLeftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLeftTableViewCell.h; sourceTree = "<group>"; };
+		E71EF6381D40CB9100422DE7 /* VBLeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBLeftTableViewCell.m; sourceTree = "<group>"; };
+		E71EF6391D40CB9100422DE7 /* VBLeftTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBLeftTableViewCell.xib; sourceTree = "<group>"; };
 		E7EB562D1D2289C500D3C470 /* Newsfeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newsfeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7EB56311D2289C500D3C470 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E7EB563F1D2289C500D3C470 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -206,6 +251,97 @@
 			path = VBSelectedNewsView;
 			sourceTree = "<group>";
 		};
+		E71EF5F11D40BDAB00422DE7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E71EF5F21D40BDAB00422DE7 /* AMSlideMenu */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		E71EF5F21D40BDAB00422DE7 /* AMSlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				E71EF5F31D40BDAB00422DE7 /* AMSlideMenuContentSegue.h */,
+				E71EF5F41D40BDAB00422DE7 /* AMSlideMenuContentSegue.m */,
+				E71EF5F51D40BDAB00422DE7 /* AMSlideMenuLeftMenuSegue.h */,
+				E71EF5F61D40BDAB00422DE7 /* AMSlideMenuLeftMenuSegue.m */,
+				E71EF5F71D40BDAB00422DE7 /* AMSlideMenuLeftTableViewController.h */,
+				E71EF5F81D40BDAB00422DE7 /* AMSlideMenuLeftTableViewController.m */,
+				E71EF5F91D40BDAB00422DE7 /* AMSlideMenuMainViewController.h */,
+				E71EF5FA1D40BDAB00422DE7 /* AMSlideMenuMainViewController.m */,
+				E71EF5FB1D40BDAB00422DE7 /* AMSlideMenuProtocols.h */,
+				E71EF5FC1D40BDAB00422DE7 /* AMSlideMenuRightMenuSegue.h */,
+				E71EF5FD1D40BDAB00422DE7 /* AMSlideMenuRightMenuSegue.m */,
+				E71EF5FE1D40BDAB00422DE7 /* AMSlideMenuRightTableViewController.h */,
+				E71EF5FF1D40BDAB00422DE7 /* AMSlideMenuRightTableViewController.m */,
+				E71EF6001D40BDAB00422DE7 /* UIViewController+AMSlideMenu.h */,
+				E71EF6011D40BDAB00422DE7 /* UIViewController+AMSlideMenu.m */,
+			);
+			path = AMSlideMenu;
+			sourceTree = "<group>";
+		};
+		E71EF6091D40BE0C00422DE7 /* VBSlideMenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E71EF60F1D40BEE300422DE7 /* VBRightSlideViewController */,
+				E71EF60E1D40BE8000422DE7 /* VBLeftSlideViewController */,
+				E71EF60A1D40BE3800422DE7 /* VBMainSlideViewController */,
+			);
+			path = VBSlideMenuViewController;
+			sourceTree = "<group>";
+		};
+		E71EF60A1D40BE3800422DE7 /* VBMainSlideViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E71EF60B1D40BE5500422DE7 /* VBMainSlideMenuViewController.h */,
+				E71EF60C1D40BE5500422DE7 /* VBMainSlideMenuViewController.m */,
+			);
+			path = VBMainSlideViewController;
+			sourceTree = "<group>";
+		};
+		E71EF60E1D40BE8000422DE7 /* VBLeftSlideViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E71EF6361D40CB8100422DE7 /* VBLeftTableViewCell */,
+				E71EF62B1D40C27E00422DE7 /* VBLeftSlideViewController.h */,
+				E71EF62C1D40C27E00422DE7 /* VBLeftSlideViewController.m */,
+				E71EF62D1D40C27E00422DE7 /* VBLeftSlideViewController.xib */,
+			);
+			path = VBLeftSlideViewController;
+			sourceTree = "<group>";
+		};
+		E71EF60F1D40BEE300422DE7 /* VBRightSlideViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E71EF6301D40CAE400422DE7 /* VBRightTableViewCell */,
+				E71EF6261D40C25D00422DE7 /* VBRightSlideViewController.h */,
+				E71EF6271D40C25D00422DE7 /* VBRightSlideViewController.m */,
+				E71EF6281D40C25D00422DE7 /* VBRightSlideViewController.xib */,
+			);
+			path = VBRightSlideViewController;
+			sourceTree = "<group>";
+		};
+		E71EF6301D40CAE400422DE7 /* VBRightTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E71EF6311D40CB0600422DE7 /* VBRightTableViewCell.h */,
+				E71EF6321D40CB0600422DE7 /* VBRightTableViewCell.m */,
+				E71EF6331D40CB0600422DE7 /* VBRightTableViewCell.xib */,
+			);
+			path = VBRightTableViewCell;
+			sourceTree = "<group>";
+		};
+		E71EF6361D40CB8100422DE7 /* VBLeftTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E71EF6371D40CB9100422DE7 /* VBLeftTableViewCell.h */,
+				E71EF6381D40CB9100422DE7 /* VBLeftTableViewCell.m */,
+				E71EF6391D40CB9100422DE7 /* VBLeftTableViewCell.xib */,
+			);
+			path = VBLeftTableViewCell;
+			sourceTree = "<group>";
+		};
 		E7EB56241D2289C500D3C470 = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +405,7 @@
 		E7EB56521D228C3E00D3C470 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E71EF6091D40BE0C00422DE7 /* VBSlideMenuViewController */,
 				E7EB56DE1D22923E00D3C470 /* VBViewController */,
 				E70044881D27142E00DB189F /* VBSelectedNewsViewController */,
 				E7EB56E21D22938700D3C470 /* VBHotNewsViewController */,
@@ -279,6 +416,7 @@
 		E7EB56571D228C6A00D3C470 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				E71EF5F11D40BDAB00422DE7 /* Frameworks */,
 				E7EB56581D228C6A00D3C470 /* Category */,
 				E7EB567F1D228C6A00D3C470 /* Macro */,
 				E7EB56811D228C6A00D3C470 /* Models */,
@@ -740,7 +878,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E71EF6351D40CB0600422DE7 /* VBRightTableViewCell.xib in Resources */,
 				E7EB56D61D228C6A00D3C470 /* VBLoadingView.xib in Resources */,
+				E71EF62A1D40C25D00422DE7 /* VBRightSlideViewController.xib in Resources */,
+				E71EF62F1D40C27E00422DE7 /* VBLeftSlideViewController.xib in Resources */,
+				E71EF63B1D40CB9100422DE7 /* VBLeftTableViewCell.xib in Resources */,
 				E7EB56431D2289C500D3C470 /* LaunchScreen.storyboard in Resources */,
 				E700448D1D27144700DB189F /* VBSelectedNewsViewController.xib in Resources */,
 				E7EB56401D2289C500D3C470 /* Assets.xcassets in Resources */,
@@ -814,32 +956,44 @@
 				E7EB56D01D228C6A00D3C470 /* VBObserverObject.m in Sources */,
 				E7EB56D21D228C6A00D3C470 /* VBImageModel.m in Sources */,
 				E7EB56C61D228C6A00D3C470 /* VBSaveArrayModel.m in Sources */,
+				E71EF6061D40BDAB00422DE7 /* AMSlideMenuRightMenuSegue.m in Sources */,
 				E7EB56C21D228C6A00D3C470 /* UIView+VBCategory.m in Sources */,
 				E7EB56D51D228C6A00D3C470 /* VBLoadingView.m in Sources */,
 				E7EB56D41D228C6A00D3C470 /* VBImageView.m in Sources */,
 				E7EB56D71D228C6A00D3C470 /* VBViewModel.m in Sources */,
 				E7EB571F1D2450EC00D3C470 /* VBNewsParser.m in Sources */,
+				E71EF6291D40C25D00422DE7 /* VBRightSlideViewController.m in Sources */,
+				E71EF60D1D40BE5500422DE7 /* VBMainSlideMenuViewController.m in Sources */,
+				E71EF63A1D40CB9100422DE7 /* VBLeftTableViewCell.m in Sources */,
 				E7EB56CB1D228C6A00D3C470 /* VBStringAlphabet.m in Sources */,
 				E7EB56C81D228C6A00D3C470 /* VBStateModel.m in Sources */,
 				E7EB56BC1D228C6A00D3C470 /* NSObject+VBCategory.m in Sources */,
+				E71EF6341D40CB0600422DE7 /* VBRightTableViewCell.m in Sources */,
 				E7EB56D11D228C6A00D3C470 /* VBObserverStateObject.m in Sources */,
 				E7EB56C91D228C6A00D3C470 /* VBArrayAlphabet.m in Sources */,
+				E71EF6081D40BDAB00422DE7 /* UIViewController+AMSlideMenu.m in Sources */,
 				E7EB56CA1D228C6A00D3C470 /* VBRangeAlphabet.m in Sources */,
 				E7EB56BF1D228C6A00D3C470 /* UIImage+VBCategory.m in Sources */,
+				E71EF6071D40BDAB00422DE7 /* AMSlideMenuRightTableViewController.m in Sources */,
 				E7EB57231D24586C00D3C470 /* NSDate+VBCategory.m in Sources */,
+				E71EF6031D40BDAB00422DE7 /* AMSlideMenuLeftMenuSegue.m in Sources */,
 				E7EB56FA1D22C35000D3C470 /* VBTableViewCell.m in Sources */,
+				E71EF62E1D40C27E00422DE7 /* VBLeftSlideViewController.m in Sources */,
 				E7FBC5201D3EB03400BE28CA /* VBNewsModel.m in Sources */,
 				E7EB56C71D228C6A00D3C470 /* VBModel.m in Sources */,
 				E7EB56C11D228C6A00D3C470 /* UITableView+VBCategory.m in Sources */,
 				E700448C1D27144700DB189F /* VBSelectedNewsViewController.m in Sources */,
+				E71EF6041D40BDAB00422DE7 /* AMSlideMenuLeftTableViewController.m in Sources */,
 				E7EB56E81D22943F00D3C470 /* VBViewController.m in Sources */,
 				E7EB56CE1D228C6A00D3C470 /* VBObserver.m in Sources */,
 				E7EB56CF1D228C6A00D3C470 /* VBObserverArray.m in Sources */,
 				E7EB56321D2289C500D3C470 /* main.m in Sources */,
+				E71EF6051D40BDAB00422DE7 /* AMSlideMenuMainViewController.m in Sources */,
 				E70044911D2718C700DB189F /* VBSelectedNewsView.m in Sources */,
 				E7EB56BE1D228C6A00D3C470 /* UIBarButtonItem+VBCategory.m in Sources */,
 				E7EB56B91D228C6A00D3C470 /* CGGeometry+VBCategory.m in Sources */,
 				E7EB56CC1D228C6A00D3C470 /* VBAlphabet.m in Sources */,
+				E71EF6021D40BDAB00422DE7 /* AMSlideMenuContentSegue.m in Sources */,
 				E7EB56C01D228C6A00D3C470 /* UINib+VBCategory.m in Sources */,
 				E7EB56CD1D228C6A00D3C470 /* VBDispatch.m in Sources */,
 				E7EB56DD1D228F8F00D3C470 /* VBAppDelegate.m in Sources */,

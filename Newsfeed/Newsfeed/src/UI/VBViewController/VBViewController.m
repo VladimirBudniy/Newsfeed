@@ -12,15 +12,7 @@ static NSString * const kVBLeftButtonName     = @"Categories";
 static NSString * const kVBRightButtonName    = @"Settings";
 
 @interface VBViewController ()
-
-- (void)leftButtonClick;
-- (void)rightButtonClick;
-
-//- (void)leftButtonWithImageName:(NSString *)name;
-//- (void)rightButtonWithImageName:(NSString *)name;
-
-- (void)leftButtonWithImageName:(NSString *)name action:(SEL)selector target:(id)object;
-- (void)rightButtonWithImageName:(NSString *)name action:(SEL)selector target:(id)object;
+- (void)addBarButtons;
 
 @end
 
@@ -51,6 +43,10 @@ static NSString * const kVBRightButtonName    = @"Settings";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self defaultNavigationBar];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     [self showNavigationBar];
 }
 
@@ -66,6 +62,7 @@ static NSString * const kVBRightButtonName    = @"Settings";
 }
 
 - (void)defaultNavigationBar {
+    self.navigationController.navigationBar.backgroundColor = [UIColor blueColor];
     UINavigationBar *navigationBar = self.navigationController.navigationBar;
     [navigationBar setShadowImage:nil];
     [navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
@@ -76,21 +73,10 @@ static NSString * const kVBRightButtonName    = @"Settings";
 }
 
 - (void)showNavigationBar {
-    UINavigationController *navigationController = self.navigationController;
-    navigationController.navigationBarHidden = NO;
-    navigationController.navigationBar.backgroundColor = [UIColor blueColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor blueColor];
     self.navigationItem.title = self.barTitle;
-    
-//    [self leftButtonWithImageName:self.leftButtonName];
-//    [self rightButtonWithImageName:self.rightButtonName];
-//    
-    [self leftButtonWithImageName:self.leftButtonName action:@selector(leftButtonClick) target:self];
-    [self rightButtonWithImageName:self.rightButtonName action:@selector(rightButtonClick) target:self];
+    [self addBarButtons];
 }
-
-#pragma mark -
-#pragma mark Private
-
 
 - (void)leftButtonWithImageName:(NSString *)name action:(SEL)selector target:(id)object {
     UIImage *leftImage = [UIImage imageNamed:name];
@@ -104,32 +90,21 @@ static NSString * const kVBRightButtonName    = @"Settings";
     UIImage *rightImage = [UIImage imageNamed:name];
     rightImage = [rightImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem rightButtonWithImage:rightImage
-                                                                          action:selector
-                                                                          target:object];
+                                                                            action:selector
+                                                                            target:object];
 }
 
-//- (void)leftButtonWithImageName:(NSString *)name {
-//    UIImage *leftImage = [UIImage imageNamed:name];
-//    leftImage = [leftImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//    self.navigationItem.leftBarButtonItem = [UIBarButtonItem leftButtonWithImage:leftImage
-//                                                                          action:@selector(leftButtonClick)
-//                                                                          target:self];
-//}
-//
-//- (void)rightButtonWithImageName:(NSString *)name {
-//    UIImage *rightImage = [UIImage imageNamed:name];
-//    rightImage = [rightImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//    self.navigationItem.rightBarButtonItem = [UIBarButtonItem rightButtonWithImage:rightImage
-//                                                                           action:@selector(rightButtonClick)
-//                                                                           target:self];
-//}
+#pragma mark -
+#pragma mark Private
 
-- (void)leftButtonClick {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)rightButtonClick {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+- (void)addBarButtons {
+    [self leftButtonWithImageName:self.leftButtonName
+                           action:@selector(openLeftMenu)
+                           target:self.viewController];
+    
+    [self rightButtonWithImageName:self.rightButtonName
+                            action:@selector(openRightMenu)
+                            target:self.viewController];
 }
 
 @end

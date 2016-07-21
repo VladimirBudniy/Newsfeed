@@ -16,6 +16,9 @@ static NSString * const kVBRightButtonName    = @"Home_button";
 @interface VBSelectedNewsViewController ()
 @property (nonatomic, readonly) VBSelectedNewsView  *rootView;
 
+- (void)leftButtonClick;
+- (void)rightButtonClick;
+
 @end
 
 @implementation VBSelectedNewsViewController
@@ -44,6 +47,15 @@ VBRootViewAndReturnIfNilMacro(VBSelectedNewsView);
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.rootView fillWithNews:self.news];
+    [self addBarButtons];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)addBarButtons {
+    [self leftButtonWithImageName:self.leftButtonName action:@selector(leftButtonClick) target:self];
+    [self rightButtonWithImageName:self.rightButtonName action:@selector(rightButtonClick) target:self];
 }
 
 #pragma mark -
