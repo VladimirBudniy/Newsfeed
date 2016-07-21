@@ -52,26 +52,25 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    UINavigationController *nvc;
-    UIViewController *rootVC;
+    UIViewController *viewController;
 
     switch (indexPath.row) {
         case 0:
-            rootVC = [VBHotNewsViewController new];
+            viewController = [VBHotNewsViewController new];
             break;
             
 //        case 1:
-//            rootVC = [[VBSecondVC alloc] initWithNibName:@"VBSecondVC" bundle:nil];
+//            viewController = [[VBSecondVC alloc] initWithNibName:@"VBSecondVC" bundle:nil];
 //            break;
 //            
 //        case 2:
-//            rootVC = [[VBThirdVC alloc] initWithNibName:@"VBThirdVC" bundle:nil];
+//            viewController = [[VBThirdVC alloc] initWithNibName:@"VBThirdVC" bundle:nil];
 //            break;
     }
     
-    nvc = [[UINavigationController alloc] initWithRootViewController:rootVC];
-    [self openContentNavigationController:nvc];
-    
+    UINavigationController *controller = [[UINavigationController alloc]
+                                                    initWithRootViewController:viewController];
+    [self openContentNavigationController:controller];
 }
 
 @end

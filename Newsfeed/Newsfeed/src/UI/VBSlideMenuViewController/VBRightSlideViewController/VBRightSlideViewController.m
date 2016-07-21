@@ -28,14 +28,8 @@
     return 1;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *headerView = [[UIView alloc] init];
-    headerView.backgroundColor = [UIColor clearColor];
-    return headerView;
-}
-
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Categories";
+    return @"Lang";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -54,24 +48,22 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
-    UINavigationController *nvc;
-    UIViewController *rootVC;
+    UIViewController *viewController;
 //
 //    switch (indexPath.row) {
 //        case 0:
-//            rootVC = [[VBFourthVC alloc] initWithNibName:@"VBFourthVC" bundle:nil];
+//            viewController = [[VBFourthVC alloc] initWithNibName:@"VBFourthVC" bundle:nil];
 //            break;
 //            
 //        case 1:
-//            rootVC = [[VBFifthVC alloc] initWithNibName:@"VBFifthVC" bundle:nil];
+//            viewController = [[VBFifthVC alloc] initWithNibName:@"VBFifthVC" bundle:nil];
 //            break;
 //            
 //    }
 //    
-    nvc = [[UINavigationController alloc] initWithRootViewController:rootVC];
-    [self openContentNavigationController:nvc];
-    
+    UINavigationController *controller = [[UINavigationController alloc]
+                                          initWithRootViewController:viewController];
+    [self openContentNavigationController:controller];
 }
 
 @end
