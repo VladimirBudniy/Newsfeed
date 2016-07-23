@@ -9,8 +9,13 @@
 #import "VBLeftSlideViewController.h"
 #import "VBHotNewsViewController.h"
 #import "VBLeftTableViewCell.h"
+#import "VBNewsParser.h"
+#import "VBConstants.h"
+
+static NSString * const kVBCategoriesStringName = @"Categories";
 
 @interface VBLeftSlideViewController ()
+@property (nonatomic, strong) NSArray *categoryArray;
 
 @end
 
@@ -21,27 +26,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.array = [@[@"All news", @"Sport", @"Economic"] mutableCopy];
+    self.categoryArray = @[kVBAllNewsCategoryName,
+                            kVBUkraineNewsCategoryName,
+                            kVBATOCategoryName,
+                            kVCitymCategoryName,
+                            kVBWorldNewsCategoryName,
+                            kVBPoliticsCategoryName,
+                            kVBEconomicCategoryName,
+                            kVBTechnologiesNewsCategoryName,
+                            kVBGlamourCategoryName,
+                            kVBSportCategoryName,
+                            kVBTourismCategoryName,
+                            kVBInterestingCategoryName];
 }
 
 #pragma mark
 #pragma mark TableView Datasource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Categories";
+    return kVBCategoriesStringName;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.array.count;
+    return self.categoryArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VBLeftTableViewCell *cell = [tableView dequeueReusableCellWithBundleClass:[VBLeftTableViewCell class]];
-    cell.cellLabel.text = self.array[indexPath.row];
+    cell.cellLabel.text = self.categoryArray[indexPath.row];
     
     return cell;
 }
@@ -55,21 +67,57 @@
     UIViewController *viewController;
 
     switch (indexPath.row) {
-        case 0:
+        case kVBAllNewsCategory:
             viewController = [VBHotNewsViewController new];
             break;
             
-//        case 1:
-//            viewController = [[VBSecondVC alloc] initWithNibName:@"VBSecondVC" bundle:nil];
-//            break;
-//            
-//        case 2:
-//            viewController = [[VBThirdVC alloc] initWithNibName:@"VBThirdVC" bundle:nil];
-//            break;
+        case kVBUkraineNewsCategory:
+            viewController = [VBHotNewsViewController new];
+            break;
+            
+        case kVBATOCategory:
+            viewController = [VBHotNewsViewController new];
+            break;
+            
+        case kVCitymCategory:
+            viewController = [VBHotNewsViewController new];
+            break;
+            
+        case kVBWorldNewsCategory:
+            viewController = [VBHotNewsViewController new];
+            break;
+            
+        case kVBPoliticsCategory:
+            viewController = [VBHotNewsViewController new];
+            break;
+            
+        case kVBEconomicCategory:
+            viewController = [VBHotNewsViewController new];
+            break;
+            
+        case kVBTechnologiesNewsCategory:
+            viewController = [VBHotNewsViewController new];
+            break;
+            
+        case kVBGlamourCategory:
+            viewController = [VBHotNewsViewController new];
+            break;
+            
+        case kVBSportCategory:
+            viewController = [VBHotNewsViewController new];
+            break;
+            
+        case kVBTourismCategory:
+            viewController = [VBHotNewsViewController new];
+            break;
+            
+        case kVBInterestingCategory:
+            viewController = [VBHotNewsViewController new];
+            break;
     }
     
     UINavigationController *controller = [[UINavigationController alloc]
-                                                    initWithRootViewController:viewController];
+                                          initWithRootViewController:viewController];
     [self openContentNavigationController:controller];
 }
 

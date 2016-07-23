@@ -24,6 +24,8 @@
     self.leftMenu = [VBLeftSlideViewController new];
     self.rightMenu = [VBRightSlideViewController new];
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor blueColor];
 }
 
 @end

@@ -24,10 +24,6 @@
 #pragma mark
 #pragma mark TableView Datasource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return @"Lang";
 }

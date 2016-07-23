@@ -8,8 +8,9 @@
 
 #import "AMSlideMenuLeftTableViewController.h"
 
+@class VBNewsParser;
+
 @interface VBLeftSlideViewController : AMSlideMenuLeftTableViewController <UITableViewDelegate>
 @property (nonatomic, strong) IBOutlet UITableView *menuTableView;
-@property (nonatomic, strong) NSMutableArray       *array;
 
 @end

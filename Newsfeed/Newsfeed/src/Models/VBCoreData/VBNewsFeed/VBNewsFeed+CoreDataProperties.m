@@ -1,5 +1,5 @@
 //
-//  VBNewsModel+CoreDataProperties.m
+//  VBNewsFeed+CoreDataProperties.m
 //  Newsfeed
 //
 //  Created by Vladimir Budniy on 24.07.16.
@@ -9,15 +9,10 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "VBNewsModel+CoreDataProperties.h"
+#import "VBNewsFeed+CoreDataProperties.h"
 
-@implementation VBNewsModel (CoreDataProperties)
+@implementation VBNewsFeed (CoreDataProperties)
 
-@dynamic title;
-@dynamic urlString;
-@dynamic fullText;
-@dynamic pubDate;
-@dynamic category;
-@dynamic newsFeed;
+@dynamic newsModels;
 
 @end

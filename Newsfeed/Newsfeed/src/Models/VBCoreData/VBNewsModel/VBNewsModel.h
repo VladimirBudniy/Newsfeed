@@ -2,21 +2,21 @@
 //  VBNewsModel.h
 //  Newsfeed
 //
-//  Created by Vladimir Budniy on 29.06.16.
+//  Created by Vladimir Budniy on 24.07.16.
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class VBNewsImage;
+@class VBNewsFeed;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VBNewsModel : NSManagedObject
 
 + (instancetype)newsModelWithTitle:(NSString *)title
-                           category:(NSString *)category
+                          category:(NSString *)category
                            pubDate:(NSDate *)pubDate
                           fullText:(NSString *)fullText
                          urlString:(NSString *)urlString;

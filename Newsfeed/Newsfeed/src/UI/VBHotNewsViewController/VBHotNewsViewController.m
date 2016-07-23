@@ -9,11 +9,12 @@
 #import "VBHotNewsViewController.h"
 #import "VBSelectedNewsViewController.h"
 #import "VBHotNewsView.h"
+#import "VBNewsFeed.h"
 #import "VBNewsParser.h"
 #import "VBTableViewCell.h"
+#import "VBConstants.h"
 
 static NSString * const kVBTsnRssUrlString    = @"http://tsn.ua/rss";
-static NSString * const kVBNavigationItemText = @"Всі новини";
 
 @interface VBHotNewsViewController ()
 @property (nonatomic, readonly) VBHotNewsView    *rootView;
@@ -33,16 +34,12 @@ static NSString * const kVBNavigationItemText = @"Всі новини";
 VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 
 -(NSString *)barTitle {
-    return kVBNavigationItemText;
+    return kVBAllNewsCategoryName;
 }
 
 - (void)setNewsArray:(NSMutableArray *)newsArray {
     if (_newsArray != newsArray) {
-        [_newsArray removeAllObjects];
-        
-        //удалить из кор даты/////////////////////////////////////////
         _newsArray = newsArray;
-        //сохранить в кор дату////////////////////////////////////////
         
         VBHotNewsView *rootView = self.rootView;
         [rootView removeLoadingViewAnimated:YES];
@@ -57,8 +54,10 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
         
         if (_newsParser) {
             VBWeakSelfMacro;
+//            [_newsParser addHandler:^(VBNewsFeed *newsFeed) {
             [_newsParser addHandler:^(VBNewsParser *parser) {
                 VBStrongSelfAndReturnNilMacro;
+//                strongSelf.newsArray = [NSMutableArray arrayWithArray:newsFeed.news];
                 strongSelf.newsArray = [NSMutableArray arrayWithArray:parser.allNews];
             } forState:kVBModelLoadedState
                              object:self];   
@@ -73,9 +72,14 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
+    
+//    VBNewsFeed *newsFeed = [VBNewsFeed newsFeedObject];
+//    if (newsFeed) {
+//        self.newsArray = [NSMutableArray arrayWithArray:newsFeed.news];
+//    }
 
     self.newsParser = [[VBNewsParser alloc] initWithURL:[NSURL URLWithString:kVBTsnRssUrlString]];
-    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
     [self addRefreshControl];
 }
 
@@ -83,7 +87,6 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 #pragma mark Private
 
 - (void)parseXML {
-    self.newsParser.state = kVBModelDefaultState;
     [self.newsParser load];
 }
 

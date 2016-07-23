@@ -2,7 +2,7 @@
 //  VBNewsModel+CoreDataProperties.h
 //  Newsfeed
 //
-//  Created by Vladimir Budniy on 29.06.16.
+//  Created by Vladimir Budniy on 24.07.16.
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,13 +14,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VBNewsModel (CoreDataProperties)
-@property (nonatomic, strong) NSString  *title;
-@property (nonatomic, strong) NSString  *urlString;
-@property (nonatomic, strong) NSString  *fullText;
-@property (nonatomic, strong) NSDate    *pubDate;
-@property (nonatomic, strong) NSString  *category;
 
-@property (nonatomic, strong) VBNewsImage *image;
+@property (nullable, nonatomic, retain) NSString *title;
+@property (nullable, nonatomic, retain) NSString *urlString;
+@property (nullable, nonatomic, retain) NSString *fullText;
+@property (nullable, nonatomic, retain) NSDate   *pubDate;
+@property (nullable, nonatomic, retain) NSString *category;
+@property (nullable, nonatomic, retain) VBNewsFeed *newsFeed;
+
 @end
 
 NS_ASSUME_NONNULL_END

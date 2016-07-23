@@ -6,7 +6,10 @@
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 
+#import "IDPActiveRecordKit.h"
+
 #import "VBNewsParser.h"
+#import "VBNewsFeed.h"
 #import "VBNewsModel.h"
 
 static NSString * const kVBEnclosureKey     = @"enclosure";
@@ -23,10 +26,10 @@ static NSUInteger const kVBSecondsFromGMT     = 0;
 static NSUInteger const kVBNewsCount          = 20;
 
 @interface VBNewsParser ()
+@property (nonatomic, strong) NSURL          *URL;
 @property (nonatomic, strong) NSMutableArray *newsArray;
 @property (nonatomic, strong) NSXMLParser    *parser;
 @property (nonatomic, strong) NSString       *element;
-@property (nonatomic, strong) NSURL          *URL;
 
 @property (nonatomic, strong) NSString  *currentTitle;
 @property (nonatomic, strong) NSString  *currentUrlString;
@@ -34,7 +37,7 @@ static NSUInteger const kVBNewsCount          = 20;
 @property (nonatomic, strong) NSDate    *currentPubDate;
 @property (nonatomic, strong) NSString  *currentCategory;
 
-- (void)writeNewsCharacters:(NSString *)string;
+- (void)addNewsCharacters:(NSString *)string;
 
 @end
 
@@ -67,6 +70,20 @@ static NSUInteger const kVBNewsCount          = 20;
     [self.newsArray removeAllObjects];
 }
 
+- (void)completionLoad {
+//    VBNewsFeed *newsFeed = [VBNewsFeed newsFeedObject];
+//    if (newsFeed) {
+//        [newsFeed deleteManagedObject];
+//        self.state = kVBModelDefaultState;
+//        [self load];
+//    }
+    
+    self.state = kVBModelDefaultState;
+    [self load];
+//
+//    [self finishLoad];
+}
+
 - (void)prepareToLoad {
     self.parser = [[NSXMLParser alloc] initWithContentsOfURL:self.URL];
     self.parser.delegate = self;
@@ -74,13 +91,17 @@ static NSUInteger const kVBNewsCount          = 20;
 }
 
 - (void)finishLoad {
+//    VBNewsFeed *newsFeed = [VBNewsFeed newsFeedWithArray:self.newsArray];
+//    [newsFeed saveManagedObject];
+//    [self setState:kVBModelLoadedState withObject:newsFeed];
+    
     [self setState:kVBModelLoadedState withObject:self];
 }
 
 #pragma mark -
 #pragma mark Private
 
-- (void)writeNewsCharacters:(NSString *)string {
+- (void)addNewsCharacters:(NSString *)string {
     if ([self.element isEqualToString:kVBTitleKey]) {
         self.currentTitle = string;
     }
@@ -116,7 +137,7 @@ didStartElement:(NSString *)elementName
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-    [self writeNewsCharacters:string];
+    [self addNewsCharacters:string];
     
     if (self.newsArray.count == kVBNewsCount) {
         [self.parser abortParsing];
@@ -129,7 +150,6 @@ didStartElement:(NSString *)elementName
  qualifiedName:(NSString *)qName
 {
     if ([elementName isEqualToString:kVBItemKey]) {
-        //////// удалить кордату в таком виде, модель сделать простым объектом хранить только массив
         VBNewsModel *news = [VBNewsModel newsModelWithTitle:self.currentTitle
                                                    category:self.currentCategory
                                                     pubDate:self.currentPubDate

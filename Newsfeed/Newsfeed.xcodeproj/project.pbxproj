@@ -69,7 +69,11 @@
 		E7EB56FB1D22C35000D3C470 /* VBTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7EB56F91D22C35000D3C470 /* VBTableViewCell.xib */; };
 		E7EB571F1D2450EC00D3C470 /* VBNewsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB571E1D2450EC00D3C470 /* VBNewsParser.m */; };
 		E7EB57231D24586C00D3C470 /* NSDate+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB57221D24586C00D3C470 /* NSDate+VBCategory.m */; };
-		E7FBC5201D3EB03400BE28CA /* VBNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FBC51F1D3EB03400BE28CA /* VBNewsModel.m */; };
+		E7FFB8EC1D44289800C6EFA5 /* Newsfeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7FFB8E41D44289800C6EFA5 /* Newsfeed.xcdatamodeld */; };
+		E7FFB9001D442CDD00C6EFA5 /* VBNewsFeed+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FFB8FD1D442CDD00C6EFA5 /* VBNewsFeed+CoreDataProperties.m */; };
+		E7FFB9011D442CDD00C6EFA5 /* VBNewsFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FFB8FF1D442CDD00C6EFA5 /* VBNewsFeed.m */; };
+		E7FFB9071D442D0400C6EFA5 /* VBNewsModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FFB9041D442D0400C6EFA5 /* VBNewsModel+CoreDataProperties.m */; };
+		E7FFB9081D442D0400C6EFA5 /* VBNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7FFB9061D442D0400C6EFA5 /* VBNewsModel.m */; };
 		EC4AFEA25532932D3980E5E3 /* libPods-Newsfeed.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D3B616A04CAC57C83611987 /* libPods-Newsfeed.a */; };
 /* End PBXBuildFile section */
 
@@ -198,8 +202,15 @@
 		E7EB571E1D2450EC00D3C470 /* VBNewsParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBNewsParser.m; sourceTree = "<group>"; };
 		E7EB57211D24586C00D3C470 /* NSDate+VBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+VBCategory.h"; sourceTree = "<group>"; };
 		E7EB57221D24586C00D3C470 /* NSDate+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+VBCategory.m"; sourceTree = "<group>"; };
-		E7FBC51E1D3EB03400BE28CA /* VBNewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBNewsModel.h; sourceTree = "<group>"; };
-		E7FBC51F1D3EB03400BE28CA /* VBNewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBNewsModel.m; sourceTree = "<group>"; };
+		E7FFB8E51D44289800C6EFA5 /* Newsfeed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Newsfeed.xcdatamodel; sourceTree = "<group>"; };
+		E7FFB8FC1D442CDD00C6EFA5 /* VBNewsFeed+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VBNewsFeed+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E7FFB8FD1D442CDD00C6EFA5 /* VBNewsFeed+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VBNewsFeed+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E7FFB8FE1D442CDD00C6EFA5 /* VBNewsFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBNewsFeed.h; sourceTree = "<group>"; };
+		E7FFB8FF1D442CDD00C6EFA5 /* VBNewsFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBNewsFeed.m; sourceTree = "<group>"; };
+		E7FFB9031D442D0400C6EFA5 /* VBNewsModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VBNewsModel+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E7FFB9041D442D0400C6EFA5 /* VBNewsModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VBNewsModel+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E7FFB9051D442D0400C6EFA5 /* VBNewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBNewsModel.h; sourceTree = "<group>"; };
+		E7FFB9061D442D0400C6EFA5 /* VBNewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBNewsModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -396,7 +407,7 @@
 		E7EB56511D228C3E00D3C470 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E7FBC51D1D3EB00C00BE28CA /* VBNewsModel */,
+				E7FFB8E31D44289800C6EFA5 /* VBCoreData */,
 				E7EB571C1D2450CF00D3C470 /* VBNewsParser */,
 			);
 			path = Models;
@@ -809,11 +820,34 @@
 			path = "NSDate+VBCategory";
 			sourceTree = "<group>";
 		};
-		E7FBC51D1D3EB00C00BE28CA /* VBNewsModel */ = {
+		E7FFB8E31D44289800C6EFA5 /* VBCoreData */ = {
 			isa = PBXGroup;
 			children = (
-				E7FBC51E1D3EB03400BE28CA /* VBNewsModel.h */,
-				E7FBC51F1D3EB03400BE28CA /* VBNewsModel.m */,
+				E7FFB9021D442CF900C6EFA5 /* VBNewsModel */,
+				E7FFB8EF1D44294C00C6EFA5 /* VBNewsFeed */,
+				E7FFB8E41D44289800C6EFA5 /* Newsfeed.xcdatamodeld */,
+			);
+			path = VBCoreData;
+			sourceTree = "<group>";
+		};
+		E7FFB8EF1D44294C00C6EFA5 /* VBNewsFeed */ = {
+			isa = PBXGroup;
+			children = (
+				E7FFB8FC1D442CDD00C6EFA5 /* VBNewsFeed+CoreDataProperties.h */,
+				E7FFB8FD1D442CDD00C6EFA5 /* VBNewsFeed+CoreDataProperties.m */,
+				E7FFB8FE1D442CDD00C6EFA5 /* VBNewsFeed.h */,
+				E7FFB8FF1D442CDD00C6EFA5 /* VBNewsFeed.m */,
+			);
+			path = VBNewsFeed;
+			sourceTree = "<group>";
+		};
+		E7FFB9021D442CF900C6EFA5 /* VBNewsModel */ = {
+			isa = PBXGroup;
+			children = (
+				E7FFB9031D442D0400C6EFA5 /* VBNewsModel+CoreDataProperties.h */,
+				E7FFB9041D442D0400C6EFA5 /* VBNewsModel+CoreDataProperties.m */,
+				E7FFB9051D442D0400C6EFA5 /* VBNewsModel.h */,
+				E7FFB9061D442D0400C6EFA5 /* VBNewsModel.m */,
 			);
 			path = VBNewsModel;
 			sourceTree = "<group>";
@@ -946,6 +980,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7FFB9011D442CDD00C6EFA5 /* VBNewsFeed.m in Sources */,
 				E7EB56BB1D228C6A00D3C470 /* NSFileManager+VBCategory.m in Sources */,
 				E7EB56C51D228C6A00D3C470 /* VBArrayModel.m in Sources */,
 				E7EB56BA1D228C6A00D3C470 /* NSBundle+VBCategory.m in Sources */,
@@ -953,6 +988,7 @@
 				E7EB56D31D228C6A00D3C470 /* VBObjectCache.m in Sources */,
 				E7EB56F11D22950100D3C470 /* VBHotNewsView.m in Sources */,
 				E7EB56EC1D22945700D3C470 /* VBHotNewsViewController.m in Sources */,
+				E7FFB9071D442D0400C6EFA5 /* VBNewsModel+CoreDataProperties.m in Sources */,
 				E7EB56D01D228C6A00D3C470 /* VBObserverObject.m in Sources */,
 				E7EB56D21D228C6A00D3C470 /* VBImageModel.m in Sources */,
 				E7EB56C61D228C6A00D3C470 /* VBSaveArrayModel.m in Sources */,
@@ -964,6 +1000,7 @@
 				E7EB571F1D2450EC00D3C470 /* VBNewsParser.m in Sources */,
 				E71EF6291D40C25D00422DE7 /* VBRightSlideViewController.m in Sources */,
 				E71EF60D1D40BE5500422DE7 /* VBMainSlideMenuViewController.m in Sources */,
+				E7FFB8EC1D44289800C6EFA5 /* Newsfeed.xcdatamodeld in Sources */,
 				E71EF63A1D40CB9100422DE7 /* VBLeftTableViewCell.m in Sources */,
 				E7EB56CB1D228C6A00D3C470 /* VBStringAlphabet.m in Sources */,
 				E7EB56C81D228C6A00D3C470 /* VBStateModel.m in Sources */,
@@ -973,13 +1010,13 @@
 				E7EB56C91D228C6A00D3C470 /* VBArrayAlphabet.m in Sources */,
 				E71EF6081D40BDAB00422DE7 /* UIViewController+AMSlideMenu.m in Sources */,
 				E7EB56CA1D228C6A00D3C470 /* VBRangeAlphabet.m in Sources */,
+				E7FFB9081D442D0400C6EFA5 /* VBNewsModel.m in Sources */,
 				E7EB56BF1D228C6A00D3C470 /* UIImage+VBCategory.m in Sources */,
 				E71EF6071D40BDAB00422DE7 /* AMSlideMenuRightTableViewController.m in Sources */,
 				E7EB57231D24586C00D3C470 /* NSDate+VBCategory.m in Sources */,
 				E71EF6031D40BDAB00422DE7 /* AMSlideMenuLeftMenuSegue.m in Sources */,
 				E7EB56FA1D22C35000D3C470 /* VBTableViewCell.m in Sources */,
 				E71EF62E1D40C27E00422DE7 /* VBLeftSlideViewController.m in Sources */,
-				E7FBC5201D3EB03400BE28CA /* VBNewsModel.m in Sources */,
 				E7EB56C71D228C6A00D3C470 /* VBModel.m in Sources */,
 				E7EB56C11D228C6A00D3C470 /* UITableView+VBCategory.m in Sources */,
 				E700448C1D27144700DB189F /* VBSelectedNewsViewController.m in Sources */,
@@ -995,6 +1032,7 @@
 				E7EB56CC1D228C6A00D3C470 /* VBAlphabet.m in Sources */,
 				E71EF6021D40BDAB00422DE7 /* AMSlideMenuContentSegue.m in Sources */,
 				E7EB56C01D228C6A00D3C470 /* UINib+VBCategory.m in Sources */,
+				E7FFB9001D442CDD00C6EFA5 /* VBNewsFeed+CoreDataProperties.m in Sources */,
 				E7EB56CD1D228C6A00D3C470 /* VBDispatch.m in Sources */,
 				E7EB56DD1D228F8F00D3C470 /* VBAppDelegate.m in Sources */,
 				E7EB56C31D228C6A00D3C470 /* UIViewController+VBCategory.m in Sources */,
@@ -1152,6 +1190,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E7FFB8E41D44289800C6EFA5 /* Newsfeed.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E7FFB8E51D44289800C6EFA5 /* Newsfeed.xcdatamodel */,
+			);
+			currentVersion = E7FFB8E51D44289800C6EFA5 /* Newsfeed.xcdatamodel */;
+			path = Newsfeed.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E7EB56251D2289C500D3C470 /* Project object */;
 }

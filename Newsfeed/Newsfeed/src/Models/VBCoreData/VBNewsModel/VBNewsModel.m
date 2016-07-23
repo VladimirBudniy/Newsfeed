@@ -2,12 +2,14 @@
 //  VBNewsModel.m
 //  Newsfeed
 //
-//  Created by Vladimir Budniy on 29.06.16.
+//  Created by Vladimir Budniy on 24.07.16.
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
+
 #import "IDPActiveRecordKit.h"
 
 #import "VBNewsModel.h"
+#import "VBNewsFeed.h"
 
 static NSString * const kVBTitleKey = @"title";
 
@@ -17,7 +19,7 @@ static NSString * const kVBTitleKey = @"title";
 #pragma mark Class Methods
 
 + (instancetype)newsModelWithTitle:(NSString *)title
-                           category:(NSString *)category
+                          category:(NSString *)category
                            pubDate:(NSDate *)pubDate
                           fullText:(NSString *)fullText
                          urlString:(NSString *)urlString
@@ -44,5 +46,6 @@ static NSString * const kVBTitleKey = @"title";
                                                predicate:predicate
                                            prefetchPaths:nil] firstObject];
 }
+
 
 @end

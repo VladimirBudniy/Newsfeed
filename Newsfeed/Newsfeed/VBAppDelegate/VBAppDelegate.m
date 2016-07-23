@@ -17,10 +17,9 @@ static NSString * const kVBCoraDataName = @"Newsfeed";
 @implementation VBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    [IDPCoreDataManager sharedManagerWithMomName:kVBCoraDataName];
+    [IDPCoreDataManager sharedManagerWithMomName:kVBCoraDataName];
     
     VBMainSlideMenuViewController *viewController = [VBMainSlideMenuViewController new];
-    //    VBHotNewsViewController *viewController = [VBHotNewsViewController new];
     UINavigationController *controller = [[UINavigationController alloc]
                                           initWithRootViewController:viewController];
     
