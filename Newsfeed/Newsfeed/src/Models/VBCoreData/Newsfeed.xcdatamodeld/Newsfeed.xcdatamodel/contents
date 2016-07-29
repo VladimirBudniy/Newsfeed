@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Automatic">
     <entity name="VBNewsFeed" representedClassName="VBNewsFeed" syncable="YES">
         <attribute name="wasCreate" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="newsModels" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VBNewsModel" inverseName="newsFeed" inverseEntity="VBNewsModel" syncable="YES"/>
@@ -7,13 +7,13 @@
     <entity name="VBNewsModel" representedClassName="VBNewsModel" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fullText" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="pubDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="pubDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="newsFeed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VBNewsFeed" inverseName="newsModels" inverseEntity="VBNewsFeed" syncable="YES"/>
     </entity>
     <elements>
         <element name="VBNewsFeed" positionX="-63" positionY="-18" width="128" height="73"/>
-        <element name="VBNewsModel" positionX="187" positionY="-162" width="128" height="133"/>
+        <element name="VBNewsModel" positionX="187" positionY="-162" width="128" height="135"/>
     </elements>
 </model>

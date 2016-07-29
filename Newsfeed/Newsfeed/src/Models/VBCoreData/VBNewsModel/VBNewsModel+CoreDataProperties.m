@@ -2,7 +2,7 @@
 //  VBNewsModel+CoreDataProperties.m
 //  Newsfeed
 //
-//  Created by Vladimir Budniy on 24.07.16.
+//  Created by Vladimir Budniy on 28.07.16.
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -13,11 +13,11 @@
 
 @implementation VBNewsModel (CoreDataProperties)
 
-@dynamic title;
-@dynamic urlString;
+@dynamic category;
 @dynamic fullText;
 @dynamic pubDate;
-@dynamic category;
+@dynamic title;
+@dynamic urlString;
 @dynamic newsFeed;
 
 @end

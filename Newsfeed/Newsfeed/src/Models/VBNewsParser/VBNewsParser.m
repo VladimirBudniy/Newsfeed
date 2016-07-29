@@ -20,10 +20,7 @@ static NSString * const kVBCategoryKey      = @"category";
 static NSString * const kVBPubDateKey       = @"pubDate";
 static NSString * const kVBItemKey          = @"item";
 
-static NSString * const kVBCurrentDateFormat  = @"E, d MMM yyyy HH:mm:ss Z";
-static NSString * const kVBCorrectDateFormate = @"yyyy-MM-dd HH:mm";
-static NSUInteger const kVBSecondsFromGMT     = 0;
-static NSUInteger const kVBNewsCount          = 20;
+static NSUInteger const kVBNewsCount        = 80;
 
 @interface VBNewsParser ()
 @property (nonatomic, strong) NSURL          *URL;
@@ -34,7 +31,7 @@ static NSUInteger const kVBNewsCount          = 20;
 @property (nonatomic, strong) NSString  *currentTitle;
 @property (nonatomic, strong) NSString  *currentUrlString;
 @property (nonatomic, strong) NSString  *currentFullText;
-@property (nonatomic, strong) NSDate    *currentPubDate;
+@property (nonatomic, strong) NSString  *currentPubDate;
 @property (nonatomic, strong) NSString  *currentCategory;
 
 - (void)addNewsCharacters:(NSString *)string;
@@ -73,15 +70,13 @@ static NSUInteger const kVBNewsCount          = 20;
 - (void)completionLoad {
 //    VBNewsFeed *newsFeed = [VBNewsFeed newsFeedObject];
 //    if (newsFeed) {
-//        [newsFeed deleteManagedObject];
+//        [newsFeed removeNews];
 //        self.state = kVBModelDefaultState;
 //        [self load];
 //    }
     
     self.state = kVBModelDefaultState;
     [self load];
-//
-//    [self finishLoad];
 }
 
 - (void)prepareToLoad {
@@ -115,9 +110,7 @@ static NSUInteger const kVBNewsCount          = 20;
     }
     
     if ([self.element isEqualToString:kVBPubDateKey]) {
-        NSDate *currentDate = [NSDate dateWithString:string dateFormate:kVBCurrentDateFormat];
-        self.currentPubDate = [currentDate convertDateFormate:kVBCorrectDateFormate
-                                               secondsFromGMT:kVBSecondsFromGMT];
+        self.currentPubDate = string;
     }
 }
 
@@ -130,10 +123,11 @@ didStartElement:(NSString *)elementName
   qualifiedName:(NSString *)qName
      attributes:(NSDictionary *)attributeDict
 {
-    self.element = elementName;
-    if ([self.element isEqualToString:kVBEnclosureKey]) {
+    if ([elementName isEqualToString:kVBEnclosureKey]) {
         self.currentUrlString = [attributeDict valueForKey:kVBUrlKey];
     }
+    
+    self.element = elementName;
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {

@@ -57,4 +57,12 @@ static NSString * const kVBWasCreateKey   = @"wasCreate";
                                            prefetchPaths:nil] firstObject];
 }
 
+#pragma mark - 
+#pragma mark Public
+
+- (void)removeNews {
+    NSArray *newsArray = self.newsModels.allObjects;
+    [self removeNewsModels:[NSSet setWithArray:newsArray]];
+}
+
 @end

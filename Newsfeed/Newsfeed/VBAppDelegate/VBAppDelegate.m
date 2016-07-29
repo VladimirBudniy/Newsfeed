@@ -9,8 +9,10 @@
 #import "IDPActiveRecordKit.h"
 
 #import "VBAppDelegate.h"
-//#import "VBHotNewsViewController.h"
 #import "VBMainSlideMenuViewController.h"
+
+#import "VBNewsFeed.h"
+#import "VBNewsModel.h"
 
 static NSString * const kVBCoraDataName = @"Newsfeed";
 
@@ -18,7 +20,7 @@ static NSString * const kVBCoraDataName = @"Newsfeed";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [IDPCoreDataManager sharedManagerWithMomName:kVBCoraDataName];
-    
+
     VBMainSlideMenuViewController *viewController = [VBMainSlideMenuViewController new];
     UINavigationController *controller = [[UINavigationController alloc]
                                           initWithRootViewController:viewController];

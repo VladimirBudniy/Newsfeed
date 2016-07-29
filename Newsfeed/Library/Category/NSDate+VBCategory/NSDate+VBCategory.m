@@ -11,6 +11,9 @@ static NSString * const kVBDateFormat = @"MMM d, H:mm";
 static NSString * const kVBLocaleIdentifier   = @"uk_BI";
 static NSUInteger const kVBSecondsFromGMT     = 0;
 
+static NSString * const kVBCurrentDateFormat   = @"E, d MMM yyyy HH:mm:ss Z";
+static NSString * const kVBCorrectDateFormat  = @"yyyy-MM-dd HH:mm";
+
 @implementation NSDate (VBCategory)
 
 #pragma mark -
@@ -42,6 +45,15 @@ static NSUInteger const kVBSecondsFromGMT     = 0;
                  localeIdentifier:kVBLocaleIdentifier
                       dateFormate:kVBDateFormat
                    secondsFromGMT:kVBSecondsFromGMT];
+}
+
++ (NSString *)convertStringDate:(NSString *)string {
+    NSDate *currentDate = [NSDate dateWithString:string dateFormate:kVBCurrentDateFormat];
+    NSDate *correctDate = [currentDate convertDateFormate:kVBCorrectDateFormat
+                                           secondsFromGMT:kVBSecondsFromGMT];
+    
+    
+    return [NSDate stringFromDate:correctDate];
 }
 
 #pragma mark -

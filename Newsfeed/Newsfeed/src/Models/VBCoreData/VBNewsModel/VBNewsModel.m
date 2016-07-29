@@ -20,7 +20,7 @@ static NSString * const kVBTitleKey = @"title";
 
 + (instancetype)newsModelWithTitle:(NSString *)title
                           category:(NSString *)category
-                           pubDate:(NSDate *)pubDate
+                           pubDate:(NSString *)pubDate
                           fullText:(NSString *)fullText
                          urlString:(NSString *)urlString
 {

@@ -92,7 +92,7 @@ static NSString * const kVBStringNameFormat = @"%@_%@";
 }
 
 - (NSString *)path {
-    return [NSFileManager pathFileWithName:self.fileName];
+    return [NSFileManager pathPhotoWithName:self.fileName];
 }
 
 - (BOOL)isCached {

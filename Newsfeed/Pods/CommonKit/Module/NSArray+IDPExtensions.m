@@ -20,6 +20,7 @@
     if (![self count]) {
         return nil;
     }
+    
      return [self objectAtIndex:[self randomWithCount:[self count]]];
 }
 
@@ -31,6 +32,7 @@
         [shuffle addObject:[array objectAtIndex:index]];
         [array removeObjectAtIndex:index];
     }
+    
     return  shuffle;
 }
 
@@ -38,6 +40,7 @@
     if (self.count) {
         return [self objectAtIndex:0];
     }
+    
     return nil;
 }
 

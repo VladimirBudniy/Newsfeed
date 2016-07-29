@@ -12,4 +12,8 @@
 + (NSString *)directoryFolderPath;
 + (NSString *)pathFileWithName:(NSString *)name;
 
++ (NSString *)photosFolderPath;
++ (NSString *)pathPhotoWithName:(NSString *)name;
++ (void)createFolderWithName:(NSString *)name;
+
 @end

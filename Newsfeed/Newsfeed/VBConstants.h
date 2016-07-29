@@ -37,5 +37,4 @@ typedef enum {
     kVBInterestingCategory
 } kVBCategoiesType;
 
-
 #endif /* VBConstants_h */
