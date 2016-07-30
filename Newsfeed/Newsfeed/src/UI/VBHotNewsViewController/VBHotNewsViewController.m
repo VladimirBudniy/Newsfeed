@@ -43,6 +43,10 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
     if (_newsArray != newsArray) {
         _newsArray = newsArray;
         
+        VBNewsFeed *newsFeed = [VBNewsFeed newsFeed];
+        newsFeed.news = [NSArray arrayWithArray:_newsArray];
+        [newsFeed saveManagedObject];
+        
         VBHotNewsView *rootView = self.rootView;
         [rootView removeLoadingViewAnimated:YES];
         [rootView.tableView reloadData];
@@ -56,12 +60,10 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
         
         if (_newsParser) {
             VBWeakSelfMacro;
-            [_newsParser addHandler:^(VBNewsFeed *newsFeed) {
-//            [_newsParser addHandler:^(VBNewsParser *parser) {
+            [_newsParser addHandler:^(VBNewsParser *parser) {
                 VBStrongSelfAndReturnNilMacro;
                 [strongSelf cleanDatabase];
-                strongSelf.newsArray = [NSMutableArray arrayWithArray:newsFeed.news];
-//                strongSelf.newsArray = [NSMutableArray arrayWithArray:parser.allNews];
+                strongSelf.newsArray = [NSMutableArray arrayWithArray:parser.allNews];
             } forState:kVBModelLoadedState
                              object:self];   
         }

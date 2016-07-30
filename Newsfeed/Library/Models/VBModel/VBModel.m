@@ -39,7 +39,7 @@
     }
     
     if (self.state == kVBModelLoadedState) {
-        [self completionLoad];
+        [self completionLoad]; /// can't called this method at pull to refresh
         return;
     }
     

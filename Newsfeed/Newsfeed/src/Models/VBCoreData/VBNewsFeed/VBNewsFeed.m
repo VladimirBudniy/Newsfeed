@@ -24,7 +24,7 @@ static NSString * const kVBWasCreateKey   = @"wasCreate";
 
 - (NSArray *)news {
     NSArray *array = self.newsModels.allObjects;
-    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:kVBSortNewsKey ascending:YES];
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:kVBSortNewsKey ascending:NO];
     
     return [array sortedArrayUsingDescriptors:@[sort]];
 }

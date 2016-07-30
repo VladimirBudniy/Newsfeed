@@ -78,14 +78,8 @@ static NSUInteger const kVBNewsCount        = 80;
     [self.parser parse];
 }
 
-- (void)finishLoad {
-    VBNewsFeed *newsFeed = [VBNewsFeed newsFeed];
-    newsFeed.news = self.newsArray;
-    [newsFeed saveManagedObject];
-    
-    [self setState:kVBModelLoadedState withObject:newsFeed];
-    
-//    [self setState:kVBModelLoadedState withObject:self];
+- (void)finishLoad {    
+    [self setState:kVBModelLoadedState withObject:self];
 }
 
 #pragma mark -

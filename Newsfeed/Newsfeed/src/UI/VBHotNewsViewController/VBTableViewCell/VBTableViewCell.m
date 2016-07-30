@@ -17,7 +17,7 @@
 
 - (void)fillWithNews:(VBNewsModel *)newsModel {
     self.cellLabel.text = newsModel.title;
-    self.cellImage.URL = [NSURL URLWithString:newsModel.urlString];
+    self.cellImage.URL = [NSURL URLWithString:[newsModel urlString]];
     self.cellDateLabel.text = [NSDate convertStringDate:newsModel.pubDate];
 }
 
