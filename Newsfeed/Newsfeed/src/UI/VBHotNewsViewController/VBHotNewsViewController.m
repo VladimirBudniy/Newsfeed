@@ -18,11 +18,13 @@ static NSString * const kVBTsnRssUrlString    = @"http://tsn.ua/rss";
 
 @interface VBHotNewsViewController ()
 @property (nonatomic, readonly) VBHotNewsView    *rootView;
+@property (nonatomic, strong)   VBNewsFeed       *newsFeed;
 @property (nonatomic, strong)   NSMutableArray   *newsArray;
 @property (nonatomic, strong)   UIRefreshControl *refreshControl;
 
 - (void)parseXML;
 - (void)addRefreshControl;
+- (void)cleanDatabase;
 
 @end
 
@@ -54,11 +56,12 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
         
         if (_newsParser) {
             VBWeakSelfMacro;
-//            [_newsParser addHandler:^(VBNewsFeed *newsFeed) {
-            [_newsParser addHandler:^(VBNewsParser *parser) {
+            [_newsParser addHandler:^(VBNewsFeed *newsFeed) {
+//            [_newsParser addHandler:^(VBNewsParser *parser) {
                 VBStrongSelfAndReturnNilMacro;
-//                strongSelf.newsArray = [NSMutableArray arrayWithArray:newsFeed.news];
-                strongSelf.newsArray = [NSMutableArray arrayWithArray:parser.allNews];
+                [strongSelf cleanDatabase];
+                strongSelf.newsArray = [NSMutableArray arrayWithArray:newsFeed.news];
+//                strongSelf.newsArray = [NSMutableArray arrayWithArray:parser.allNews];
             } forState:kVBModelLoadedState
                              object:self];   
         }
@@ -74,12 +77,13 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
     [super viewDidLoad];
     [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
     
-//    VBNewsFeed *newsFeed = [VBNewsFeed newsFeedObject];
-//    if (newsFeed) {
-//        self.newsArray = [NSMutableArray arrayWithArray:newsFeed.news];
-//    }
-
-    self.newsParser = [[VBNewsParser alloc] initWithURL:[NSURL URLWithString:kVBTsnRssUrlString]];
+    VBNewsFeed *newsFeed = [VBNewsFeed newsFeed];
+    if (newsFeed.news.count) {
+        self.newsArray = [NSMutableArray arrayWithArray:newsFeed.news];
+    } else {
+        self.newsParser = [[VBNewsParser alloc] initWithURL:[NSURL URLWithString:kVBTsnRssUrlString]];
+    }
+    
     [self addRefreshControl];
 }
 
@@ -88,6 +92,14 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 
 - (void)parseXML {
     [self.newsParser load];
+}
+
+- (void)cleanDatabase {
+    BOOL success = [[NSFileManager defaultManager] removeItemAtPath:[NSFileManager photosFolderPath]
+                                                              error:nil];
+    if (success) {
+        [[VBNewsFeed newsFeed] removeNews];
+    }
 }
 
 - (void)addRefreshControl {

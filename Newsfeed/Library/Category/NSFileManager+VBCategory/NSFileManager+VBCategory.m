@@ -25,25 +25,24 @@ static NSString * const kVBPhotosFolderName = @"/Photos";
     return [[NSFileManager directoryFolderPath] stringByAppendingPathComponent:name];
 }
 
-+ (NSString *)pathPhotoWithName:(NSString *)name {
-    return [[NSFileManager photosFolderPath] stringByAppendingPathComponent:name];
-}
-
 + (NSString *)photosFolderPath {
     [NSFileManager createFolderWithName:kVBPhotosFolderName];
 
     return [[NSFileManager directoryFolderPath] stringByAppendingPathComponent:kVBPhotosFolderName];
 }
 
++ (NSString *)pathPhotoWithName:(NSString *)name {
+    return [[NSFileManager photosFolderPath] stringByAppendingPathComponent:name];
+}
+
 + (void)createFolderWithName:(NSString *)name {
     NSString *dataPath = [[NSFileManager directoryFolderPath] stringByAppendingPathComponent:name];
-    NSError *saveError = nil;
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath]) {
         [[NSFileManager defaultManager] createDirectoryAtPath:dataPath
                                   withIntermediateDirectories:NO
                                                    attributes:nil
-                                                        error:&saveError];
+                                                        error:nil];
     }
 }
 

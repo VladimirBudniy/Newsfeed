@@ -67,14 +67,7 @@ static NSUInteger const kVBNewsCount        = 80;
     [self.newsArray removeAllObjects];
 }
 
-- (void)completionLoad {
-//    VBNewsFeed *newsFeed = [VBNewsFeed newsFeedObject];
-//    if (newsFeed) {
-//        [newsFeed removeNews];
-//        self.state = kVBModelDefaultState;
-//        [self load];
-//    }
-    
+- (void)completionLoad {    
     self.state = kVBModelDefaultState;
     [self load];
 }
@@ -86,11 +79,13 @@ static NSUInteger const kVBNewsCount        = 80;
 }
 
 - (void)finishLoad {
-//    VBNewsFeed *newsFeed = [VBNewsFeed newsFeedWithArray:self.newsArray];
-//    [newsFeed saveManagedObject];
-//    [self setState:kVBModelLoadedState withObject:newsFeed];
+    VBNewsFeed *newsFeed = [VBNewsFeed newsFeed];
+    newsFeed.news = self.newsArray;
+    [newsFeed saveManagedObject];
     
-    [self setState:kVBModelLoadedState withObject:self];
+    [self setState:kVBModelLoadedState withObject:newsFeed];
+    
+//    [self setState:kVBModelLoadedState withObject:self];
 }
 
 #pragma mark -
