@@ -67,11 +67,6 @@ static NSUInteger const kVBNewsCount        = 80;
     [self.newsArray removeAllObjects];
 }
 
-- (void)completionLoad {    
-    self.state = kVBModelDefaultState;
-    [self load];
-}
-
 - (void)prepareToLoad {
     self.parser = [[NSXMLParser alloc] initWithContentsOfURL:self.URL];
     self.parser.delegate = self;

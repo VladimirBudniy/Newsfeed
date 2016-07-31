@@ -24,7 +24,7 @@ static NSString * const kVBTsnRssUrlString    = @"http://tsn.ua/rss";
 
 - (void)parseXML;
 - (void)addRefreshControl;
-- (void)cleanDatabase;
+//- (void)cleanDatabase;
 
 @end
 
@@ -62,7 +62,7 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
             VBWeakSelfMacro;
             [_newsParser addHandler:^(VBNewsParser *parser) {
                 VBStrongSelfAndReturnNilMacro;
-                [strongSelf cleanDatabase];
+//                [strongSelf cleanDatabase];
                 strongSelf.newsArray = [NSMutableArray arrayWithArray:parser.allNews];
             } forState:kVBModelLoadedState
                              object:self];   
@@ -83,7 +83,7 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
     if (newsFeed.news.count) {
         self.newsArray = [NSMutableArray arrayWithArray:newsFeed.news];
     } else {
-        self.newsParser = [[VBNewsParser alloc] initWithURL:[NSURL URLWithString:kVBTsnRssUrlString]];
+        self.newsParser = [[VBNewsParser alloc] initWithURL:[NSURL URLWithString:kVBTsnRssUrlString]]; //duplicated
     }
     
     [self addRefreshControl];
@@ -93,16 +93,21 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 #pragma mark Private
 
 - (void)parseXML {
+    if (!self.newsParser) {
+        self.newsParser = [[VBNewsParser alloc] initWithURL:[NSURL URLWithString:kVBTsnRssUrlString]]; //duplicated
+    }
+    
+    self.newsParser.state = kVBModelDefaultState;
     [self.newsParser load];
 }
 
-- (void)cleanDatabase {
-    BOOL success = [[NSFileManager defaultManager] removeItemAtPath:[NSFileManager photosFolderPath]
-                                                              error:nil];
-    if (success) {
-        [[VBNewsFeed newsFeed] removeNews];
-    }
-}
+//- (void)cleanDatabase {
+//    BOOL success = [[NSFileManager defaultManager] removeItemAtPath:[NSFileManager photosFolderPath]
+//                                                              error:nil];
+//    if (success) {
+//        [[VBNewsFeed newsFeed] removeNews];
+//    }
+//}
 
 - (void)addRefreshControl {
     UIRefreshControl *control = [[UIRefreshControl alloc] init];
