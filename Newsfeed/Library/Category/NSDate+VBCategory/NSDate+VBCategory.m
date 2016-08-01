@@ -7,8 +7,9 @@
 //
 #import "NSDate+VBCategory.h"
 
-static NSString * const kVBDateFormat = @"MMM d, H:mm";
-static NSString * const kVBLocaleIdentifier   = @"uk_BI";
+static NSString * const kVBDateFormat                = @"MMM d, H:mm";
+static NSString * const kVBUkraineLocaleIdentifier   = @"uk_BI";
+static NSString * const kVBDefaultLocaleIdentifier   = @"en_US";
 static NSUInteger const kVBSecondsFromGMT     = 0;
 
 static NSString * const kVBCurrentDateFormat   = @"E, d MMM yyyy HH:mm:ss Z";
@@ -21,9 +22,15 @@ static NSString * const kVBCorrectDateFormat  = @"yyyy-MM-dd HH:mm";
 
 + (NSDate *)dateWithString:(NSString *)stringDate dateFormate:(NSString *)dateFormate {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    NSLocale *locate = [[NSLocale alloc] initWithLocaleIdentifier:kVBDefaultLocaleIdentifier];
+    
+    [formatter setLocale:locate];
     [formatter setDateFormat:dateFormate];
-
-    return [formatter dateFromString:stringDate];
+    
+    NSDate *date = [formatter dateFromString:stringDate];
+    
+    return date;
+//    return [formatter dateFromString:stringDate];
 }
 
 + (NSString *)stringFromDate:(NSDate *)date
@@ -42,7 +49,7 @@ static NSString * const kVBCorrectDateFormat  = @"yyyy-MM-dd HH:mm";
 
 + (NSString *)stringFromDate:(NSDate *)date {
     return [NSDate stringFromDate:date
-                 localeIdentifier:kVBLocaleIdentifier
+                 localeIdentifier:kVBUkraineLocaleIdentifier
                       dateFormate:kVBDateFormat
                    secondsFromGMT:kVBSecondsFromGMT];
 }

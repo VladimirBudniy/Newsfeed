@@ -8,8 +8,6 @@
 
 #import "NSFileManager+VBCategory.h"
 
-static NSString * const kVBPhotosFolderName = @"/Photos";
-
 @implementation NSFileManager (VBCategory)
 
 #pragma mark -
@@ -25,14 +23,14 @@ static NSString * const kVBPhotosFolderName = @"/Photos";
     return [[NSFileManager directoryFolderPath] stringByAppendingPathComponent:name];
 }
 
-+ (NSString *)photosFolderPath {
-    [NSFileManager createFolderWithName:kVBPhotosFolderName];
-
-    return [[NSFileManager directoryFolderPath] stringByAppendingPathComponent:kVBPhotosFolderName];
++ (NSString *)pathPhotoWithName:(NSString *)name folder:(NSString *)folder {
+    return [[NSFileManager pathFolderWithName:folder] stringByAppendingPathComponent:name];
 }
 
-+ (NSString *)pathPhotoWithName:(NSString *)name {
-    return [[NSFileManager photosFolderPath] stringByAppendingPathComponent:name];
++ (NSString *)pathFolderWithName:(NSString *)name {
+    [NSFileManager createFolderWithName:name];
+    
+    return [[NSFileManager directoryFolderPath] stringByAppendingPathComponent:name];
 }
 
 + (void)createFolderWithName:(NSString *)name {
@@ -44,6 +42,12 @@ static NSString * const kVBPhotosFolderName = @"/Photos";
                                                    attributes:nil
                                                         error:nil];
     }
+}
+
++ (BOOL)removeFileWithName:(NSString *)name {
+    NSString *path = [NSFileManager pathFolderWithName:name];
+    
+    return [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
 }
 
 @end

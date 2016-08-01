@@ -14,6 +14,7 @@
 
 - (void)setObject:(id)object forKey:(id)key;
 - (void)removeObjectForKey:(id)key;
+- (void)removeAllObjects;
 
 - (BOOL)isCachedWithKey:(id)key;
 - (id)objectForKey:(id)key;

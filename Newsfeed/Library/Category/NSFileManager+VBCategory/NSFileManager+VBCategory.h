@@ -11,9 +11,9 @@
 @interface NSFileManager (VBCategory)
 + (NSString *)directoryFolderPath;
 + (NSString *)pathFileWithName:(NSString *)name;
-+ (NSString *)photosFolderPath;
-+ (NSString *)pathPhotoWithName:(NSString *)name;
-
++ (NSString *)pathPhotoWithName:(NSString *)name folder:(NSString *)folder;
++ (NSString *)pathFolderWithName:(NSString *)name;
++ (BOOL)removeFileWithName:(NSString *)name;
 + (void)createFolderWithName:(NSString *)name;
 
 @end

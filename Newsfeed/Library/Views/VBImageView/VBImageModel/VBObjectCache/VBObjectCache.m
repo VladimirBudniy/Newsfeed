@@ -99,6 +99,13 @@ static VBObjectCache * cache = nil;
     }
 }
 
+- (void)removeAllObjects {
+    @synchronized (self) {
+        NSArray *keys = [self.dictionary allKeys];
+        [self.dictionary removeObjectsForKeys:keys];
+    }
+}
+
 - (id)objectForKey:(id)key {
     @synchronized (self) {
         return [self.dictionary objectForKey:key];
