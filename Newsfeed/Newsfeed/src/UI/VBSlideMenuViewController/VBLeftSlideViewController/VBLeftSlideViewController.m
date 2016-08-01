@@ -10,7 +10,6 @@
 #import "VBHotNewsViewController.h"
 #import "VBLeftTableViewCell.h"
 #import "VBNewsParser.h"
-#import "VBConstants.h"
 
 static NSString * const kVBCategoriesStringName = @"Categories";
 
@@ -27,17 +26,18 @@ static NSString * const kVBCategoriesStringName = @"Categories";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.categoryArray = @[kVBAllNewsCategoryName,
-                            kVBUkraineNewsCategoryName,
-                            kVBATOCategoryName,
-                            kVCitymCategoryName,
-                            kVBWorldNewsCategoryName,
-                            kVBPoliticsCategoryName,
-                            kVBEconomicCategoryName,
-                            kVBTechnologiesNewsCategoryName,
-                            kVBGlamourCategoryName,
-                            kVBSportCategoryName,
-                            kVBTourismCategoryName,
-                            kVBInterestingCategoryName];
+                           kVBUkraineNewsCategoryName,
+                           kVBATOCategoryName,
+                           kVCitymCategoryName,
+                           kVBWorldNewsCategoryName,
+                           kVBPoliticsCategoryName,
+                           kVBEconomicCategoryName,
+                           kVBTechnologiesNewsCategoryName,
+                           kVBGlamourCategoryName,
+                           kVBSportCategoryName,
+                           kVBTourismCategoryName,
+                           kVBInterestingCategoryName,
+                           kVBHelpCategoryName];
 }
 
 #pragma mark
@@ -64,55 +64,72 @@ static NSString * const kVBCategoriesStringName = @"Categories";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    UIViewController *viewController;
+    VBHotNewsViewController *viewController;
 
     switch (indexPath.row) {
         case kVBAllNewsCategory:
             viewController = [VBHotNewsViewController new];
+            viewController.categoryType = kVBAllNewsCategory;
             break;
             
         case kVBUkraineNewsCategory:
             viewController = [VBHotNewsViewController new];
+            viewController.categoryType = kVBUkraineNewsCategory;
             break;
             
         case kVBATOCategory:
             viewController = [VBHotNewsViewController new];
+            viewController.categoryType = kVBATOCategory;
             break;
             
         case kVCitymCategory:
             viewController = [VBHotNewsViewController new];
+            viewController.categoryType = kVCitymCategory;
             break;
             
         case kVBWorldNewsCategory:
             viewController = [VBHotNewsViewController new];
+            viewController.categoryType = kVBWorldNewsCategory;
             break;
             
         case kVBPoliticsCategory:
             viewController = [VBHotNewsViewController new];
+            viewController.categoryType = kVBPoliticsCategory;
             break;
             
         case kVBEconomicCategory:
             viewController = [VBHotNewsViewController new];
+            viewController.categoryType = kVBEconomicCategory;
             break;
             
         case kVBTechnologiesNewsCategory:
             viewController = [VBHotNewsViewController new];
+            viewController.categoryType = kVBTechnologiesNewsCategory;
             break;
             
         case kVBGlamourCategory:
             viewController = [VBHotNewsViewController new];
+            viewController.categoryType = kVBGlamourCategory;
             break;
             
         case kVBSportCategory:
             viewController = [VBHotNewsViewController new];
+            viewController.categoryType = kVBSportCategory;
             break;
             
         case kVBTourismCategory:
             viewController = [VBHotNewsViewController new];
+            viewController.categoryType = kVBTourismCategory;
             break;
             
         case kVBInterestingCategory:
             viewController = [VBHotNewsViewController new];
+            viewController.categoryType = kVBInterestingCategory;
+            break;
+            
+        case kVBHelpCategory:
+            viewController = [VBHotNewsViewController new];
+            viewController.categoryType = kVBHelpCategory;
             break;
     }
     

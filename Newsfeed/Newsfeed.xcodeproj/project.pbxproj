@@ -41,8 +41,6 @@
 		E7EB56C21D228C6A00D3C470 /* UIView+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB56781D228C6A00D3C470 /* UIView+VBCategory.m */; };
 		E7EB56C31D228C6A00D3C470 /* UIViewController+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB567B1D228C6A00D3C470 /* UIViewController+VBCategory.m */; };
 		E7EB56C41D228C6A00D3C470 /* UIWindow+VBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB567E1D228C6A00D3C470 /* UIWindow+VBCategory.m */; };
-		E7EB56C51D228C6A00D3C470 /* VBArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB56841D228C6A00D3C470 /* VBArrayModel.m */; };
-		E7EB56C61D228C6A00D3C470 /* VBSaveArrayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB56871D228C6A00D3C470 /* VBSaveArrayModel.m */; };
 		E7EB56C71D228C6A00D3C470 /* VBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB568A1D228C6A00D3C470 /* VBModel.m */; };
 		E7EB56C81D228C6A00D3C470 /* VBStateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB568D1D228C6A00D3C470 /* VBStateModel.m */; };
 		E7EB56C91D228C6A00D3C470 /* VBArrayAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB56921D228C6A00D3C470 /* VBArrayAlphabet.m */; };
@@ -145,10 +143,6 @@
 		E7EB567D1D228C6A00D3C470 /* UIWindow+VBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+VBCategory.h"; sourceTree = "<group>"; };
 		E7EB567E1D228C6A00D3C470 /* UIWindow+VBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+VBCategory.m"; sourceTree = "<group>"; };
 		E7EB56801D228C6A00D3C470 /* VBMacroHeaderIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMacroHeaderIOS.h; sourceTree = "<group>"; };
-		E7EB56831D228C6A00D3C470 /* VBArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBArrayModel.h; sourceTree = "<group>"; };
-		E7EB56841D228C6A00D3C470 /* VBArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBArrayModel.m; sourceTree = "<group>"; };
-		E7EB56861D228C6A00D3C470 /* VBSaveArrayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBSaveArrayModel.h; sourceTree = "<group>"; };
-		E7EB56871D228C6A00D3C470 /* VBSaveArrayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBSaveArrayModel.m; sourceTree = "<group>"; };
 		E7EB56891D228C6A00D3C470 /* VBModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBModel.h; sourceTree = "<group>"; };
 		E7EB568A1D228C6A00D3C470 /* VBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBModel.m; sourceTree = "<group>"; };
 		E7EB568C1D228C6A00D3C470 /* VBStateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBStateModel.h; sourceTree = "<group>"; };
@@ -585,30 +579,10 @@
 		E7EB56811D228C6A00D3C470 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E7EB56821D228C6A00D3C470 /* VBArrayModel */,
 				E7EB56881D228C6A00D3C470 /* VBModel */,
 				E7EB568B1D228C6A00D3C470 /* VBStateModel */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		E7EB56821D228C6A00D3C470 /* VBArrayModel */ = {
-			isa = PBXGroup;
-			children = (
-				E7EB56831D228C6A00D3C470 /* VBArrayModel.h */,
-				E7EB56841D228C6A00D3C470 /* VBArrayModel.m */,
-				E7EB56851D228C6A00D3C470 /* VBSaveArrayModel */,
-			);
-			path = VBArrayModel;
-			sourceTree = "<group>";
-		};
-		E7EB56851D228C6A00D3C470 /* VBSaveArrayModel */ = {
-			isa = PBXGroup;
-			children = (
-				E7EB56861D228C6A00D3C470 /* VBSaveArrayModel.h */,
-				E7EB56871D228C6A00D3C470 /* VBSaveArrayModel.m */,
-			);
-			path = VBSaveArrayModel;
 			sourceTree = "<group>";
 		};
 		E7EB56881D228C6A00D3C470 /* VBModel */ = {
@@ -982,7 +956,6 @@
 			files = (
 				E7FFB9011D442CDD00C6EFA5 /* VBNewsFeed.m in Sources */,
 				E7EB56BB1D228C6A00D3C470 /* NSFileManager+VBCategory.m in Sources */,
-				E7EB56C51D228C6A00D3C470 /* VBArrayModel.m in Sources */,
 				E7EB56BA1D228C6A00D3C470 /* NSBundle+VBCategory.m in Sources */,
 				E7EB56BD1D228C6A00D3C470 /* NSString+VBCategory.m in Sources */,
 				E7EB56D31D228C6A00D3C470 /* VBObjectCache.m in Sources */,
@@ -991,7 +964,6 @@
 				E7FFB9071D442D0400C6EFA5 /* VBNewsModel+CoreDataProperties.m in Sources */,
 				E7EB56D01D228C6A00D3C470 /* VBObserverObject.m in Sources */,
 				E7EB56D21D228C6A00D3C470 /* VBImageModel.m in Sources */,
-				E7EB56C61D228C6A00D3C470 /* VBSaveArrayModel.m in Sources */,
 				E71EF6061D40BDAB00422DE7 /* AMSlideMenuRightMenuSegue.m in Sources */,
 				E7EB56C21D228C6A00D3C470 /* UIView+VBCategory.m in Sources */,
 				E7EB56D51D228C6A00D3C470 /* VBLoadingView.m in Sources */,

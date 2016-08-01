@@ -36,24 +36,8 @@ static NSString * const kVBWasCreateKey   = @"wasCreate";
 #pragma mark -
 #pragma mark Class Methods
 
-//+ (instancetype)newsFeedWithArray:(NSArray *)news {
-//    VBNewsFeed *model = [self newsFeedObject];
-//    if (model) {
-//        return model;
-//    }
-//    
-//    model = [self managedObject];
-//    model.news = news;
-//    model.wasCreate = YES;
-//    
-//    return model;
-//}
-
 + (instancetype)newsFeed {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = YES", kVBWasCreateKey];
-    VBNewsFeed *model = [[[self class] fetchEntityWithSortDescriptors:nil
-                                                            predicate:predicate
-                                                        prefetchPaths:nil] firstObject];
+    VBNewsFeed *model = [self newsFeedObject];
     if (model) {
         return model;
     }
@@ -65,13 +49,13 @@ static NSString * const kVBWasCreateKey   = @"wasCreate";
     return model;
 }
 
-//+ (instancetype)newsFeedObject {
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = YES", kVBWasCreateKey];
-//    
-//    return [[[self class] fetchEntityWithSortDescriptors:nil
-//                                               predicate:predicate
-//                                           prefetchPaths:nil] firstObject];
-//}
++ (instancetype)newsFeedObject {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = YES", kVBWasCreateKey];
+    
+    return [[[self class] fetchEntityWithSortDescriptors:nil
+                                               predicate:predicate
+                                           prefetchPaths:nil] firstObject];
+}
 
 #pragma mark - 
 #pragma mark Public

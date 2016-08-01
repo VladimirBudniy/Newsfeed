@@ -10,7 +10,6 @@
 
 #import "VBAppDelegate.h"
 #import "VBMainSlideMenuViewController.h"
-
 #import "VBNewsFeed.h"
 #import "VBNewsModel.h"
 

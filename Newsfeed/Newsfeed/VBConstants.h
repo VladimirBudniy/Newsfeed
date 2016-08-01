@@ -9,6 +9,8 @@
 #ifndef VBConstants_h
 #define VBConstants_h
 
+static NSString * const kVBPhotosFolderName = @"/Photos";
+
 static NSString * const kVBAllNewsCategoryName              = @"Всі новини";
 static NSString * const kVBUkraineNewsCategoryName          = @"Новини України";
 static NSString * const kVBATOCategoryName                  = @"Новини АТО";
@@ -21,6 +23,7 @@ static NSString * const kVBGlamourCategoryName              = @"Світськи
 static NSString * const kVBSportCategoryName                = @"Спорт";
 static NSString * const kVBTourismCategoryName              = @"Туризм";
 static NSString * const kVBInterestingCategoryName          = @"Цікавинки";
+static NSString * const kVBHelpCategoryName                 = @"Допомога";
 
 typedef enum {
     kVBAllNewsCategory,
@@ -34,7 +37,8 @@ typedef enum {
     kVBGlamourCategory,
     kVBSportCategory,
     kVBTourismCategory,
-    kVBInterestingCategory
-} kVBCategoiesType;
+    kVBInterestingCategory,
+    kVBHelpCategory
+} kVBCategoryType;
 
 #endif /* VBConstants_h */

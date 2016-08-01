@@ -12,19 +12,20 @@
 #import "VBNewsFeed.h"
 #import "VBNewsParser.h"
 #import "VBTableViewCell.h"
-#import "VBConstants.h"
 
 static NSString * const kVBTsnRssUrlString    = @"http://tsn.ua/rss";
 
 @interface VBHotNewsViewController ()
 @property (nonatomic, readonly) VBHotNewsView    *rootView;
-@property (nonatomic, strong)   VBNewsFeed       *newsFeed;
 @property (nonatomic, strong)   NSMutableArray   *newsArray;
 @property (nonatomic, strong)   UIRefreshControl *refreshControl;
 
 - (void)parseXML;
 - (void)addRefreshControl;
-//- (void)cleanDatabase;
+- (void)newsFeedWithArray:(NSArray *)array;
+- (void)reloadRootViewData;
+- (void)showSpinner;
+- (VBNewsParser *)parser;
 
 @end
 
@@ -43,14 +44,8 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
     if (_newsArray != newsArray) {
         _newsArray = newsArray;
         
-        VBNewsFeed *newsFeed = [VBNewsFeed newsFeed];
-        newsFeed.news = [NSArray arrayWithArray:_newsArray];
-        [newsFeed saveManagedObject];
-        
-        VBHotNewsView *rootView = self.rootView;
-        [rootView removeLoadingViewAnimated:YES];
-        [rootView.tableView reloadData];
-        [self.refreshControl endRefreshing];
+        [self newsFeedWithArray:_newsArray];
+        [self reloadRootViewData];
     }
 }
 
@@ -62,7 +57,6 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
             VBWeakSelfMacro;
             [_newsParser addHandler:^(VBNewsParser *parser) {
                 VBStrongSelfAndReturnNilMacro;
-//                [strongSelf cleanDatabase];
                 strongSelf.newsArray = [NSMutableArray arrayWithArray:parser.allNews];
             } forState:kVBModelLoadedState
                              object:self];   
@@ -77,13 +71,14 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
+    
     
     VBNewsFeed *newsFeed = [VBNewsFeed newsFeed];
     if (newsFeed.news.count) {
+        [self showSpinner];
         self.newsArray = [NSMutableArray arrayWithArray:newsFeed.news];
     } else {
-        self.newsParser = [[VBNewsParser alloc] initWithURL:[NSURL URLWithString:kVBTsnRssUrlString]]; //duplicated
+        self.newsParser = [self parser];
     }
     
     [self addRefreshControl];
@@ -93,27 +88,42 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 #pragma mark Private
 
 - (void)parseXML {
+    [self showSpinner];
     if (!self.newsParser) {
-        self.newsParser = [[VBNewsParser alloc] initWithURL:[NSURL URLWithString:kVBTsnRssUrlString]]; //duplicated
+        self.newsParser = [self parser];
     }
     
     self.newsParser.state = kVBModelDefaultState;
     [self.newsParser load];
 }
 
-//- (void)cleanDatabase {
-//    BOOL success = [[NSFileManager defaultManager] removeItemAtPath:[NSFileManager photosFolderPath]
-//                                                              error:nil];
-//    if (success) {
-//        [[VBNewsFeed newsFeed] removeNews];
-//    }
-//}
-
 - (void)addRefreshControl {
     UIRefreshControl *control = [[UIRefreshControl alloc] init];
     [control addTarget:self action:@selector(parseXML) forControlEvents:UIControlEventValueChanged];
     [self.rootView.tableView addSubview:control];
     self.refreshControl = control;
+}
+
+- (void)newsFeedWithArray:(NSArray *)array {
+    VBNewsFeed *newsFeed = [VBNewsFeed newsFeed];
+    [newsFeed removeNews];
+    newsFeed.news = [NSArray arrayWithArray:array];
+    [newsFeed saveManagedObject];
+}
+
+- (void)reloadRootViewData {
+    VBHotNewsView *rootView = self.rootView;
+    [rootView removeLoadingViewAnimated:YES];
+    [rootView.tableView reloadData];
+    [self.refreshControl endRefreshing];
+}
+
+- (VBNewsParser *)parser {
+    return [[VBNewsParser alloc] initWithURL:[NSURL URLWithString:kVBTsnRssUrlString]];
+}
+
+- (void)showSpinner {
+    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
 }
 
 #pragma mark -

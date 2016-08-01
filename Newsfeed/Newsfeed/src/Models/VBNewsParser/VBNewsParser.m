@@ -20,7 +20,7 @@ static NSString * const kVBCategoryKey      = @"category";
 static NSString * const kVBPubDateKey       = @"pubDate";
 static NSString * const kVBItemKey          = @"item";
 
-static NSUInteger const kVBNewsCount        = 80;
+static NSUInteger const kVBNewsCount        = 20;
 
 @interface VBNewsParser ()
 @property (nonatomic, strong) NSURL          *URL;
@@ -57,44 +57,58 @@ static NSUInteger const kVBNewsCount        = 80;
 #pragma mark Accessors
 
 - (NSArray *)allNews {
-    return self.newsArray;
+    @synchronized (self) {
+        return self.newsArray;
+    }
 }
 
 #pragma mark -
 #pragma mark Public
 
 - (void)setupLoad {
-    [self.newsArray removeAllObjects];
+    @synchronized (self) {
+        [self.newsArray removeAllObjects];
+//        BOOL success = [NSFileManager removeFileWithName:kVBPhotosFolderName];
+//        if (success) {
+//            [[VBNewsFeed newsFeed] removeNews];
+//        }
+    }
 }
 
 - (void)prepareToLoad {
-    self.parser = [[NSXMLParser alloc] initWithContentsOfURL:self.URL];
-    self.parser.delegate = self;
-    [self.parser parse];
+    @synchronized (self) {
+        self.parser = [[NSXMLParser alloc] initWithContentsOfURL:self.URL];
+        self.parser.delegate = self;
+        [self.parser parse];
+    }
 }
 
-- (void)finishLoad {    
-    [self setState:kVBModelLoadedState withObject:self];
+- (void)finishLoad {
+    @synchronized (self) {
+        [self setState:kVBModelLoadedState withObject:self];
+    }
 }
 
 #pragma mark -
 #pragma mark Private
 
 - (void)addNewsCharacters:(NSString *)string {
-    if ([self.element isEqualToString:kVBTitleKey]) {
-        self.currentTitle = string;
-    }
-    
-    if ([self.element isEqualToString:kVBFulltextKey]) {
-        self.currentFullText = string;
-    }
-    
-    if ([self.element isEqualToString:kVBCategoryKey]) {
-        self.currentCategory = string;
-    }
-    
-    if ([self.element isEqualToString:kVBPubDateKey]) {
-        self.currentPubDate = string;
+    @synchronized (self) {
+        if ([self.element isEqualToString:kVBTitleKey]) {
+            self.currentTitle = string;
+        }
+        
+        if ([self.element isEqualToString:kVBFulltextKey]) {
+            self.currentFullText = string;
+        }
+        
+        if ([self.element isEqualToString:kVBCategoryKey]) {
+            self.currentCategory = string;
+        }
+        
+        if ([self.element isEqualToString:kVBPubDateKey]) {
+            self.currentPubDate = string;
+        }
     }
 }
 
@@ -107,18 +121,23 @@ didStartElement:(NSString *)elementName
   qualifiedName:(NSString *)qName
      attributes:(NSDictionary *)attributeDict
 {
-    if ([elementName isEqualToString:kVBEnclosureKey]) {
-        self.currentUrlString = [attributeDict valueForKey:kVBUrlKey];
+    @synchronized (self) {
+        if ([elementName isEqualToString:kVBEnclosureKey]) {
+            self.currentUrlString = [attributeDict valueForKey:kVBUrlKey];
+        }
+        
+        self.element = elementName;
     }
-    
-    self.element = elementName;
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-    [self addNewsCharacters:string];
-    
-    if (self.newsArray.count == kVBNewsCount) {
-        [self.parser abortParsing];
+    @synchronized (self) {
+        
+        [self addNewsCharacters:string];
+        
+        if (self.newsArray.count == kVBNewsCount) {
+            [self.parser abortParsing];
+        }
     }
 }
 
@@ -127,16 +146,18 @@ didStartElement:(NSString *)elementName
   namespaceURI:(NSString *)namespaceURI
  qualifiedName:(NSString *)qName
 {
-    if ([elementName isEqualToString:kVBItemKey]) {
-        VBNewsModel *news = [VBNewsModel newsModelWithTitle:self.currentTitle
-                                                   category:self.currentCategory
-                                                    pubDate:self.currentPubDate
-                                                   fullText:self.currentFullText
-                                                  urlString:self.currentUrlString];
-        [self.newsArray addObject:news];
+    @synchronized (self) {
+        if ([elementName isEqualToString:kVBItemKey]) {
+            VBNewsModel *news = [VBNewsModel newsModelWithTitle:self.currentTitle
+                                                       category:self.currentCategory
+                                                        pubDate:self.currentPubDate
+                                                       fullText:self.currentFullText
+                                                      urlString:self.currentUrlString];
+            [self.newsArray addObject:news];
+        }
+        
+        self.element = nil;
     }
-
-    self.element = nil;
 }
 
 @end

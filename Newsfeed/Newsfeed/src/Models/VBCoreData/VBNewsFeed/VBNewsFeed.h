@@ -17,9 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray  *news;
 @property (nonatomic, assign) BOOL     wasCreate;
 
-//+ (instancetype)newsFeedWithArray:(NSArray *)news;
-//+ (instancetype)newsFeedObject;
-
++ (instancetype)newsFeedObject;
 + (instancetype)newsFeed;
 
 - (void)removeNews;

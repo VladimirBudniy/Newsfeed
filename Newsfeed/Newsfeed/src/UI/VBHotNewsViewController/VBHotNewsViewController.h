@@ -11,6 +11,7 @@
 @class VBNewsParser;
 
 @interface VBHotNewsViewController : VBViewController <UITableViewDelegate>
-@property (nonatomic, strong) VBNewsParser *newsParser;
+@property (nonatomic, strong) VBNewsParser     *newsParser;
+@property (nonatomic, assign) kVBCategoryType  categoryType;
 
 @end
