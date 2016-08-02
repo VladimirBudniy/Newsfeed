@@ -18,10 +18,9 @@ static NSString * const kVBCategoriesStringName = @"Categories";
 @interface VBLeftSlideViewController ()
 @property (nonatomic, strong) NSArray *categoryArray;
 
-//- (VBHotNewsViewController *)controllerFromIndexPath:(NSIndexPath *)indexPath;
-//- (VBHotNewsViewController *)controllerWithCategory:(kVBCategoryType)type;
 - (NSArray *)newsArrayWithCategory:(NSIndexPath *)indexPath;
 - (NSArray *)newsForCategory:(kVBCategoryType)type;
+- (VBNewsModel *)news:(VBNewsModel *)model category:(kVBCategoryType)type;
 
 @end
 
@@ -70,12 +69,9 @@ static NSString * const kVBCategoriesStringName = @"Categories";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
-//    VBHotNewsViewController *viewController = [self controllerFromIndexPath:indexPath];
 
     VBHotNewsViewController *viewController = [VBHotNewsViewController new];
-    viewController.newsArray = [self newsArrayWithCategory:indexPath];
-    
+    viewController.news = [self newsArrayWithCategory:indexPath];
     UINavigationController *controller = [[UINavigationController alloc]
                                           initWithRootViewController:viewController];
     
@@ -84,77 +80,6 @@ static NSString * const kVBCategoriesStringName = @"Categories";
 
 #pragma mark -
 #pragma mark Private
-
-//- (VBHotNewsViewController *)controllerFromIndexPath:(NSIndexPath *)indexPath {
-//    VBHotNewsViewController *viewController;
-//    
-//    switch (indexPath.row) {
-//        case kVBAllNewsCategory:
-//            viewController = [self controllerWithCategory:kVBAllNewsCategory];
-//            break;
-//            
-//        case kVBUkraineNewsCategory:
-//            viewController = [self controllerWithCategory:kVBUkraineNewsCategory];
-//            break;
-//            
-//        case kVBATOCategory:
-//            viewController = [self controllerWithCategory:kVBATOCategory];
-//            
-//            break;
-//            
-//        case kVCitymCategory:
-//            viewController = [self controllerWithCategory:kVCitymCategory];
-//            
-//            break;
-//            
-//        case kVBWorldNewsCategory:
-//            viewController = [self controllerWithCategory:kVBWorldNewsCategory];
-//            
-//            break;
-//            
-//        case kVBPoliticsCategory:
-//            viewController = [self controllerWithCategory:kVBPoliticsCategory];
-//            
-//            break;
-//            
-//        case kVBEconomicCategory:
-//            viewController = [self controllerWithCategory:kVBEconomicCategory];
-//            break;
-//            
-//        case kVBTechnologiesNewsCategory:
-//            viewController = [self controllerWithCategory:kVBTechnologiesNewsCategory];
-//            break;
-//            
-//        case kVBGlamourCategory:
-//            viewController = [self controllerWithCategory:kVBGlamourCategory];
-//            break;
-//            
-//        case kVBSportCategory:
-//            viewController = [self controllerWithCategory:kVBSportCategory];
-//            break;
-//            
-//        case kVBTourismCategory:
-//            viewController = [self controllerWithCategory:kVBTourismCategory];
-//            break;
-//            
-//        case kVBInterestingCategory:
-//            viewController = [self controllerWithCategory:kVBInterestingCategory];
-//            break;
-//            
-//        case kVBHelpCategory:
-//            viewController = [self controllerWithCategory:kVBHelpCategory];
-//            break;
-//    }
-//    
-//    return viewController;
-//}
-
-//- (VBHotNewsViewController *)controllerWithCategory:(kVBCategoryType)type {
-//    VBHotNewsViewController *viewController = [VBHotNewsViewController new];
-//    viewController.newsArray = [self newsArrayWithCategory:type];
-//    
-//    return viewController;
-//}
 
 - (NSArray *)newsArrayWithCategory:(NSIndexPath *)indexPath {
     NSMutableArray *array = [NSMutableArray array];
@@ -212,7 +137,6 @@ static NSString * const kVBCategoriesStringName = @"Categories";
             [array addObjectsFromArray:[self newsForCategory:kVBHelpCategory]];
             break;
     }
-    
     
     return array;
 }

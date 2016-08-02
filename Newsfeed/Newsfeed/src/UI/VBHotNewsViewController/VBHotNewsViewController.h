@@ -12,6 +12,6 @@
 
 @interface VBHotNewsViewController : VBViewController <UITableViewDelegate>
 @property (nonatomic, strong) VBNewsParser     *newsParser;
-@property (nonatomic, strong) NSArray          *newsArray;
+@property (nonatomic, strong) NSArray          *news;
 
 @end

@@ -17,6 +17,7 @@ static NSString * const kVBTsnRssUrlString    = @"http://tsn.ua/rss";
 
 @interface VBHotNewsViewController ()
 @property (nonatomic, readonly) VBHotNewsView    *rootView;
+@property (nonatomic, strong)   NSArray          *newsArray;
 @property (nonatomic, strong)   UIRefreshControl *refreshControl;
 
 - (void)parseXML;
@@ -36,7 +37,7 @@ static NSString * const kVBTsnRssUrlString    = @"http://tsn.ua/rss";
 VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 
 -(NSString *)barTitle {
-    return kVBAllNewsCategoryName; // switch for title
+    return kVBAllNewsCategoryName; // switch for title //////////////////////////////////////////////////////////////////////////////////
 }
 
 - (void)setNewsArray:(NSArray *)newsArray {
@@ -72,10 +73,10 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    VBNewsFeed *newsFeed = [VBNewsFeed newsFeed];   // separate method
-    if (newsFeed.news.count) {
+    NSArray *array = [NSArray arrayWithArray:self.news];
+    if (array.count) {
         [self showSpinner];
-        self.newsArray = [NSMutableArray arrayWithArray:newsFeed.news];
+        self.newsArray = [NSArray arrayWithArray:array];
     } else {
         self.newsParser = [self parser];
     }
