@@ -11,8 +11,6 @@
 #import "VBNewsModel.h"
 #import "VBNewsFeed.h"
 
-static NSString * const kVBTitleKey = @"title";
-
 @implementation VBNewsModel
 
 #pragma mark -
@@ -31,7 +29,7 @@ static NSString * const kVBTitleKey = @"title";
     
     model = [self managedObject];
     model.title = title;
-    model.category = category;
+    model.newsCategory = category;
     model.pubDate = pubDate;
     model.fullText = fullText;
     model.urlString = urlString;

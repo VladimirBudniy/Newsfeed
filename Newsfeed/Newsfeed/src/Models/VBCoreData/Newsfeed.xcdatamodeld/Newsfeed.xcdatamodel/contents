@@ -5,8 +5,8 @@
         <relationship name="newsModels" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VBNewsModel" inverseName="newsFeed" inverseEntity="VBNewsModel" syncable="YES"/>
     </entity>
     <entity name="VBNewsModel" representedClassName="VBNewsModel" syncable="YES">
-        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fullText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsCategory" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pubDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>

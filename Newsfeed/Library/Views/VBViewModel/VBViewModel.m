@@ -32,6 +32,10 @@ static CGFloat    const kVBRemovingAlpha     = 0.1;
     [self showLoadingViewWithDefaultTextAnimated:NO];
 }
 
+- (void)showLoadingViewAnimated:(BOOL)animated {
+    [self showLoadingViewWithText:nil animated:animated];
+}
+
 - (void)showLoadingViewWithDefaultTextAnimated:(BOOL)animated {
     [self showLoadingViewWithText:kVBDefaultLodingText animated:animated];
 }
@@ -71,7 +75,6 @@ static CGFloat    const kVBRemovingAlpha     = 0.1;
                      }];
 }
 
+
+
 @end
-
-
-

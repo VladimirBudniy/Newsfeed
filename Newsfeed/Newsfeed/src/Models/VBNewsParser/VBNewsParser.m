@@ -12,16 +12,6 @@
 #import "VBNewsFeed.h"
 #import "VBNewsModel.h"
 
-static NSString * const kVBEnclosureKey     = @"enclosure";
-static NSString * const kVBUrlKey           = @"url";
-static NSString * const kVBTitleKey         = @"title";
-static NSString * const kVBFulltextKey      = @"fulltext";
-static NSString * const kVBCategoryKey      = @"category";
-static NSString * const kVBPubDateKey       = @"pubDate";
-static NSString * const kVBItemKey          = @"item";
-
-static NSUInteger const kVBNewsCount        = 20;
-
 @interface VBNewsParser ()
 @property (nonatomic, strong) NSURL          *URL;
 @property (nonatomic, strong) NSMutableArray *newsArray;

@@ -17,7 +17,6 @@ static NSString * const kVBTsnRssUrlString    = @"http://tsn.ua/rss";
 
 @interface VBHotNewsViewController ()
 @property (nonatomic, readonly) VBHotNewsView    *rootView;
-@property (nonatomic, strong)   NSMutableArray   *newsArray;
 @property (nonatomic, strong)   UIRefreshControl *refreshControl;
 
 - (void)parseXML;
@@ -37,14 +36,13 @@ static NSString * const kVBTsnRssUrlString    = @"http://tsn.ua/rss";
 VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 
 -(NSString *)barTitle {
-    return kVBAllNewsCategoryName;
+    return kVBAllNewsCategoryName; // switch for title
 }
 
-- (void)setNewsArray:(NSMutableArray *)newsArray {
+- (void)setNewsArray:(NSArray *)newsArray {
     if (_newsArray != newsArray) {
         _newsArray = newsArray;
-        
-        [self newsFeedWithArray:_newsArray];
+
         [self reloadRootViewData];
     }
 }
@@ -57,7 +55,9 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
             VBWeakSelfMacro;
             [_newsParser addHandler:^(VBNewsParser *parser) {
                 VBStrongSelfAndReturnNilMacro;
-                strongSelf.newsArray = [NSMutableArray arrayWithArray:parser.allNews];
+                NSArray *array = [NSArray arrayWithArray:parser.allNews];
+                strongSelf.newsArray = array;
+                [strongSelf newsFeedWithArray:array];
             } forState:kVBModelLoadedState
                              object:self];   
         }
@@ -72,8 +72,7 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    VBNewsFeed *newsFeed = [VBNewsFeed newsFeed];
+    VBNewsFeed *newsFeed = [VBNewsFeed newsFeed];   // separate method
     if (newsFeed.news.count) {
         [self showSpinner];
         self.newsArray = [NSMutableArray arrayWithArray:newsFeed.news];
@@ -123,7 +122,7 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 }
 
 - (void)showSpinner {
-    [self.rootView showLoadingViewWithDefaultTextAnimated:YES];
+    [self.rootView showLoadingViewAnimated:YES];
 }
 
 #pragma mark -

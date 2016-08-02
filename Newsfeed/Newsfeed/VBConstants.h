@@ -11,6 +11,18 @@
 
 static NSString * const kVBPhotosFolderName = @"/Photos";
 
+// constants for VBNewsParser
+static NSString * const kVBEnclosureKey     = @"enclosure";
+static NSString * const kVBUrlKey           = @"url";
+static NSString * const kVBTitleKey         = @"title";
+static NSString * const kVBFulltextKey      = @"fulltext";
+static NSString * const kVBCategoryKey      = @"category";
+static NSString * const kVBPubDateKey       = @"pubDate";
+static NSString * const kVBItemKey          = @"item";
+
+static NSUInteger const kVBNewsCount        = 30;
+
+//constants for VBLeftSlideViewController, categories names for VBLSVC
 static NSString * const kVBAllNewsCategoryName              = @"Всі новини";
 static NSString * const kVBUkraineNewsCategoryName          = @"Новини України";
 static NSString * const kVBATOCategoryName                  = @"Новини АТО";
@@ -24,6 +36,31 @@ static NSString * const kVBSportCategoryName                = @"Спорт";
 static NSString * const kVBTourismCategoryName              = @"Туризм";
 static NSString * const kVBInterestingCategoryName          = @"Цікавинки";
 static NSString * const kVBHelpCategoryName                 = @"Допомога";
+
+//constants for VBLeftSlideViewController, sort with original categories names
+static NSString * const kVBAllNewsOriginalCategoryName              = @"Всі новини"; ///????????????????????????????????
+static NSString * const kVBUkraineNewsOriginalCategoryName          = @"Новини України на 1+1";
+static NSString * const kVBATOOriginalCategoryName                  = @"Новини АТО - всі подробиці війни у Донецькій та Луганській областях";
+static NSString * const kVCitymOriginalCategoryName                 = @"Новини Києва на 1+1";
+static NSString * const kVBWorldNewsOriginalCategoryName            = @"Новини світу на 1+1";
+static NSString * const kVBPoliticsOriginalCategoryName             = @"Політика";
+static NSString * const kVBEconomicOriginalCategoryName             = @"Гроші, фінансові новини на 1+1";
+static NSString * const kVBTechnologiesOriginalNewsCategoryName     = @"Новини технологій, науки та IT на 1+1";
+static NSString * const kVBGlamourOriginalCategoryName              = @"Світські новини - гламур на 1+1";
+static NSString * const kVBSportOriginalCategoryName                = @"Про спорт - новини спорту, все про спорт в Україні";
+static NSString * const kVBTourismOriginalCategoryName              = @"Туризм";
+static NSString * const kVBInterestingOriginalCategoryName          = @"Все цікаве онлайн на 1+1";
+static NSString * const kVBHelpOriginalCategoryName                 = @"Допомога";
+
+// other original categories
+//Профутбол
+//Фото
+//Випуски ТСН на 1+1 відео онлайн
+//Випуски ТСН Тиждень на 1+1 відео онлайн
+//Інтерв’ю
+//Здоров’я та спорт
+//Вікно
+//Про життя
 
 typedef enum {
     kVBAllNewsCategory,

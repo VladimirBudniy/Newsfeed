@@ -11,6 +11,7 @@
 @interface VBViewModel : UIView
 
 - (void)showLoadingView;
+- (void)showLoadingViewAnimated:(BOOL)animated;
 
 - (void)showLoadingViewWithDefaultText;
 - (void)showLoadingViewWithDefaultTextAnimated:(BOOL)animated;
