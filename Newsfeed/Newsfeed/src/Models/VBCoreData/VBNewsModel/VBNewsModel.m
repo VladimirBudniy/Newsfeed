@@ -18,7 +18,7 @@
 
 + (instancetype)newsModelWithTitle:(NSString *)title
                           category:(NSString *)category
-                           pubDate:(NSString *)pubDate
+                           pubDate:(NSDate *)pubDate
                           fullText:(NSString *)fullText
                          urlString:(NSString *)urlString
 {

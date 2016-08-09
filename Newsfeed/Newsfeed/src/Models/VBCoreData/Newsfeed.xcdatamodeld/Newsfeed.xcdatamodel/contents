@@ -7,7 +7,7 @@
     <entity name="VBNewsModel" representedClassName="VBNewsModel" syncable="YES">
         <attribute name="fullText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="newsCategory" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="pubDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pubDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="newsFeed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VBNewsFeed" inverseName="newsModels" inverseEntity="VBNewsFeed" syncable="YES"/>

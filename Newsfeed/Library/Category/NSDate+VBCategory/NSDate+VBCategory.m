@@ -27,10 +27,7 @@ static NSString * const kVBCorrectDateFormat  = @"yyyy-MM-dd HH:mm";
     [formatter setLocale:locate];
     [formatter setDateFormat:dateFormate];
     
-    NSDate *date = [formatter dateFromString:stringDate];
-    
-    return date;
-//    return [formatter dateFromString:stringDate];
+    return [formatter dateFromString:stringDate];
 }
 
 + (NSString *)stringFromDate:(NSDate *)date
@@ -54,13 +51,10 @@ static NSString * const kVBCorrectDateFormat  = @"yyyy-MM-dd HH:mm";
                    secondsFromGMT:kVBSecondsFromGMT];
 }
 
-+ (NSString *)convertStringDate:(NSString *)string {
++ (NSDate *)convertDateFromString:(NSString *)string {
     NSDate *currentDate = [NSDate dateWithString:string dateFormate:kVBCurrentDateFormat];
-    NSDate *correctDate = [currentDate convertDateFormate:kVBCorrectDateFormat
-                                           secondsFromGMT:kVBSecondsFromGMT];
-    
-    
-    return [NSDate stringFromDate:correctDate];
+
+    return [currentDate convertDateFormate:kVBCorrectDateFormat secondsFromGMT:kVBSecondsFromGMT];
 }
 
 #pragma mark -

@@ -21,7 +21,7 @@
 @property (nonatomic, strong) NSString  *currentTitle;
 @property (nonatomic, strong) NSString  *currentUrlString;
 @property (nonatomic, strong) NSString  *currentFullText;
-@property (nonatomic, strong) NSString  *currentPubDate;
+@property (nonatomic, strong) NSDate    *currentPubDate;
 @property (nonatomic, strong) NSString  *currentCategory;
 
 - (void)addNewsCharacters:(NSString *)string;
@@ -97,7 +97,7 @@
         }
         
         if ([self.element isEqualToString:kVBPubDateKey]) {
-            self.currentPubDate = string;
+            self.currentPubDate = [NSDate convertDateFromString:string];
         }
     }
 }

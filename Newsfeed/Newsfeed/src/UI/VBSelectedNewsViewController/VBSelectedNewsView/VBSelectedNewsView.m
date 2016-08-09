@@ -18,7 +18,7 @@
 - (void)fillWithNews:(VBNewsModel *)news {
     self.newsImage.URL = [NSURL URLWithString:news.urlString];
     self.newsTitle.text = news.title;
-    self.newsDate.text = [NSDate convertStringDate:news.pubDate];
+    self.newsDate.text = [NSDate stringFromDate:news.pubDate];
     self.newsText.text = news.fullText;
 }
 

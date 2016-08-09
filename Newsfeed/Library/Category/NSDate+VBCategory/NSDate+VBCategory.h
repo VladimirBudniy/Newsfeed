@@ -16,7 +16,7 @@
             localeIdentifier:(NSString *)localeIdentifier
                  dateFormate:(NSString *)dateFormate
               secondsFromGMT:(NSUInteger)secondsFromGMT;
-+ (NSString *)convertStringDate:(NSString *)string;
++ (NSDate *)convertDateFromString:(NSString *)string;
 
 - (NSDate *)convertDateFormate:(NSString *)dateFormate secondsFromGMT:(NSUInteger)secondsFromGMT;
 

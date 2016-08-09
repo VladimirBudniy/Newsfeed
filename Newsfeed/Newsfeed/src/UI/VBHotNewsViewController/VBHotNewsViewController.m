@@ -57,8 +57,8 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
             [_newsParser addHandler:^(VBNewsParser *parser) {
                 VBStrongSelfAndReturnNilMacro;
                 NSArray *array = [NSArray arrayWithArray:parser.allNews];
-                strongSelf.newsArray = array;
                 [strongSelf newsFeedWithArray:array];
+                strongSelf.newsArray = array;
             } forState:kVBModelLoadedState
                              object:self];   
         }
