@@ -25,7 +25,7 @@
     self.rightMenu = [VBRightSlideViewController new];
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor blueColor];
+    self.view.backgroundColor = VBCustormColor;
 }
 
 @end

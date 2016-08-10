@@ -38,6 +38,7 @@
             <connections>
                 <outlet property="label" destination="jyc-iS-P38" id="ygR-tt-jmM"/>
             </connections>
+            <point key="canvasLocation" x="217" y="189"/>
         </view>
     </objects>
 </document>

@@ -13,21 +13,18 @@ static NSString * const kVBRightButtonName    = @"Settings";
 
 @interface VBViewController ()
 - (void)addBarButtons;
+- (NSDictionary *)defaultAttributes;
+- (void)barTitle:(NSString *)title attributes:(NSDictionary *)attributes;
 
 @end
 
 @implementation VBViewController
 
-@dynamic barTitle;
 @dynamic leftButtonName;
 @dynamic rightButtonName;
 
 #pragma mark -
 #pragma mark Accessors
-
-- (NSString *)barTitle {
-    return nil;
-}
 
 - (NSString *)leftButtonName {
     return kVBLeftButtonName;
@@ -42,18 +39,13 @@ static NSString * const kVBRightButtonName    = @"Settings";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self defaultNavigationBar];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
     [self showNavigationBar];
 }
 
 #pragma mark -
 #pragma mark Public
 
-- (void)clearNavigationBar { //////////////change name of method
+- (void)clearNavigationBar {
     UINavigationBar *navigationBar = self.navigationController.navigationBar;
     navigationBar.backgroundColor = [UIColor clearColor];
     [navigationBar setShadowImage:[[UIImage alloc] init]];
@@ -61,21 +53,15 @@ static NSString * const kVBRightButtonName    = @"Settings";
                         forBarMetrics:UIBarMetricsDefault];
 }
 
-- (void)defaultNavigationBar {
-    self.navigationController.navigationBar.backgroundColor = [UIColor blueColor];
-    UINavigationBar *navigationBar = self.navigationController.navigationBar;
-    [navigationBar setShadowImage:nil];
-    [navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+- (void)showNavigationBar {
+    self.view.backgroundColor = VBCustormColor;
+    [self clearNavigationBar];
+    [self barTitle:self.barTitle attributes:[self defaultAttributes]];
+    [self addBarButtons];
 }
 
 - (void)hideNavigationBar {
     self.navigationController.navigationBarHidden = YES;
-}
-
-- (void)showNavigationBar {
-    self.navigationController.navigationBar.backgroundColor = [UIColor blueColor];
-    self.navigationItem.title = self.barTitle;
-    [self addBarButtons];
 }
 
 - (void)leftButtonWithImageName:(NSString *)name action:(SEL)selector target:(id)object {
@@ -96,6 +82,24 @@ static NSString * const kVBRightButtonName    = @"Settings";
 
 #pragma mark -
 #pragma mark Private
+
+
+- (void)barTitle:(NSString *)title attributes:(NSDictionary *)attributes {
+    self.navigationItem.title = title;
+    [self.navigationController.navigationBar setTitleTextAttributes:attributes];
+}
+
+- (NSDictionary *)defaultAttributes {
+    NSShadow *shadow = [NSShadow new];
+    shadow.shadowColor = [UIColor darkGrayColor];
+    shadow.shadowOffset = CGSizeMake(0, 2);
+    UIFont *font = [UIFont fontWithName:kVBBarTitleTextStyle size:kVBBarTitleTextSize];
+    NSDictionary *textTitleOptions = @{NSForegroundColorAttributeName:[UIColor whiteColor],
+                                                NSShadowAttributeName:shadow,
+                                                  NSFontAttributeName:font};
+    
+    return textTitleOptions;
+}
 
 - (void)addBarButtons {
     [self leftButtonWithImageName:self.leftButtonName

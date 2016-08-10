@@ -19,7 +19,6 @@
 #import "UITableView+VBCategory.h"
 #import "UINib+VBCategory.h"
 #import "NSBundle+VBCategory.h"
-#import "UIImage+VBCategory.h"
 #import "NSFileManager+VBCategory.h"
 #import "NSString+VBCategory.h"
 #import "NSDate+VBCategory.h"

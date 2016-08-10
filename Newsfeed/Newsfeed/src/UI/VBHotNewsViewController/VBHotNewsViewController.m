@@ -20,6 +20,7 @@ static NSString * const kVBTsnRssUrlString    = @"http://tsn.ua/rss";
 @property (nonatomic, strong)   NSArray          *newsArray;
 @property (nonatomic, strong)   UIRefreshControl *refreshControl;
 
+- (void)loadNews;
 - (void)parseXML;
 - (void)addRefreshControl;
 - (void)newsFeedWithArray:(NSArray *)array;
@@ -35,10 +36,6 @@ static NSString * const kVBTsnRssUrlString    = @"http://tsn.ua/rss";
 #pragma mark Accessors
 
 VBRootViewAndReturnIfNilMacro(VBHotNewsView);
-
--(NSString *)barTitle {
-    return kVBAllNewsCategoryName; // switch for title //////////////////////////////////////////////////////////////////////////////////
-}
 
 - (void)setNewsArray:(NSArray *)newsArray {
     if (_newsArray != newsArray) {
@@ -72,7 +69,15 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    [self loadNews];
+    [self addRefreshControl];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)loadNews {
     NSArray *array = [NSArray arrayWithArray:self.news];
     if (array.count) {
         [self showSpinner];
@@ -80,12 +85,7 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
     } else {
         self.newsParser = [self parser];
     }
-    
-    [self addRefreshControl];
 }
-
-#pragma mark -
-#pragma mark Private
 
 - (void)parseXML {
     [self showSpinner];
@@ -93,6 +93,7 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
         self.newsParser = [self parser];
     }
     
+    self.navigationItem.title = kVBAllNewsCategoryName;
     self.newsParser.state = kVBModelDefaultState;
     [self.newsParser load];
 }

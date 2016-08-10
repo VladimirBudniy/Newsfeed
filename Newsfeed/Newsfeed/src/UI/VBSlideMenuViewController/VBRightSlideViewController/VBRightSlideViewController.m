@@ -8,6 +8,11 @@
 
 #import "VBRightSlideViewController.h"
 #import "VBRightTableViewCell.h"
+#import "VBHotNewsViewController.h"
+
+static NSString * const kVBRightSlideControllerName = @"Мова";
+static NSString * const kVBUkrLanguageStringName    = @"ukr";
+static NSString * const kVBRusLanguageStringName    = @"rus";
 
 @interface VBRightSlideViewController ()
 
@@ -15,19 +20,24 @@
 
 @implementation VBRightSlideViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.array = [@[@"VC4", @"VC5"] mutableCopy];
+    self.array = [@[kVBUkrLanguageStringName, kVBRusLanguageStringName] mutableCopy];
 }
 
 #pragma mark
 #pragma mark TableView Datasource
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Lang";
+    return kVBRightSlideControllerName;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    view.tintColor = VBCustormColor;
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    [header.textLabel setTextColor:[UIColor whiteColor]];
+    header.textLabel.font = [UIFont fontWithName:kVBBarTitleTextStyle size:kVBBarTitleTextSize];
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.array.count;
 }
@@ -44,19 +54,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    UIViewController *viewController;
-//
+    VBHotNewsViewController *viewController = [VBHotNewsViewController new];
+    
 //    switch (indexPath.row) {
 //        case 0:
-//            viewController = [[VBFourthVC alloc] initWithNibName:@"VBFourthVC" bundle:nil];
-//            break;
-//            
-//        case 1:
-//            viewController = [[VBFifthVC alloc] initWithNibName:@"VBFifthVC" bundle:nil];
+//
 //            break;
 //            
 //    }
-//    
+
     UINavigationController *controller = [[UINavigationController alloc]
                                           initWithRootViewController:viewController];
     [self openContentNavigationController:controller];

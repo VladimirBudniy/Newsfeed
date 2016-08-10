@@ -11,7 +11,7 @@
 #import "VBMainSlideMenuViewController.h"
 
 @interface VBViewController : UIViewController
-@property (nonatomic, readonly) NSString *barTitle;
+@property (nonatomic, copy)     NSString *barTitle;
 @property (nonatomic, readonly) NSString *leftButtonName;
 @property (nonatomic, readonly) NSString *rightButtonName;
 
@@ -19,8 +19,7 @@
 
 - (void)showNavigationBar;
 - (void)hideNavigationBar;
-- (void)clearNavigationBar; //////////////change name of method
-- (void)defaultNavigationBar; 
+- (void)clearNavigationBar;
 
 - (void)leftButtonWithImageName:(NSString *)name action:(SEL)selector target:(id)object;
 - (void)rightButtonWithImageName:(NSString *)name action:(SEL)selector target:(id)object;

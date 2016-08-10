@@ -13,11 +13,12 @@
 #import "VBNewsModel.h"
 #import "VBNewsParser.h"
 
-static NSString * const kVBCategoriesStringName = @"Categories";
+static NSString * const kVBCategoriesStringName = @"Категорії новин";
 
 @interface VBLeftSlideViewController ()
 @property (nonatomic, strong) NSArray *categoryArray;
 
+- (NSString *)categoryNameAtIndexPath:(NSIndexPath *)indexPath;
 - (NSArray *)newsArrayWithCategory:(NSIndexPath *)indexPath;
 - (NSArray *)newsForCategory:(kVBCategoryType)type;
 - (VBNewsModel *)news:(VBNewsModel *)model category:(kVBCategoryType)type;
@@ -41,7 +42,6 @@ static NSString * const kVBCategoriesStringName = @"Categories";
                            kVBTechnologiesNewsCategoryName,
                            kVBGlamourCategoryName,
                            kVBSportCategoryName,
-                           kVBTourismCategoryName,
                            kVBInterestingCategoryName,
                            kVBHelpCategoryName];
 }
@@ -51,6 +51,13 @@ static NSString * const kVBCategoriesStringName = @"Categories";
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return kVBCategoriesStringName;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    view.tintColor = VBCustormColor;
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    [header.textLabel setTextColor:[UIColor whiteColor]];
+    header.textLabel.font = [UIFont fontWithName:kVBBarTitleTextStyle size:kVBBarTitleTextSize];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -72,6 +79,7 @@ static NSString * const kVBCategoriesStringName = @"Categories";
 
     VBHotNewsViewController *viewController = [VBHotNewsViewController new];
     viewController.news = [self newsArrayWithCategory:indexPath];
+    viewController.barTitle = [self categoryNameAtIndexPath:indexPath];
     UINavigationController *controller = [[UINavigationController alloc]
                                           initWithRootViewController:viewController];
     
@@ -80,6 +88,45 @@ static NSString * const kVBCategoriesStringName = @"Categories";
 
 #pragma mark -
 #pragma mark Private
+
+- (NSString *)categoryNameAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case kVBUkraineNewsCategory:
+            return kVBUkraineNewsCategoryName;
+            
+        case kVBATOCategory:
+            return kVBATOCategoryName;
+            
+        case kVCitymCategory:
+            return kVCitymCategoryName;
+            
+        case kVBWorldNewsCategory:
+            return kVBWorldNewsCategoryName;
+            
+        case kVBPoliticsCategory:
+            return kVBPoliticsCategoryName;
+            
+        case kVBEconomicCategory:
+            return kVBEconomicCategoryName;
+            
+        case kVBTechnologiesNewsCategory:
+            return kVBTechnologiesNewsCategoryName;
+            
+        case kVBGlamourCategory:
+            return kVBGlamourCategoryName;
+            
+        case kVBSportCategory:
+            return kVBSportCategoryName;
+            
+        case kVBInterestingCategory:
+           return kVBInterestingCategoryName;
+            
+        case kVBHelpCategory:
+          return kVBHelpCategoryName;
+    }
+    
+    return kVBAllNewsCategoryName;
+}
 
 - (NSArray *)newsArrayWithCategory:(NSIndexPath *)indexPath {
     NSMutableArray *array = [NSMutableArray array];
@@ -123,10 +170,6 @@ static NSString * const kVBCategoriesStringName = @"Categories";
             
         case kVBSportCategory:
             [array addObjectsFromArray:[self newsForCategory:kVBSportCategory]];
-            break;
-            
-        case kVBTourismCategory:
-            [array addObjectsFromArray:[self newsForCategory:kVBTourismCategory]];
             break;
             
         case kVBInterestingCategory:
@@ -220,13 +263,6 @@ static NSString * const kVBCategoriesStringName = @"Categories";
             
         case kVBSportCategory:
             if ([string isEqualToString:kVBSportOriginalCategoryName]) {
-                return model;
-            } else {
-                break;
-            }
-            
-        case kVBTourismCategory:
-            if ([string isEqualToString:kVBTourismOriginalCategoryName]) {
                 return model;
             } else {
                 break;

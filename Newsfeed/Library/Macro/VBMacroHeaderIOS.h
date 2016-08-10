@@ -20,16 +20,6 @@
             return; \
         }
 
-//#define VBWeakSelfMacroWithClass(theClass) \
-//    __weak theClass *weakSelf = self; \
-//
-//
-//#define VBStrongSelfAndReturnNilMacroWithClass(theClass) \
-//    __strong theClass *strongSelf = weakSelf; \
-//        if (!strongSelf) { \
-//            return; \
-//        }
-
 #define VBRootViewAndReturnIfNilMacro(theClass) \
     - (theClass *)rootView { \
         if ([self isViewLoaded] && [self.view isKindOfClass:[theClass class]]) { \
