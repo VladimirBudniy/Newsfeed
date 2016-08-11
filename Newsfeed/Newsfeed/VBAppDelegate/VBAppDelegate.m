@@ -11,7 +11,6 @@
 #import "VBAppDelegate.h"
 #import "VBMainSlideMenuViewController.h"
 #import "VBNewsFeed.h"
-#import "VBNewsModel.h"
 
 static NSString * const kVBCoraDataName = @"Newsfeed";
 
@@ -37,7 +36,8 @@ static NSString * const kVBCoraDataName = @"Newsfeed";
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    
+    VBNewsFeed *newsFeed = [VBNewsFeed newsFeed];
+    [newsFeed saveManagedObject];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -49,7 +49,7 @@ static NSString * const kVBCoraDataName = @"Newsfeed";
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    
+    // remove all data from cache
 }
 
 @end

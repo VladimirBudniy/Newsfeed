@@ -19,13 +19,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kda-au-nRU">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Wy-eC-X6n" customClass="VBImageView">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="2Wy-eC-X6n" secondAttribute="height" multiplier="32:23" id="BKq-PJ-Xc0"/>
-                            </constraints>
-                        </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1c-Po-SG0">
                             <rect key="frame" x="6" y="234" width="308" height="55"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,6 +52,13 @@
                             </attributedString>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                         </textView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Wy-eC-X6n" customClass="VBImageView">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="2Wy-eC-X6n" secondAttribute="height" multiplier="32:23" id="BKq-PJ-Xc0"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -78,7 +78,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Kda-au-nRU" secondAttribute="bottom" id="0WA-KF-kq6"/>
                 <constraint firstItem="Kda-au-nRU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tph-Ix-zzE"/>
@@ -92,7 +92,7 @@
                 <outlet property="newsText" destination="Nc7-0P-9yn" id="cHc-fl-k3d"/>
                 <outlet property="newsTitle" destination="Y1c-Po-SG0" id="FOn-c1-1Wj"/>
             </connections>
-            <point key="canvasLocation" x="216" y="138"/>
+            <point key="canvasLocation" x="90" y="55"/>
         </view>
     </objects>
 </document>
