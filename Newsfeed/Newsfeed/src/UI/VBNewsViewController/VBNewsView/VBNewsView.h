@@ -1,5 +1,5 @@
 //
-//  VBHotNewsView.h
+//  VBNewsView.h
 //  Newsfeed
 //
 //  Created by Vladimir Budniy on 28.06.16.
@@ -9,7 +9,7 @@
 #import "VBViewModel.h"
 #import "VBLoadingView.h"
 
-@interface VBHotNewsView : VBViewModel
+@interface VBNewsView : VBViewModel
 @property (nonatomic, strong) IBOutlet UITableView  *tableView;
 
 @end

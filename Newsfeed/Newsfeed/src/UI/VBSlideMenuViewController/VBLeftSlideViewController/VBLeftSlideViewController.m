@@ -7,7 +7,7 @@
 //
 
 #import "VBLeftSlideViewController.h"
-#import "VBHotNewsViewController.h"
+#import "VBNewsViewController.h"
 #import "VBLeftTableViewCell.h"
 #import "VBNewsFeed.h"
 #import "VBNewsModel.h"
@@ -54,9 +54,9 @@ static NSString * const kVBCategoriesStringName = @"Категорії нови�
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
-    view.tintColor = VBCustormColor;
+    view.tintColor = [UIColor whiteColor];
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
-    [header.textLabel setTextColor:[UIColor whiteColor]];
+    [header.textLabel setTextColor:[UIColor darkGrayColor]];
     header.textLabel.font = [UIFont fontWithName:kVBBarTitleTextStyle size:kVBBarTitleTextSize];
 }
 
@@ -77,7 +77,7 @@ static NSString * const kVBCategoriesStringName = @"Категорії нови�
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 
-    VBHotNewsViewController *viewController = [VBHotNewsViewController new];
+    VBNewsViewController *viewController = [VBNewsViewController new];
     viewController.news = [self newsArrayWithCategory:indexPath];
     viewController.barTitle = [self categoryNameAtIndexPath:indexPath];
     UINavigationController *controller = [[UINavigationController alloc]

@@ -246,9 +246,9 @@ static NSMutableArray *allInstances;
 
 - (void) configureSlideLayer:(CALayer *)layer
 {
-    layer.shadowColor = [UIColor grayColor].CGColor;
+    layer.shadowColor = [UIColor blackColor].CGColor;
     layer.shadowOpacity = 1;
-    layer.shadowOffset = CGSizeMake(0, 0);
+    layer.shadowOffset = CGSizeMake(-4, 0);
     layer.masksToBounds = NO;
     layer.shadowPath =[UIBezierPath bezierPathWithRect:layer.bounds].CGPath;
 }

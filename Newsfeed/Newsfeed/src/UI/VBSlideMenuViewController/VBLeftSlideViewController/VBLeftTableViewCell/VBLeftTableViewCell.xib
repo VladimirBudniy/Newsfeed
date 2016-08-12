@@ -9,55 +9,47 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="VBLeftTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="29"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3D-kP-FTb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8qj-bv-tVw">
-                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                <rect key="frame" x="5" y="0.0" width="35" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="EfZ-rm-9IL"/>
-                                    <constraint firstAttribute="width" constant="30" id="md6-He-rrk"/>
+                                    <constraint firstAttribute="height" constant="35" id="ISD-ya-zaP"/>
+                                    <constraint firstAttribute="width" constant="35" id="JqT-zz-0fO"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzI-P6-JVN">
-                                <rect key="frame" x="45" y="0.0" width="275" height="30"/>
+                                <rect key="frame" x="55" y="0.0" width="265" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica-BoldOblique" family="Helvetica" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="wzI-P6-JVN" secondAttribute="bottom" id="3VD-fV-bTa"/>
-                            <constraint firstAttribute="trailing" secondItem="wzI-P6-JVN" secondAttribute="trailing" id="IVe-fb-rVy"/>
-                            <constraint firstItem="8qj-bv-tVw" firstAttribute="top" secondItem="o3D-kP-FTb" secondAttribute="top" id="Nhf-ia-fjP"/>
-                            <constraint firstItem="8qj-bv-tVw" firstAttribute="leading" secondItem="o3D-kP-FTb" secondAttribute="leading" id="hpV-fu-Fpg"/>
-                            <constraint firstItem="wzI-P6-JVN" firstAttribute="leading" secondItem="8qj-bv-tVw" secondAttribute="trailing" constant="15" id="mjJ-Q4-XhF"/>
-                            <constraint firstItem="wzI-P6-JVN" firstAttribute="top" secondItem="o3D-kP-FTb" secondAttribute="top" id="rOv-Yq-z9x"/>
-                        </constraints>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSA-Y0-xze">
-                        <rect key="frame" x="0.0" y="29" width="320" height="1"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="wzI-P6-JVN" secondAttribute="trailing" id="17u-ec-TNZ"/>
+                            <constraint firstItem="wzI-P6-JVN" firstAttribute="leading" secondItem="8qj-bv-tVw" secondAttribute="trailing" constant="15" id="YWE-MJ-3CG"/>
+                            <constraint firstItem="8qj-bv-tVw" firstAttribute="leading" secondItem="o3D-kP-FTb" secondAttribute="leading" constant="5" id="hAn-f2-Hvq"/>
+                            <constraint firstItem="8qj-bv-tVw" firstAttribute="top" secondItem="o3D-kP-FTb" secondAttribute="top" id="kK4-Fw-OR9"/>
+                            <constraint firstItem="wzI-P6-JVN" firstAttribute="top" secondItem="o3D-kP-FTb" secondAttribute="top" id="ov7-LK-kwh"/>
+                            <constraint firstAttribute="bottom" secondItem="wzI-P6-JVN" secondAttribute="bottom" id="x5w-Ih-mcv"/>
+                        </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="o3D-kP-FTb" secondAttribute="trailing" constant="-8" id="9eS-nL-e9H"/>
-                    <constraint firstItem="o3D-kP-FTb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="Lsw-Ge-OKD"/>
-                    <constraint firstItem="o3D-kP-FTb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="QW7-58-AhT"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="o3D-kP-FTb" secondAttribute="bottom" constant="-9" id="Qtr-lf-Q3D"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="HSA-Y0-xze" secondAttribute="trailing" constant="-8" id="aXU-Xv-wNI"/>
-                    <constraint firstItem="HSA-Y0-xze" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="21" id="aza-1x-Tj6"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="HSA-Y0-xze" secondAttribute="bottom" constant="-9" id="bSr-sS-5cP"/>
-                    <constraint firstItem="HSA-Y0-xze" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="dEq-It-6BM"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="o3D-kP-FTb" secondAttribute="bottom" constant="-9" id="AiB-kE-PME"/>
+                    <constraint firstItem="o3D-kP-FTb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="G1p-C7-Ef3"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="o3D-kP-FTb" secondAttribute="trailing" constant="-8" id="YJn-kB-gDl"/>
+                    <constraint firstItem="o3D-kP-FTb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="ujk-vy-3En"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -65,9 +57,8 @@
                 <outlet property="backgroundCellView" destination="o3D-kP-FTb" id="dYP-Mx-Chd"/>
                 <outlet property="cellImage" destination="8qj-bv-tVw" id="g6G-t5-BzO"/>
                 <outlet property="cellLabel" destination="wzI-P6-JVN" id="QAe-1h-m9c"/>
-                <outlet property="separatorCellView" destination="HSA-Y0-xze" id="ZuB-b2-Ccl"/>
             </connections>
-            <point key="canvasLocation" x="213" y="100"/>
+            <point key="canvasLocation" x="342" y="100"/>
         </tableViewCell>
     </objects>
 </document>

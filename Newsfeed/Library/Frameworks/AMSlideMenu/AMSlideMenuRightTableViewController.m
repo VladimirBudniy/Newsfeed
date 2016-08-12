@@ -39,13 +39,11 @@
 #pragma mark - Lifecycle -
 /*----------------------------------------------------*/
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 }
 
-- (void)openContentNavigationController:(UINavigationController *)nvc
-{
+- (void)openContentNavigationController:(UINavigationController *)nvc {
 #ifdef AMSlideMenuWithoutStoryboards
     AMSlideMenuContentSegue *contentSegue = [[AMSlideMenuContentSegue alloc] initWithIdentifier:@"contentSegue" source:self destination:nvc];
     [contentSegue perform];
@@ -58,8 +56,7 @@
 #pragma mark - TableView delegate -
 /*----------------------------------------------------*/
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.mainVC respondsToSelector:@selector(navigationControllerForIndexPathInRightMenu:)]) {
         UINavigationController *navController = [self.mainVC navigationControllerForIndexPathInRightMenu:indexPath];
         AMSlideMenuContentSegue *segue = [[AMSlideMenuContentSegue alloc] initWithIdentifier:@"ContentSugue" source:self destination:navController];
@@ -72,6 +69,5 @@
         }
     }
 }
-
 
 @end

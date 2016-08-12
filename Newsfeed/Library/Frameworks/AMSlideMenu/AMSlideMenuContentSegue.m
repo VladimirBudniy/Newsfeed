@@ -58,7 +58,7 @@
         navItem = destinationNVC.navigationBar.topItem;
         
     }
-    
+//    
 //    + (UIBarButtonItem *)leftButtonWithImage:image action:(SEL)action target:(id)target; {
 //        UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithImage:image
 //                                                                   style:UIBarButtonItemStylePlain

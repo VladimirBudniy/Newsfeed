@@ -21,8 +21,8 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hu7-oF-CNd">
                                 <rect key="frame" x="0.0" y="0.0" width="275" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica-BoldOblique" family="Helvetica" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bg2-sf-CaM">
@@ -33,7 +33,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Bg2-sf-CaM" secondAttribute="trailing" id="2Dt-bI-Fb6"/>
                             <constraint firstItem="Bg2-sf-CaM" firstAttribute="leading" secondItem="hu7-oF-CNd" secondAttribute="trailing" constant="15" id="DWx-2n-94F"/>
@@ -43,23 +43,15 @@
                             <constraint firstItem="Bg2-sf-CaM" firstAttribute="top" secondItem="WEt-gq-nJi" secondAttribute="top" id="Zh8-iw-W9i"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="do0-nq-N6X">
-                        <rect key="frame" x="0.0" y="29" width="320" height="1"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="WEt-gq-nJi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="56e-TJ-gVF"/>
-                    <constraint firstItem="do0-nq-N6X" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="8rX-WQ-BCC"/>
                     <constraint firstAttribute="trailingMargin" secondItem="WEt-gq-nJi" secondAttribute="trailing" constant="-8" id="9DT-0O-1do"/>
-                    <constraint firstItem="do0-nq-N6X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="21" id="DsZ-Aa-rlu"/>
                     <constraint firstItem="WEt-gq-nJi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="Oxo-hl-qb2"/>
                     <constraint firstAttribute="trailingMargin" secondItem="WEt-gq-nJi" secondAttribute="trailing" constant="-8" id="Qj3-QE-UgN"/>
                     <constraint firstAttribute="bottomMargin" secondItem="WEt-gq-nJi" secondAttribute="bottom" constant="-9" id="XcQ-gt-kqM"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="do0-nq-N6X" secondAttribute="trailing" constant="-8" id="Y79-fi-gcb"/>
                     <constraint firstItem="WEt-gq-nJi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="aDS-dt-Bnt"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="do0-nq-N6X" secondAttribute="bottom" constant="-9" id="c8x-Se-4af"/>
                     <constraint firstAttribute="bottomMargin" secondItem="WEt-gq-nJi" secondAttribute="bottom" constant="-9" id="jA3-uG-NJJ"/>
                     <constraint firstItem="WEt-gq-nJi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="tYN-jd-AES"/>
                 </constraints>
@@ -69,7 +61,6 @@
                 <outlet property="backgroundCellView" destination="WEt-gq-nJi" id="ZBf-Bq-Rkr"/>
                 <outlet property="cellImage" destination="Bg2-sf-CaM" id="yc4-po-ZFQ"/>
                 <outlet property="cellLabel" destination="hu7-oF-CNd" id="9Mt-IJ-ZAx"/>
-                <outlet property="separatorCellView" destination="do0-nq-N6X" id="G9p-EX-vWN"/>
             </connections>
             <point key="canvasLocation" x="323" y="-9"/>
         </tableViewCell>

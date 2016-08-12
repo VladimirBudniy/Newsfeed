@@ -17,7 +17,7 @@
 static NSString * const kVBPhotosFolderName = @"/Photos";
 
 // constants for VBTableView's headers
-static NSString * const kVBBarTitleTextStyle  = @"Helvetica-BoldOblique";
+static NSString * const kVBBarTitleTextStyle  = @"Helvetica";
 static NSUInteger const kVBBarTitleTextSize   = 18;
 
 // constants for VBNewsParser

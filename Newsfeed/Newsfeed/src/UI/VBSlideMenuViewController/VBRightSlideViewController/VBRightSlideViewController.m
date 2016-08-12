@@ -8,7 +8,7 @@
 
 #import "VBRightSlideViewController.h"
 #import "VBRightTableViewCell.h"
-#import "VBHotNewsViewController.h"
+#import "VBNewsViewController.h"
 
 static NSString * const kVBRightSlideControllerName = @"Мова";
 static NSString * const kVBUkrLanguageStringName    = @"ukr";
@@ -22,6 +22,7 @@ static NSString * const kVBRusLanguageStringName    = @"rus";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.settingTableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
     self.array = [@[kVBUkrLanguageStringName, kVBRusLanguageStringName] mutableCopy];
 }
 
@@ -33,9 +34,9 @@ static NSString * const kVBRusLanguageStringName    = @"rus";
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
-    view.tintColor = VBCustormColor;
+    view.tintColor = [UIColor whiteColor];
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
-    [header.textLabel setTextColor:[UIColor whiteColor]];
+    [header.textLabel setTextColor:[UIColor darkGrayColor]];
     header.textLabel.font = [UIFont fontWithName:kVBBarTitleTextStyle size:kVBBarTitleTextSize];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -54,7 +55,7 @@ static NSString * const kVBRusLanguageStringName    = @"rus";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    VBHotNewsViewController *viewController = [VBHotNewsViewController new];
+    VBNewsViewController *viewController = [VBNewsViewController new];
     
 //    switch (indexPath.row) {
 //        case 0:

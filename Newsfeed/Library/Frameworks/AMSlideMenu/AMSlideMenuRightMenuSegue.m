@@ -49,10 +49,10 @@
         rightMenu.view.frame = CGRectMake(bounds.size.width - [mainVC rightMenuWidth],0,[mainVC rightMenuWidth],bounds.size.height);
     });
     [mainVC.view addSubview:rightMenu.view];
-    NSIndexPath *initialIndexPath = [mainVC initialIndexPathForRightMenu];
     
     [rightMenu.navigationController setNavigationBarHidden:YES];
     
+    NSIndexPath *initialIndexPath = [mainVC initialIndexPathForRightMenu];
     
 #ifndef AMSlideMenuWithoutStoryboards
     if ([mainVC respondsToSelector:@selector(navigationControllerForIndexPathInRightMenu:)]) {

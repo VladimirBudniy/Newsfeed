@@ -1,5 +1,5 @@
 //
-//  VBHotNewsViewController.h
+//  VBNewsViewController.h
 //  Newsfeed
 //
 //  Created by Vladimir Budniy on 28.06.16.
@@ -10,7 +10,7 @@
 
 @class VBNewsParser;
 
-@interface VBHotNewsViewController : VBViewController <UITableViewDelegate>
+@interface VBNewsViewController : VBViewController <UITableViewDelegate>
 @property (nonatomic, strong) VBNewsParser     *newsParser;
 @property (nonatomic, strong) NSArray          *news;
 

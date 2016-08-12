@@ -1,22 +1,22 @@
 //
-//  VBHotNewsViewController.m
+//  VBNewsViewController.m
 //  Newsfeed
 //
 //  Created by Vladimir Budniy on 28.06.16.
 //  Copyright © 2016 Vladimir Budniy. All rights reserved.
 //
 
-#import "VBHotNewsViewController.h"
+#import "VBNewsViewController.h"
 #import "VBSelectedNewsViewController.h"
-#import "VBHotNewsView.h"
+#import "VBNewsView.h"
 #import "VBNewsFeed.h"
 #import "VBNewsParser.h"
 #import "VBTableViewCell.h"
 
 static NSString * const kVBTsnRssUrlString    = @"http://tsn.ua/rss";
 
-@interface VBHotNewsViewController ()
-@property (nonatomic, readonly) VBHotNewsView    *rootView;
+@interface VBNewsViewController ()
+@property (nonatomic, readonly) VBNewsView       *rootView;
 @property (nonatomic, strong)   NSArray          *newsArray;
 @property (nonatomic, strong)   UIRefreshControl *refreshControl;
 
@@ -30,12 +30,12 @@ static NSString * const kVBTsnRssUrlString    = @"http://tsn.ua/rss";
 
 @end
 
-@implementation VBHotNewsViewController
+@implementation VBNewsViewController
 
 #pragma mark -
 #pragma mark Accessors
 
-VBRootViewAndReturnIfNilMacro(VBHotNewsView);
+VBRootViewAndReturnIfNilMacro(VBNewsView);
 
 - (void)setNewsArray:(NSArray *)newsArray {
     if (_newsArray != newsArray) {
@@ -69,7 +69,6 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     [self loadNews];
     [self addRefreshControl];
 }
@@ -113,7 +112,7 @@ VBRootViewAndReturnIfNilMacro(VBHotNewsView);
 }
 
 - (void)reloadRootViewData {
-    VBHotNewsView *rootView = self.rootView;
+    VBNewsView *rootView = self.rootView;
     [rootView removeLoadingViewAnimated:YES];
     [rootView.tableView reloadData];
     [self.refreshControl endRefreshing];
