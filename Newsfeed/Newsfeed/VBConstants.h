@@ -9,9 +9,9 @@
 #ifndef VBConstants_h
 #define VBConstants_h
 
-#define VBCustormColor [UIColor colorWithRed:100.0/255.0f \
-                                       green:149.0/255.0f \
-                                        blue:237.0/255.0f \
+#define VBCustormColor [UIColor colorWithRed:88.0/255.0f \
+                                       green:156.0/255.0f \
+                                        blue:222.0/255.0f \
                                        alpha:1.0f]
 
 static NSString * const kVBPhotosFolderName = @"/Photos";

@@ -8,8 +8,8 @@
 
 #import "VBViewController.h"
 
-static NSString * const kVBLeftButtonName     = @"Categories";
-static NSString * const kVBRightButtonName    = @"Settings";
+static NSString * const kVBLeftButtonName     = @"categories";
+static NSString * const kVBRightButtonName    = @"settings";
 
 @interface VBViewController ()
 - (void)addBarButtons;

@@ -36,15 +36,9 @@
                                     <constraint firstItem="WHu-tC-jHr" firstAttribute="leading" secondItem="YoN-hz-AOq" secondAttribute="leading" id="spC-E9-BwX"/>
                                 </constraints>
                             </scrollView>
-                            <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5P-NI-eWv">
+                            <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5P-NI-eWv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3b-t0-wJ4">
-                                        <rect key="frame" x="0.0" y="112" width="320" height="2"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0R-tU-dLF">
                                 <rect key="frame" x="8" y="40" width="304" height="40"/>

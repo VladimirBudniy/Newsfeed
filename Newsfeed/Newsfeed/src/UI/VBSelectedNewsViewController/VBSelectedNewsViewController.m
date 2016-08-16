@@ -10,8 +10,8 @@
 #import "VBSelectedNewsView.h"
 #import "VBNewsModel.h"
 
-static NSString * const kVBLeftButtonName  = @"Back_button";
-static NSString * const kVBRightButtonName    = @"Home_button";
+static NSString * const kVBLeftButtonName  = @"back_button";
+static NSString * const kVBRightButtonName    = @"home_button";
 
 @interface VBSelectedNewsViewController ()
 @property (nonatomic, readonly) VBSelectedNewsView  *rootView;
