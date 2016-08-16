@@ -12,7 +12,6 @@
 
 @interface VBLeftTableViewCell : UITableViewCell
 @property (nonatomic, strong) IBOutlet UIView         *backgroundCellView;
-@property (nonatomic, strong) IBOutlet UIView         *separatorCellView;
 @property (nonatomic, strong) IBOutlet UILabel        *cellLabel;
 @property (nonatomic, strong) IBOutlet UIImageView    *cellImage;
 

@@ -16,7 +16,8 @@
 static NSString * const kVBCategoriesStringName = @"Категорії новин";
 
 @interface VBLeftSlideViewController ()
-@property (nonatomic, strong) NSArray *categoryArray;
+@property (nonatomic, strong) NSArray *categoryNameArray;
+@property (nonatomic, strong) NSArray *categoryImageNameArray;
 
 - (NSString *)categoryNameAtIndexPath:(NSIndexPath *)indexPath;
 - (NSArray *)newsArrayWithCategory:(NSIndexPath *)indexPath;
@@ -32,18 +33,31 @@ static NSString * const kVBCategoriesStringName = @"Категорії нови�
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.categoryArray = @[kVBAllNewsCategoryName,
-                           kVBUkraineNewsCategoryName,
-                           kVBATOCategoryName,
-                           kVCitymCategoryName,
-                           kVBWorldNewsCategoryName,
-                           kVBPoliticsCategoryName,
-                           kVBEconomicCategoryName,
-                           kVBTechnologiesNewsCategoryName,
-                           kVBGlamourCategoryName,
-                           kVBSportCategoryName,
-                           kVBInterestingCategoryName,
-                           kVBHelpCategoryName];
+    self.categoryNameArray = @[kVBAllNewsCategoryName,
+                               kVBUkraineNewsCategoryName,
+                               kVBATOCategoryName,
+                               kVCitymCategoryName,
+                               kVBWorldNewsCategoryName,
+                               kVBPoliticsCategoryName,
+                               kVBEconomicCategoryName,
+                               kVBTechnologiesNewsCategoryName,
+                               kVBGlamourCategoryName,
+                               kVBSportCategoryName,
+                               kVBInterestingCategoryName,
+                               kVBHelpCategoryName];
+    
+    self.categoryImageNameArray = @[kVBAllNewsCategoryImageName,
+                                    kVBUkraineNewsCategoryImageName,
+                                    kVBATOCategoryImageName,
+                                    kVCitymCategoryImageName,
+                                    kVBWorldNewsCategoryImageName,
+                                    kVBPoliticsCategoryImageName,
+                                    kVBEconomicCategoryImageName,
+                                    kVBTechnologiesNewsCategoryImageName,
+                                    kVBGlamourCategoryImageName,
+                                    kVBSportCategoryImageName,
+                                    kVBInterestingCategoryImageName,
+                                    kVBHelpCategoryImageName];
 }
 
 #pragma mark
@@ -61,12 +75,13 @@ static NSString * const kVBCategoriesStringName = @"Категорії нови�
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.categoryArray.count;
+    return self.categoryNameArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VBLeftTableViewCell *cell = [tableView dequeueReusableCellWithBundleClass:[VBLeftTableViewCell class]];
-    cell.cellLabel.text = self.categoryArray[indexPath.row];
+    cell.cellLabel.text = self.categoryNameArray[indexPath.row];
+    cell.cellImage.image = [UIImage imageNamed:self.categoryImageNameArray[indexPath.row]];
     
     return cell;
 }
@@ -76,6 +91,10 @@ static NSString * const kVBCategoriesStringName = @"Категорії нови�
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+//    cell.cellLabel.text = self.categoryNameArray[indexPath.row];
+//    cell.cellImage.image = [UIImage imageNamed:self.categoryImageNameArray[indexPath.row]];
+
 
     VBNewsViewController *viewController = [VBNewsViewController new];
     viewController.news = [self newsArrayWithCategory:indexPath];

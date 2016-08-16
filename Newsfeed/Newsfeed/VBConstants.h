@@ -45,6 +45,21 @@ static NSString * const kVBSportCategoryName                = @"Спорт";
 static NSString * const kVBInterestingCategoryName          = @"Цікавинки";
 static NSString * const kVBHelpCategoryName                 = @"Допомога";
 
+//constants for VBLeftSlideViewController, categories images names for VBLSVC
+static NSString * const kVBAllNewsCategoryImageName              = @"home";
+static NSString * const kVBUkraineNewsCategoryImageName          = @"news_ukraine";
+static NSString * const kVBATOCategoryImageName                  = @"news_ATO";
+static NSString * const kVCitymCategoryImageName                 = @"kiev";
+static NSString * const kVBWorldNewsCategoryImageName            = @"world_news";
+static NSString * const kVBPoliticsCategoryImageName             = @"politics";
+static NSString * const kVBEconomicCategoryImageName             = @"business";
+static NSString * const kVBTechnologiesNewsCategoryImageName     = @"it";
+static NSString * const kVBGlamourCategoryImageName              = @"celeb";
+static NSString * const kVBSportCategoryImageName                = @"sport";
+static NSString * const kVBInterestingCategoryImageName          = @"joker";
+static NSString * const kVBHelpCategoryImageName                 = @"health";
+
+
 //constants for VBLeftSlideViewController, sort with original categories names
 static NSString * const kVBAllNewsOriginalCategoryName              = @"Всі новини";
 static NSString * const kVBUkraineNewsOriginalCategoryName          = @"Новини України на 1+1";
