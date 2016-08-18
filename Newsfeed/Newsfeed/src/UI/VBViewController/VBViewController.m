@@ -45,23 +45,20 @@ static NSString * const kVBRightButtonName    = @"settings";
 #pragma mark -
 #pragma mark Public
 
-- (void)clearNavigationBar {
+- (void)colorNavigationBar:(UIColor *)color {
     UINavigationBar *navigationBar = self.navigationController.navigationBar;
-    navigationBar.backgroundColor = [UIColor clearColor];
+    navigationBar.backgroundColor = color;
     [navigationBar setShadowImage:[[UIImage alloc] init]];
     [navigationBar setBackgroundImage:[[UIImage alloc] init]
                         forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)showNavigationBar {
-    self.view.backgroundColor = VBCustormColor;
-    [self clearNavigationBar];
+    self.edgesForExtendedLayout=UIRectEdgeNone;
+//    self.view.backgroundColor = VBCustormColor;
+    [self colorNavigationBar:VBCustormColor];
     [self barTitle:self.barTitle attributes:[self defaultAttributes]];
     [self addBarButtons];
-}
-
-- (void)hideNavigationBar {
-    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)leftButtonWithImageName:(NSString *)name action:(SEL)selector target:(id)object {

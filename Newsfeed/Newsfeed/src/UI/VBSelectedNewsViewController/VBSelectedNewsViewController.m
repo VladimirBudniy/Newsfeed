@@ -41,7 +41,7 @@ VBRootViewAndReturnIfNilMacro(VBSelectedNewsView);
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self clearNavigationBar];
+    [self colorNavigationBar:[UIColor clearColor]];
 }
 
 - (void)viewDidLoad {

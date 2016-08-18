@@ -11,7 +11,7 @@
 @class VBNewsParser;
 
 @interface VBNewsViewController : VBViewController <UITableViewDelegate>
-@property (nonatomic, strong) VBNewsParser     *newsParser;
-@property (nonatomic, strong) NSArray          *news;
+@property (nonatomic, strong) VBNewsParser         *newsParser;
+@property (nonatomic, strong) NSArray              *news;
 
 @end

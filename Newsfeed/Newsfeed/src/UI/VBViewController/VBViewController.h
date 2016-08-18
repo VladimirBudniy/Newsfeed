@@ -18,8 +18,7 @@
 @property(nonatomic, strong) VBMainSlideMenuViewController *viewController;
 
 - (void)showNavigationBar;
-- (void)hideNavigationBar;
-- (void)clearNavigationBar;
+- (void)colorNavigationBar:(UIColor *)color;
 
 - (void)leftButtonWithImageName:(NSString *)name action:(SEL)selector target:(id)object;
 - (void)rightButtonWithImageName:(NSString *)name action:(SEL)selector target:(id)object;

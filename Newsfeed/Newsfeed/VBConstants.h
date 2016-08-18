@@ -35,7 +35,7 @@ static NSUInteger const kVBNewsCount        = 350;
 static NSString * const kVBAllNewsCategoryName              = @"Всі новини";
 static NSString * const kVBUkraineNewsCategoryName          = @"Новини України";
 static NSString * const kVBATOCategoryName                  = @"Новини АТО";
-static NSString * const kVCitymCategoryName                 = @"Новини Києва";
+static NSString * const kVCityCategoryName                 = @"Новини Києва";
 static NSString * const kVBWorldNewsCategoryName            = @"Новини світу";
 static NSString * const kVBPoliticsCategoryName             = @"Політика";
 static NSString * const kVBEconomicCategoryName             = @"Фінанси";
@@ -46,19 +46,32 @@ static NSString * const kVBInterestingCategoryName          = @"Цікавинк
 static NSString * const kVBHelpCategoryName                 = @"Допомога";
 
 //constants for VBLeftSlideViewController, categories images names for VBLSVC
-static NSString * const kVBAllNewsCategoryImageName              = @"home";
-static NSString * const kVBUkraineNewsCategoryImageName          = @"news_ukraine";
-static NSString * const kVBATOCategoryImageName                  = @"news_ATO";
-static NSString * const kVCitymCategoryImageName                 = @"kiev";
-static NSString * const kVBWorldNewsCategoryImageName            = @"world_news";
-static NSString * const kVBPoliticsCategoryImageName             = @"politics";
-static NSString * const kVBEconomicCategoryImageName             = @"business";
-static NSString * const kVBTechnologiesNewsCategoryImageName     = @"it";
-static NSString * const kVBGlamourCategoryImageName              = @"celeb";
-static NSString * const kVBSportCategoryImageName                = @"sport";
-static NSString * const kVBInterestingCategoryImageName          = @"joker";
-static NSString * const kVBHelpCategoryImageName                 = @"health";
+static NSString * const kVBAllNewsImageName              = @"home";
+static NSString * const kVBUkraineNewsImageName          = @"news_ukraine";
+static NSString * const kVBATOImageName                  = @"news_ATO";
+static NSString * const kVCityImageName                  = @"kiev";
+static NSString * const kVBWorldNewsImageName            = @"world_news";
+static NSString * const kVBPoliticsImageName             = @"politics";
+static NSString * const kVBEconomicImageName             = @"business";
+static NSString * const kVBTechnologiesNewsImageName     = @"it";
+static NSString * const kVBGlamourImageName              = @"celeb";
+static NSString * const kVBSportImageName                = @"sport";
+static NSString * const kVBInterestingImageName          = @"joker";
+static NSString * const kVBHelpImageName                 = @"health";
 
+//constants for VBLeftSlideViewController, categories images names for VBLSVC
+static NSString * const kVBAllNewsActionImageName              = @"home_action";
+static NSString * const kVBUkraineNewsActionImageName          = @"news_ukraine_action";
+static NSString * const kVBATOActionImageName                  = @"news_ATO_action";
+static NSString * const kVCityActionImageName                  = @"kiev_action";
+static NSString * const kVBWorldNewsActionImageName            = @"world_news_action";
+static NSString * const kVBPoliticsActionImageName             = @"politics_action";
+static NSString * const kVBEconomicActionImageName             = @"business_action";
+static NSString * const kVBTechnologiesNewsActionImageName     = @"it_action";
+static NSString * const kVBGlamourActionImageName              = @"celeb_action";
+static NSString * const kVBSportActionImageName                = @"sport_action";
+static NSString * const kVBInterestingActionImageName          = @"joker_action";
+static NSString * const kVBHelpActionImageName                 = @"health_action";
 
 //constants for VBLeftSlideViewController, sort with original categories names
 static NSString * const kVBAllNewsOriginalCategoryName              = @"Всі новини";
@@ -89,7 +102,7 @@ typedef enum {
     kVBAllNewsCategory,
     kVBUkraineNewsCategory,
     kVBATOCategory,
-    kVCitymCategory,
+    kVCityCategory,
     kVBWorldNewsCategory,
     kVBPoliticsCategory,
     kVBEconomicCategory,

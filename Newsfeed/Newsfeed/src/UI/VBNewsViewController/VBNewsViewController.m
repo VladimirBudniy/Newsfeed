@@ -70,7 +70,7 @@ VBRootViewAndReturnIfNilMacro(VBNewsView);
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadNews];
-    [self addRefreshControl];
+    [self addRefreshControl];    
 }
 
 #pragma mark -

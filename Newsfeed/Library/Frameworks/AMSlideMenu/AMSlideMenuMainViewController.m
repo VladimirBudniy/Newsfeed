@@ -181,7 +181,7 @@ static NSMutableArray *allInstances;
 
 - (CGFloat)leftMenuWidth
 {
-    return 200;
+    return 250;
 }
 
 - (CGFloat)rightMenuWidth
@@ -196,7 +196,7 @@ static NSMutableArray *allInstances;
 
 - (CGFloat) closeAnimationDuration
 {
-    return 0.25f;
+    return 0.4f;
 }
 
 - (UIViewAnimationOptions) openAnimationCurve

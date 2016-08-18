@@ -33,6 +33,18 @@
 #pragma mark -
 #pragma mark Initializations and Deallocatins
 
+- (void)dealloc {
+    self.URL = nil;
+    self.newsArray = nil;
+    self.parser = nil;
+    self.element = nil;
+    self.currentTitle = nil;
+    self.currentUrlString = nil;
+    self.currentFullText = nil;
+    self.currentPubDate = nil;
+    self.currentCategory = nil;
+}
+
 - (instancetype)initWithURL:(NSURL *)URL {
     self = [super init];
     if (self) {
@@ -58,10 +70,6 @@
 - (void)setupLoad {
     @synchronized (self) {
         [self.newsArray removeAllObjects];
-//        BOOL success = [NSFileManager removeFileWithName:kVBPhotosFolderName];
-//        if (success) {
-//            [[VBNewsFeed newsFeed] removeNews];
-//        }
     }
 }
 

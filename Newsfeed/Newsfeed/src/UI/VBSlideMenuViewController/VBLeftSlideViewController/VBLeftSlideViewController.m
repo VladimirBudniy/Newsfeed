@@ -18,8 +18,15 @@ static NSString * const kVBCategoriesStringName = @"Категорії нови�
 @interface VBLeftSlideViewController ()
 @property (nonatomic, strong) NSArray *categoryNameArray;
 @property (nonatomic, strong) NSArray *categoryImageNameArray;
+@property (nonatomic, strong) NSArray *categoryActionImageNameArray;
 
-- (NSString *)categoryNameAtIndexPath:(NSIndexPath *)indexPath;
+- (void)customizeCategoriesNews;
+- (void)changeCellTableView:(UITableView *)tableView
+                  indexPath:(NSIndexPath *)indexPath
+                  textColor:(UIColor *)color
+                  imageName:(NSArray *)imageName;
+
+- (NSString *)barTitleNameAtIndexPath:(NSIndexPath *)indexPath;
 - (NSArray *)newsArrayWithCategory:(NSIndexPath *)indexPath;
 - (NSArray *)newsForCategory:(kVBCategoryType)type;
 - (VBNewsModel *)news:(VBNewsModel *)model category:(kVBCategoryType)type;
@@ -33,31 +40,7 @@ static NSString * const kVBCategoriesStringName = @"Категорії нови�
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.categoryNameArray = @[kVBAllNewsCategoryName,
-                               kVBUkraineNewsCategoryName,
-                               kVBATOCategoryName,
-                               kVCitymCategoryName,
-                               kVBWorldNewsCategoryName,
-                               kVBPoliticsCategoryName,
-                               kVBEconomicCategoryName,
-                               kVBTechnologiesNewsCategoryName,
-                               kVBGlamourCategoryName,
-                               kVBSportCategoryName,
-                               kVBInterestingCategoryName,
-                               kVBHelpCategoryName];
-    
-    self.categoryImageNameArray = @[kVBAllNewsCategoryImageName,
-                                    kVBUkraineNewsCategoryImageName,
-                                    kVBATOCategoryImageName,
-                                    kVCitymCategoryImageName,
-                                    kVBWorldNewsCategoryImageName,
-                                    kVBPoliticsCategoryImageName,
-                                    kVBEconomicCategoryImageName,
-                                    kVBTechnologiesNewsCategoryImageName,
-                                    kVBGlamourCategoryImageName,
-                                    kVBSportCategoryImageName,
-                                    kVBInterestingCategoryImageName,
-                                    kVBHelpCategoryImageName];
+    [self customizeCategoriesNews];
 }
 
 #pragma mark
@@ -68,8 +51,8 @@ static NSString * const kVBCategoriesStringName = @"Категорії нови�
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
-    view.tintColor = [UIColor whiteColor];
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    header.backgroundView.backgroundColor = [UIColor whiteColor];
     [header.textLabel setTextColor:[UIColor darkGrayColor]];
     header.textLabel.font = [UIFont fontWithName:kVBBarTitleTextStyle size:kVBBarTitleTextSize];
 }
@@ -82,7 +65,7 @@ static NSString * const kVBCategoriesStringName = @"Категорії нови�
     VBLeftTableViewCell *cell = [tableView dequeueReusableCellWithBundleClass:[VBLeftTableViewCell class]];
     cell.cellLabel.text = self.categoryNameArray[indexPath.row];
     cell.cellImage.image = [UIImage imageNamed:self.categoryImageNameArray[indexPath.row]];
-    
+
     return cell;
 }
 
@@ -90,25 +73,82 @@ static NSString * const kVBCategoriesStringName = @"Категорії нови�
 #pragma mark TableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [self changeCellTableView:tableView
+                    indexPath:indexPath
+                    textColor:VBCustormColor
+                    imageName:self.categoryActionImageNameArray];
     
-//    cell.cellLabel.text = self.categoryNameArray[indexPath.row];
-//    cell.cellImage.image = [UIImage imageNamed:self.categoryImageNameArray[indexPath.row]];
-
-
     VBNewsViewController *viewController = [VBNewsViewController new];
     viewController.news = [self newsArrayWithCategory:indexPath];
-    viewController.barTitle = [self categoryNameAtIndexPath:indexPath];
+    viewController.barTitle = [self barTitleNameAtIndexPath:indexPath];
     UINavigationController *controller = [[UINavigationController alloc]
                                           initWithRootViewController:viewController];
     
     [self openContentNavigationController:controller];
 }
 
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self changeCellTableView:tableView
+                    indexPath:indexPath
+                    textColor:[UIColor darkGrayColor]
+                    imageName:self.categoryImageNameArray];
+}
+
 #pragma mark -
 #pragma mark Private
 
-- (NSString *)categoryNameAtIndexPath:(NSIndexPath *)indexPath {
+- (void)customizeCategoriesNews {
+    self.categoryNameArray = @[kVBAllNewsCategoryName,
+                               kVBUkraineNewsCategoryName,
+                               kVBATOCategoryName,
+                               kVCityCategoryName,
+                               kVBWorldNewsCategoryName,
+                               kVBPoliticsCategoryName,
+                               kVBEconomicCategoryName,
+                               kVBTechnologiesNewsCategoryName,
+                               kVBGlamourCategoryName,
+                               kVBSportCategoryName,
+                               kVBInterestingCategoryName,
+                               kVBHelpCategoryName];
+    
+    self.categoryImageNameArray = @[kVBAllNewsImageName,
+                                    kVBUkraineNewsImageName,
+                                    kVBATOImageName,
+                                    kVCityImageName,
+                                    kVBWorldNewsImageName,
+                                    kVBPoliticsImageName,
+                                    kVBEconomicImageName,
+                                    kVBTechnologiesNewsImageName,
+                                    kVBGlamourImageName,
+                                    kVBSportImageName,
+                                    kVBInterestingImageName,
+                                    kVBHelpImageName];
+    
+    self.categoryActionImageNameArray = @[kVBAllNewsActionImageName,
+                                          kVBUkraineNewsActionImageName,
+                                          kVBATOActionImageName,
+                                          kVCityActionImageName,
+                                          kVBWorldNewsActionImageName,
+                                          kVBPoliticsActionImageName,
+                                          kVBEconomicActionImageName,
+                                          kVBTechnologiesNewsActionImageName,
+                                          kVBGlamourActionImageName,
+                                          kVBSportActionImageName,
+                                          kVBInterestingActionImageName,
+                                          kVBHelpActionImageName];
+}
+
+- (void)changeCellTableView:(UITableView *)tableView
+                  indexPath:(NSIndexPath *)indexPath
+                  textColor:(UIColor *)color
+                  imageName:(NSArray *)imageName
+{
+    VBLeftTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.cellLabel.textColor = color;
+    cell.cellImage.image = [UIImage imageNamed:imageName[indexPath.row]];
+}
+
+- (NSString *)barTitleNameAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case kVBUkraineNewsCategory:
             return kVBUkraineNewsCategoryName;
@@ -116,8 +156,8 @@ static NSString * const kVBCategoriesStringName = @"Категорії нови�
         case kVBATOCategory:
             return kVBATOCategoryName;
             
-        case kVCitymCategory:
-            return kVCitymCategoryName;
+        case kVCityCategory:
+            return kVCityCategoryName;
             
         case kVBWorldNewsCategory:
             return kVBWorldNewsCategoryName;
@@ -163,8 +203,8 @@ static NSString * const kVBCategoriesStringName = @"Категорії нови�
             [array addObjectsFromArray:[self newsForCategory:kVBATOCategory]];
             break;
             
-        case kVCitymCategory:
-            [array addObjectsFromArray:[self newsForCategory:kVCitymCategory]];
+        case kVCityCategory:
+            [array addObjectsFromArray:[self newsForCategory:kVCityCategory]];
             break;
             
         case kVBWorldNewsCategory:
@@ -238,7 +278,7 @@ static NSString * const kVBCategoriesStringName = @"Категорії нови�
                 break;
             }
             
-        case kVCitymCategory:
+        case kVCityCategory:
             if ([string isEqualToString:kVCitymOriginalCategoryName]) {
                 return model;
             } else {
