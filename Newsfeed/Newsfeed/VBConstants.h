@@ -87,17 +87,6 @@ static NSString * const kVBSportOriginalCategoryName                = @"Про �
 static NSString * const kVBInterestingOriginalCategoryName          = @"Все цікаве онлайн на 1+1";
 static NSString * const kVBHelpOriginalCategoryName                 = @"Допомога";
 
-// other original categories
-//Профутбол
-//Фото
-//Випуски ТСН на 1+1 відео онлайн
-//Випуски ТСН Тиждень на 1+1 відео онлайн
-//Інтерв’ю
-//Туризм
-//Здоров’я та спорт
-//Вікно
-//Про життя
-
 typedef enum {
     kVBAllNewsCategory,
     kVBUkraineNewsCategory,

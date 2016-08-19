@@ -26,10 +26,9 @@ static NSString * const kVBCategoriesStringName = @"Категорії нови�
                   textColor:(UIColor *)color
                   imageName:(NSArray *)imageName;
 
-- (NSString *)barTitleNameAtIndexPath:(NSIndexPath *)indexPath;
-- (NSArray *)newsArrayWithCategory:(NSIndexPath *)indexPath;
+- (NSArray *)newsArrayAtIndexPath:(NSIndexPath *)indexPath;
 - (NSArray *)newsForCategory:(kVBCategoryType)type;
-- (VBNewsModel *)news:(VBNewsModel *)model category:(kVBCategoryType)type;
+- (VBNewsModel *)news:(VBNewsModel *)model forCategoryType:(kVBCategoryType)type;
 
 @end
 
@@ -79,8 +78,15 @@ static NSString * const kVBCategoriesStringName = @"Категорії нови�
                     imageName:self.categoryActionImageNameArray];
     
     VBNewsViewController *viewController = [VBNewsViewController new];
-    viewController.news = [self newsArrayWithCategory:indexPath];
-    viewController.barTitle = [self barTitleNameAtIndexPath:indexPath];
+    viewController.news = [self newsArrayAtIndexPath:indexPath];
+    
+    VBLeftTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (!cell) {
+        viewController.barTitle = kVBAllNewsCategoryName;
+    } else {
+        viewController.barTitle = cell.cellLabel.text;
+    }
+    
     UINavigationController *controller = [[UINavigationController alloc]
                                           initWithRootViewController:viewController];
     
@@ -148,46 +154,7 @@ static NSString * const kVBCategoriesStringName = @"Категорії нови�
     cell.cellImage.image = [UIImage imageNamed:imageName[indexPath.row]];
 }
 
-- (NSString *)barTitleNameAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case kVBUkraineNewsCategory:
-            return kVBUkraineNewsCategoryName;
-            
-        case kVBATOCategory:
-            return kVBATOCategoryName;
-            
-        case kVCityCategory:
-            return kVCityCategoryName;
-            
-        case kVBWorldNewsCategory:
-            return kVBWorldNewsCategoryName;
-            
-        case kVBPoliticsCategory:
-            return kVBPoliticsCategoryName;
-            
-        case kVBEconomicCategory:
-            return kVBEconomicCategoryName;
-            
-        case kVBTechnologiesNewsCategory:
-            return kVBTechnologiesNewsCategoryName;
-            
-        case kVBGlamourCategory:
-            return kVBGlamourCategoryName;
-            
-        case kVBSportCategory:
-            return kVBSportCategoryName;
-            
-        case kVBInterestingCategory:
-           return kVBInterestingCategoryName;
-            
-        case kVBHelpCategory:
-          return kVBHelpCategoryName;
-    }
-    
-    return kVBAllNewsCategoryName;
-}
-
-- (NSArray *)newsArrayWithCategory:(NSIndexPath *)indexPath {
+- (NSArray *)newsArrayAtIndexPath:(NSIndexPath *)indexPath {
     NSMutableArray *array = [NSMutableArray array];
     
     switch (indexPath.row) {
@@ -247,7 +214,7 @@ static NSString * const kVBCategoriesStringName = @"Категорії нови�
     NSMutableArray *array = [NSMutableArray array];
     VBNewsFeed *newsFeed = [VBNewsFeed newsFeed];
     for (VBNewsModel *newsModel in newsFeed.news) {
-        VBNewsModel *model = [self news:newsModel category:type];
+        VBNewsModel *model = [self news:newsModel forCategoryType:type];
         if (model) {
             [array addObject:model];
         }
@@ -256,7 +223,7 @@ static NSString * const kVBCategoriesStringName = @"Категорії нови�
     return array;
 }
 
-- (VBNewsModel *)news:(VBNewsModel *)model category:(kVBCategoryType)type {
+- (VBNewsModel *)news:(VBNewsModel *)model forCategoryType:(kVBCategoryType)type {
     NSString *string = model.newsCategory;
     
     switch (type) {

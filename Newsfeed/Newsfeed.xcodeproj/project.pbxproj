@@ -10,7 +10,6 @@
 		E700448C1D27144700DB189F /* VBSelectedNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E700448A1D27144700DB189F /* VBSelectedNewsViewController.m */; };
 		E700448D1D27144700DB189F /* VBSelectedNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E700448B1D27144700DB189F /* VBSelectedNewsViewController.xib */; };
 		E70044911D2718C700DB189F /* VBSelectedNewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E70044901D2718C700DB189F /* VBSelectedNewsView.m */; };
-		E700E00F1D5B21A400BC8BD6 /* VBRightSlideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E700E00E1D5B21A400BC8BD6 /* VBRightSlideViewController.xib */; };
 		E71EF6021D40BDAB00422DE7 /* AMSlideMenuContentSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF5F41D40BDAB00422DE7 /* AMSlideMenuContentSegue.m */; };
 		E71EF6031D40BDAB00422DE7 /* AMSlideMenuLeftMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF5F61D40BDAB00422DE7 /* AMSlideMenuLeftMenuSegue.m */; };
 		E71EF6041D40BDAB00422DE7 /* AMSlideMenuLeftTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF5F81D40BDAB00422DE7 /* AMSlideMenuLeftTableViewController.m */; };
@@ -19,11 +18,8 @@
 		E71EF6071D40BDAB00422DE7 /* AMSlideMenuRightTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF5FF1D40BDAB00422DE7 /* AMSlideMenuRightTableViewController.m */; };
 		E71EF6081D40BDAB00422DE7 /* UIViewController+AMSlideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF6011D40BDAB00422DE7 /* UIViewController+AMSlideMenu.m */; };
 		E71EF60D1D40BE5500422DE7 /* VBMainSlideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF60C1D40BE5500422DE7 /* VBMainSlideMenuViewController.m */; };
-		E71EF6291D40C25D00422DE7 /* VBRightSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF6271D40C25D00422DE7 /* VBRightSlideViewController.m */; };
 		E71EF62E1D40C27E00422DE7 /* VBLeftSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF62C1D40C27E00422DE7 /* VBLeftSlideViewController.m */; };
 		E71EF62F1D40C27E00422DE7 /* VBLeftSlideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E71EF62D1D40C27E00422DE7 /* VBLeftSlideViewController.xib */; };
-		E71EF6341D40CB0600422DE7 /* VBRightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF6321D40CB0600422DE7 /* VBRightTableViewCell.m */; };
-		E71EF6351D40CB0600422DE7 /* VBRightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E71EF6331D40CB0600422DE7 /* VBRightTableViewCell.xib */; };
 		E71EF63A1D40CB9100422DE7 /* VBLeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E71EF6381D40CB9100422DE7 /* VBLeftTableViewCell.m */; };
 		E71EF63B1D40CB9100422DE7 /* VBLeftTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E71EF6391D40CB9100422DE7 /* VBLeftTableViewCell.xib */; };
 		E7EB56321D2289C500D3C470 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EB56311D2289C500D3C470 /* main.m */; };
@@ -83,7 +79,6 @@
 		E700448B1D27144700DB189F /* VBSelectedNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBSelectedNewsViewController.xib; sourceTree = "<group>"; };
 		E700448F1D2718C700DB189F /* VBSelectedNewsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBSelectedNewsView.h; sourceTree = "<group>"; };
 		E70044901D2718C700DB189F /* VBSelectedNewsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBSelectedNewsView.m; sourceTree = "<group>"; };
-		E700E00E1D5B21A400BC8BD6 /* VBRightSlideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBRightSlideViewController.xib; sourceTree = "<group>"; };
 		E71EF5F31D40BDAB00422DE7 /* AMSlideMenuContentSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSlideMenuContentSegue.h; sourceTree = "<group>"; };
 		E71EF5F41D40BDAB00422DE7 /* AMSlideMenuContentSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSlideMenuContentSegue.m; sourceTree = "<group>"; };
 		E71EF5F51D40BDAB00422DE7 /* AMSlideMenuLeftMenuSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSlideMenuLeftMenuSegue.h; sourceTree = "<group>"; };
@@ -101,14 +96,9 @@
 		E71EF6011D40BDAB00422DE7 /* UIViewController+AMSlideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AMSlideMenu.m"; sourceTree = "<group>"; };
 		E71EF60B1D40BE5500422DE7 /* VBMainSlideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBMainSlideMenuViewController.h; sourceTree = "<group>"; };
 		E71EF60C1D40BE5500422DE7 /* VBMainSlideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBMainSlideMenuViewController.m; sourceTree = "<group>"; };
-		E71EF6261D40C25D00422DE7 /* VBRightSlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBRightSlideViewController.h; sourceTree = "<group>"; };
-		E71EF6271D40C25D00422DE7 /* VBRightSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBRightSlideViewController.m; sourceTree = "<group>"; };
 		E71EF62B1D40C27E00422DE7 /* VBLeftSlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLeftSlideViewController.h; sourceTree = "<group>"; };
 		E71EF62C1D40C27E00422DE7 /* VBLeftSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBLeftSlideViewController.m; sourceTree = "<group>"; };
 		E71EF62D1D40C27E00422DE7 /* VBLeftSlideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBLeftSlideViewController.xib; sourceTree = "<group>"; };
-		E71EF6311D40CB0600422DE7 /* VBRightTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBRightTableViewCell.h; sourceTree = "<group>"; };
-		E71EF6321D40CB0600422DE7 /* VBRightTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBRightTableViewCell.m; sourceTree = "<group>"; };
-		E71EF6331D40CB0600422DE7 /* VBRightTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBRightTableViewCell.xib; sourceTree = "<group>"; };
 		E71EF6371D40CB9100422DE7 /* VBLeftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLeftTableViewCell.h; sourceTree = "<group>"; };
 		E71EF6381D40CB9100422DE7 /* VBLeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBLeftTableViewCell.m; sourceTree = "<group>"; };
 		E71EF6391D40CB9100422DE7 /* VBLeftTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VBLeftTableViewCell.xib; sourceTree = "<group>"; };
@@ -286,7 +276,6 @@
 		E71EF6091D40BE0C00422DE7 /* VBSlideMenuViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E71EF60F1D40BEE300422DE7 /* VBRightSlideViewController */,
 				E71EF60E1D40BE8000422DE7 /* VBLeftSlideViewController */,
 				E71EF60A1D40BE3800422DE7 /* VBMainSlideViewController */,
 			);
@@ -311,27 +300,6 @@
 				E71EF62D1D40C27E00422DE7 /* VBLeftSlideViewController.xib */,
 			);
 			path = VBLeftSlideViewController;
-			sourceTree = "<group>";
-		};
-		E71EF60F1D40BEE300422DE7 /* VBRightSlideViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E71EF6301D40CAE400422DE7 /* VBRightTableViewCell */,
-				E71EF6261D40C25D00422DE7 /* VBRightSlideViewController.h */,
-				E71EF6271D40C25D00422DE7 /* VBRightSlideViewController.m */,
-				E700E00E1D5B21A400BC8BD6 /* VBRightSlideViewController.xib */,
-			);
-			path = VBRightSlideViewController;
-			sourceTree = "<group>";
-		};
-		E71EF6301D40CAE400422DE7 /* VBRightTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				E71EF6311D40CB0600422DE7 /* VBRightTableViewCell.h */,
-				E71EF6321D40CB0600422DE7 /* VBRightTableViewCell.m */,
-				E71EF6331D40CB0600422DE7 /* VBRightTableViewCell.xib */,
-			);
-			path = VBRightTableViewCell;
 			sourceTree = "<group>";
 		};
 		E71EF6361D40CB8100422DE7 /* VBLeftTableViewCell */ = {
@@ -873,7 +841,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E71EF6351D40CB0600422DE7 /* VBRightTableViewCell.xib in Resources */,
 				E7EB56D61D228C6A00D3C470 /* VBLoadingView.xib in Resources */,
 				E71EF62F1D40C27E00422DE7 /* VBLeftSlideViewController.xib in Resources */,
 				E7FCCF671D5CF5E60006A564 /* VBTableViewCell.xib in Resources */,
@@ -882,7 +849,6 @@
 				E700448D1D27144700DB189F /* VBSelectedNewsViewController.xib in Resources */,
 				E7EB56401D2289C500D3C470 /* Assets.xcassets in Resources */,
 				E7FCCF651D5CF5E60006A564 /* VBNewsViewController.xib in Resources */,
-				E700E00F1D5B21A400BC8BD6 /* VBRightSlideViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -957,7 +923,6 @@
 				E7EB56D41D228C6A00D3C470 /* VBImageView.m in Sources */,
 				E7EB56D71D228C6A00D3C470 /* VBViewModel.m in Sources */,
 				E7EB571F1D2450EC00D3C470 /* VBNewsParser.m in Sources */,
-				E71EF6291D40C25D00422DE7 /* VBRightSlideViewController.m in Sources */,
 				E7FCCF631D5CF5E60006A564 /* VBNewsView.m in Sources */,
 				E71EF60D1D40BE5500422DE7 /* VBMainSlideMenuViewController.m in Sources */,
 				E7FFB8EC1D44289800C6EFA5 /* Newsfeed.xcdatamodeld in Sources */,
@@ -965,7 +930,6 @@
 				E7EB56CB1D228C6A00D3C470 /* VBStringAlphabet.m in Sources */,
 				E7EB56C81D228C6A00D3C470 /* VBStateModel.m in Sources */,
 				E7EB56BC1D228C6A00D3C470 /* NSObject+VBCategory.m in Sources */,
-				E71EF6341D40CB0600422DE7 /* VBRightTableViewCell.m in Sources */,
 				E7EB56D11D228C6A00D3C470 /* VBObserverStateObject.m in Sources */,
 				E7EB56C91D228C6A00D3C470 /* VBArrayAlphabet.m in Sources */,
 				E71EF6081D40BDAB00422DE7 /* UIViewController+AMSlideMenu.m in Sources */,

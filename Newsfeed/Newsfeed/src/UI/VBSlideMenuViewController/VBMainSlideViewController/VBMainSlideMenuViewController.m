@@ -7,7 +7,6 @@
 //
 
 #import "VBMainSlideMenuViewController.h"
-#import "VBRightSlideViewController.h"
 #import "VBLeftSlideViewController.h"
 
 @interface VBMainSlideMenuViewController ()
@@ -21,8 +20,8 @@
 }
 
 - (void)viewDidLoad {
+    // according frameworks for AMSlideMenuMainViewController
     self.leftMenu = [VBLeftSlideViewController new];
-    self.rightMenu = [VBRightSlideViewController new];
     [super viewDidLoad];
     self.view.backgroundColor = VBCustormColor;
 }

@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VBNewsViewController">
             <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="s3e-Tz-q1u"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="Cmz-Di-9yl"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -15,40 +15,28 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a7g-TS-ogd" customClass="VBNewsView">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="113" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4FB-f9-DmR">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <subviews>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="113" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4FB-f9-DmR">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="aYp-au-q5l"/>
-                                <outlet property="delegate" destination="-1" id="hPy-nG-iPb"/>
-                            </connections>
-                        </tableView>
-                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="4FB-f9-DmR" firstAttribute="top" secondItem="a7g-TS-ogd" secondAttribute="top" id="8UW-zv-76E"/>
-                        <constraint firstAttribute="bottom" secondItem="4FB-f9-DmR" secondAttribute="bottom" id="kVt-ed-tYj"/>
-                        <constraint firstItem="4FB-f9-DmR" firstAttribute="leading" secondItem="a7g-TS-ogd" secondAttribute="leading" id="l4n-3i-Ipj"/>
-                        <constraint firstAttribute="trailing" secondItem="4FB-f9-DmR" secondAttribute="trailing" id="sQ0-ID-ACT"/>
-                    </constraints>
                     <connections>
-                        <outlet property="tableView" destination="4FB-f9-DmR" id="l4y-nM-DCM"/>
+                        <outlet property="dataSource" destination="-1" id="aYp-au-q5l"/>
+                        <outlet property="delegate" destination="-1" id="hPy-nG-iPb"/>
                     </connections>
-                </view>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="a7g-TS-ogd" secondAttribute="trailing" id="AKQ-Vp-yg4"/>
-                <constraint firstItem="a7g-TS-ogd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="IIq-aS-McM"/>
-                <constraint firstAttribute="bottom" secondItem="a7g-TS-ogd" secondAttribute="bottom" id="Zlu-HT-5KR"/>
-                <constraint firstItem="a7g-TS-ogd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jhO-qm-9Xd"/>
+                <constraint firstAttribute="bottom" secondItem="4FB-f9-DmR" secondAttribute="bottom" id="6KA-PY-hRx"/>
+                <constraint firstAttribute="trailing" secondItem="4FB-f9-DmR" secondAttribute="trailing" id="6eY-9N-wd9"/>
+                <constraint firstItem="4FB-f9-DmR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="QGj-OZ-c6a"/>
+                <constraint firstItem="4FB-f9-DmR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="v9G-aO-3ff"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="228" y="114"/>
+            <connections>
+                <outlet property="tableView" destination="4FB-f9-DmR" id="JNe-su-e7Y"/>
+            </connections>
+            <point key="canvasLocation" x="303" y="-26"/>
         </view>
     </objects>
 </document>

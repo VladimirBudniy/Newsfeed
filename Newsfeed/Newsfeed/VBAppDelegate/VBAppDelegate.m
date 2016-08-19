@@ -49,7 +49,7 @@ static NSString * const kVBCoraDataName = @"Newsfeed";
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // remove all data from cache
+    
 }
 
 @end
