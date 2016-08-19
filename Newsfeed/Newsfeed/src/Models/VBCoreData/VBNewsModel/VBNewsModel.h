@@ -21,8 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
                           fullText:(NSString *)fullText
                          urlString:(NSString *)urlString;
 
-+ (instancetype)findNewsModelWithTitle:(NSString *)title;
-
 @end
 
 NS_ASSUME_NONNULL_END

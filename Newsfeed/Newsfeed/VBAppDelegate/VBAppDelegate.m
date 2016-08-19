@@ -37,6 +37,7 @@ static NSString * const kVBCoraDataName = @"Newsfeed";
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     VBNewsFeed *newsFeed = [VBNewsFeed newsFeed];
+    [newsFeed cleanCache];
     [newsFeed saveManagedObject];
 }
 

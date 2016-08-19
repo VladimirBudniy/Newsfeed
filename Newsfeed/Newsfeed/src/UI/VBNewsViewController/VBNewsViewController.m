@@ -106,8 +106,7 @@ VBRootViewAndReturnIfNilMacro(VBNewsView);
 
 - (void)newsFeedWithArray:(NSArray *)array {
     VBNewsFeed *newsFeed = [VBNewsFeed newsFeed];
-    [newsFeed removeNews];
-    newsFeed.news = [NSArray arrayWithArray:array];
+    newsFeed.news = array;
     [newsFeed saveManagedObject];
 }
 

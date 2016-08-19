@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)newsFeedObject;
 + (instancetype)newsFeed;
 
-- (void)removeNews;
+- (void)cleanCache;
 
 @end
 

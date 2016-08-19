@@ -29,7 +29,7 @@ static NSString * const kVBCategoryKey      = @"category";
 static NSString * const kVBPubDateKey       = @"pubDate";
 static NSString * const kVBItemKey          = @"item";
 
-static NSUInteger const kVBNewsCount        = 350;
+static NSUInteger const kVBNewsCount        = 550;
 
 //constants for VBLeftSlideViewController, categories names for VBLSVC
 static NSString * const kVBAllNewsCategoryName              = @"Всі новини";

@@ -45,7 +45,7 @@
 }
 
 + (BOOL)removeFileWithName:(NSString *)name {
-    NSString *path = [NSFileManager pathFolderWithName:name];
+    NSString *path = [NSFileManager pathPhotoWithName:name folder:kVBPhotosFolderName];
     
     return [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
 }

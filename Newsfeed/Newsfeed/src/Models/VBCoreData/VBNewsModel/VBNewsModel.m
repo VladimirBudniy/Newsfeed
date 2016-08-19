@@ -11,6 +11,12 @@
 #import "VBNewsModel.h"
 #import "VBNewsFeed.h"
 
+@interface VBNewsModel ()
++ (instancetype)findNewsModelWithTitle:(NSString *)title;
+
+@end
+
+
 @implementation VBNewsModel
 
 #pragma mark -
@@ -36,6 +42,9 @@
     
     return model;
 }
+
+#pragma mark -
+#pragma mark Private
 
 + (instancetype)findNewsModelWithTitle:(NSString *)title {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %@", kVBTitleKey, title];

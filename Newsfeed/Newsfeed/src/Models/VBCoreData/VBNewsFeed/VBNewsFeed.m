@@ -11,8 +11,15 @@
 #import "VBNewsFeed.h"
 #import "VBNewsModel.h"
 
-static NSString * const kVBSortNewsKey    = @"pubDate";
-static NSString * const kVBWasCreateKey   = @"wasCreate";
+static NSString * const kVBFileStringNameFormat = @"%@_%@";
+static NSString * const kVBSortNewsKey          = @"pubDate";
+static NSString * const kVBWasCreateKey         = @"wasCreate";
+static NSString * const kVBPredicateFormat      = @"%K = YES";
+
+@interface VBNewsFeed ()
+- (NSString *)fileNameFromURLString:(NSString *)string ;
+
+@end
 
 @implementation VBNewsFeed
 
@@ -50,19 +57,39 @@ static NSString * const kVBWasCreateKey   = @"wasCreate";
 }
 
 + (instancetype)newsFeedObject {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = YES", kVBWasCreateKey];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:kVBPredicateFormat, kVBWasCreateKey];
     
     return [[[self class] fetchEntityWithSortDescriptors:nil
                                                predicate:predicate
                                            prefetchPaths:nil] firstObject];
 }
 
+#pragma mark -
+#pragma mark Private
+
+- (NSString *)fileNameFromURLString:(NSString *)string {
+    NSArray *componentsArray = [string pathComponents];
+    NSString *fileName = [NSString stringWithFormat:kVBFileStringNameFormat,
+                          componentsArray[2], [string lastPathComponent]];
+    return fileName;
+}
+
 #pragma mark - 
 #pragma mark Public
 
-- (void)removeNews {
-    NSArray *newsArray = self.newsModels.allObjects;
-    [self removeNewsModels:[NSSet setWithArray:newsArray]];
+- (void)cleanCache {
+    NSDate *currentDate = [NSDate date];
+    for (VBNewsModel *model in self.newsModels) {
+        if ([model.pubDate compare:currentDate] == NSOrderedAscending) {
+            NSString *fileName = [self fileNameFromURLString:model.urlString];
+            if (fileName) {
+                BOOL success = [NSFileManager removeFileWithName:fileName];
+                if (success) {
+//                    NSLog(@"photo with name %@ was removed", fileName);
+                }
+            }
+        }
+    }
 }
 
 @end
