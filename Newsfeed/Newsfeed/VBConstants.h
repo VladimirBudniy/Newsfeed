@@ -14,6 +14,8 @@
                                         blue:222.0/255.0f \
                                        alpha:1.0f]
 
+static NSString * const kVBTsnRssUrlString    = @"http://tsn.ua/rss";
+
 static NSString * const kVBPhotosFolderName = @"/Photos";
 
 // constants for VBTableView's headers

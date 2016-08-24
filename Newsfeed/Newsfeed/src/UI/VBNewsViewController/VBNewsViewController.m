@@ -12,8 +12,7 @@
 #import "VBNewsFeed.h"
 #import "VBNewsParser.h"
 #import "VBTableViewCell.h"
-
-static NSString * const kVBTsnRssUrlString    = @"http://tsn.ua/rss";
+#import "VBHotNewsTableViewCell.h"
 
 @interface VBNewsViewController ()
 @property (nonatomic, readonly) VBNewsView       *rootView;
@@ -27,6 +26,7 @@ static NSString * const kVBTsnRssUrlString    = @"http://tsn.ua/rss";
 - (void)reloadRootViewData;
 - (void)showSpinner;
 - (VBNewsParser *)parser;
+- (id)tableView:(UITableView *)tableView cellAtIndexPath:(NSIndexPath *)indexPath class:(Class)theClass;
 
 @end
 
@@ -40,7 +40,7 @@ VBRootViewAndReturnIfNilMacro(VBNewsView);
 - (void)setNewsArray:(NSArray *)newsArray {
     if (_newsArray != newsArray) {
         _newsArray = newsArray;
-
+        
         [self reloadRootViewData];
     }
 }
@@ -57,7 +57,7 @@ VBRootViewAndReturnIfNilMacro(VBNewsView);
                 [strongSelf newsFeedWithArray:array];
                 strongSelf.newsArray = array;
             } forState:kVBModelLoadedState
-                             object:self];   
+                             object:self];
         }
         
         [self parseXML];
@@ -70,7 +70,7 @@ VBRootViewAndReturnIfNilMacro(VBNewsView);
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadNews];
-    [self addRefreshControl];    
+    [self addRefreshControl];
 }
 
 #pragma mark -
@@ -125,6 +125,15 @@ VBRootViewAndReturnIfNilMacro(VBNewsView);
     [self.rootView showLoadingViewAnimated:YES];
 }
 
+- (id)tableView:(UITableView *)tableView cellAtIndexPath:(NSIndexPath *)indexPath class:(Class)theClass {
+    id currentCell = [tableView dequeueReusableCellWithBundleClass:[theClass class]];
+    [currentCell fillWithNews:self.newsArray[indexPath.row]];
+    UITableViewCell *cell = currentCell;
+    [tableView setRowHeight:cell.contentView.frame.size.height];
+    
+    return cell;
+}
+
 #pragma mark -
 #pragma mark TableView DataSource Protocol
 
@@ -133,10 +142,11 @@ VBRootViewAndReturnIfNilMacro(VBNewsView);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    VBTableViewCell *cell = [tableView dequeueReusableCellWithBundleClass:[VBTableViewCell class]];
-    [cell fillWithNews:self.newsArray[indexPath.row]];
-    
-    return cell;
+    if (indexPath.row == 0) {
+        return [self tableView:tableView cellAtIndexPath:indexPath class:[VBHotNewsTableViewCell class]];
+    } else {
+        return [self tableView:tableView cellAtIndexPath:indexPath class:[VBTableViewCell class]];
+    }
 }
 
 #pragma mark
