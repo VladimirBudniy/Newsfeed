@@ -54,7 +54,12 @@ VBRootViewAndReturnIfNilMacro(VBNewsView);
             [_newsParser addHandler:^(VBNewsParser *parser) {
                 VBStrongSelfAndReturnNilMacro;
                 NSArray *array = [NSArray arrayWithArray:parser.allNews];
-                [strongSelf newsFeedWithArray:array];
+                
+                VBDispatchAsyncInBackground(^{
+                    [strongSelf newsFeedWithArray:array];
+                });
+                
+//                [strongSelf newsFeedWithArray:array];
                 strongSelf.newsArray = array;
             } forState:kVBModelLoadedState
                              object:self];
