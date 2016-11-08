@@ -1,0 +1,17 @@
+//
+//  VBNewsfeed-Prefix.pch
+//  Newsfeed
+//
+//  Created by Vladimir Budniy on 28.06.16.
+//  Copyright © 2016 Vladimir Budniy. All rights reserved.
+//
+
+#ifndef VBNewsfeed_Prefix_pch
+#define VBNewsfeed_Prefix_pch
+
+#define AMSlideMenuWithoutStoryboards
+
+#import "VBLibrary.h"
+#import "VBConstants.h"
+
+#endif /* VBNewsfeed_Prefix_pch */
