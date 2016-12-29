@@ -9,20 +9,17 @@
 #import "VBNewsViewController.h"
 #import "VBSelectedNewsViewController.h"
 #import "VBNewsView.h"
-#import "VBNewsFeed.h"
 #import "VBNewsParser.h"
 #import "VBTableViewCell.h"
 #import "VBHotNewsTableViewCell.h"
 
 @interface VBNewsViewController ()
 @property (nonatomic, readonly) VBNewsView       *rootView;
-@property (nonatomic, strong)   NSArray          *newsArray;
 @property (nonatomic, strong)   UIRefreshControl *refreshControl;
 
 - (void)loadNews;
 - (void)parseXML;
 - (void)addRefreshControl;
-- (void)newsFeedWithArray:(NSArray *)array;
 - (void)reloadRootViewData;
 - (void)showSpinner;
 - (VBNewsParser *)parser;
@@ -37,30 +34,17 @@
 
 VBRootViewAndReturnIfNilMacro(VBNewsView);
 
-- (void)setNewsArray:(NSArray *)newsArray {
-    if (_newsArray != newsArray) {
-        _newsArray = newsArray;
-        
-        [self reloadRootViewData];
-    }
-}
-
 - (void)setNewsParser:(VBNewsParser *)newsParser {
     if (_newsParser != newsParser) {
         _newsParser = newsParser;
         
         if (_newsParser) {
             VBWeakSelfMacro;
-            [_newsParser addHandler:^(VBNewsParser *parser) {
+            [_newsParser addHandler:^(NSArray *news) {
                 VBStrongSelfAndReturnNilMacro;
-                NSArray *array = [NSArray arrayWithArray:parser.allNews];
-                
-                VBDispatchAsyncInBackground(^{
-                    [strongSelf newsFeedWithArray:array];
-                });
-                
-//                [strongSelf newsFeedWithArray:array];
-                strongSelf.newsArray = array;
+                NSArray *array = [NSArray arrayWithArray:news];
+                strongSelf.news = array;
+                [strongSelf reloadRootViewData];
             } forState:kVBModelLoadedState
                              object:self];
         }
@@ -82,10 +66,8 @@ VBRootViewAndReturnIfNilMacro(VBNewsView);
 #pragma mark Private
 
 - (void)loadNews {
-    NSArray *array = [NSArray arrayWithArray:self.news];
-    if (array.count) {
-        [self showSpinner];
-        self.newsArray = [NSArray arrayWithArray:array];
+    if (self.news.count) {
+        [self.rootView.tableView reloadData];
     } else {
         self.newsParser = [self parser];
     }
@@ -109,12 +91,6 @@ VBRootViewAndReturnIfNilMacro(VBNewsView);
     self.refreshControl = control;
 }
 
-- (void)newsFeedWithArray:(NSArray *)array {
-    VBNewsFeed *newsFeed = [VBNewsFeed newsFeed];
-    newsFeed.news = array;
-    [newsFeed saveManagedObject];
-}
-
 - (void)reloadRootViewData {
     VBNewsView *rootView = self.rootView;
     [rootView removeLoadingViewAnimated:YES];
@@ -132,7 +108,7 @@ VBRootViewAndReturnIfNilMacro(VBNewsView);
 
 - (id)tableView:(UITableView *)tableView cellAtIndexPath:(NSIndexPath *)indexPath class:(Class)theClass {
     id currentCell = [tableView dequeueReusableCellWithBundleClass:[theClass class]];
-    [currentCell fillWithNews:self.newsArray[indexPath.row]];
+    [currentCell fillWithNews:self.news[indexPath.row]];
     UITableViewCell *cell = currentCell;
     [tableView setRowHeight:cell.contentView.frame.size.height];
     
@@ -143,7 +119,7 @@ VBRootViewAndReturnIfNilMacro(VBNewsView);
 #pragma mark TableView DataSource Protocol
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.newsArray.count;
+    return self.news.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -161,7 +137,7 @@ VBRootViewAndReturnIfNilMacro(VBNewsView);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     VBSelectedNewsViewController *controller = [VBSelectedNewsViewController new];
-    controller.news = self.newsArray[indexPath.row];
+    controller.news = self.news[indexPath.row];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

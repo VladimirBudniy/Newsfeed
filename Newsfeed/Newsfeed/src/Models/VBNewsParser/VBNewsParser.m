@@ -12,7 +12,11 @@
 #import "VBNewsFeed.h"
 #import "VBNewsModel.h"
 
+static NSInteger newsCount;
+static NSInteger const loadAmount = 550;
+
 @interface VBNewsParser ()
+
 @property (nonatomic, strong) NSURL          *URL;
 @property (nonatomic, strong) NSMutableArray *newsArray;
 @property (nonatomic, strong) NSXMLParser    *parser;
@@ -56,15 +60,6 @@
 }
 
 #pragma mark -
-#pragma mark Accessors
-
-- (NSArray *)allNews {
-    @synchronized (self) {
-        return self.newsArray;
-    }
-}
-
-#pragma mark -
 #pragma mark Public
 
 - (void)setupLoad {
@@ -83,7 +78,7 @@
 
 - (void)finishLoad {
     @synchronized (self) {
-        [self setState:kVBModelLoadedState withObject:self];
+        [self setState:kVBModelLoadedState withObject:self.newsArray];
     }
 }
 
@@ -133,7 +128,10 @@ didStartElement:(NSString *)elementName
         
         [self addNewsCharacters:string];
         
-        if (self.newsArray.count == kVBNewsCount) {
+        if (newsCount == loadAmount) {  // This block needs for stop the parser at a certain quantity of news
+            newsCount = 0;
+            VBNewsFeed *newsFeed = [VBNewsFeed newsFeed];
+            self.newsArray = [NSMutableArray arrayWithArray:newsFeed.news];
             [self.parser abortParsing];
         }
     }
@@ -151,7 +149,9 @@ didStartElement:(NSString *)elementName
                                                         pubDate:self.currentPubDate
                                                        fullText:self.currentFullText
                                                       urlString:self.currentUrlString];
-            [self.newsArray addObject:news];
+            
+            [[VBNewsFeed newsFeed] addNewsModelsObject:news];
+            newsCount +=1; // It's needs for stop the parser at a certain quantity of news
         }
         
         self.element = nil;

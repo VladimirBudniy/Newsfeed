@@ -9,7 +9,6 @@
 #import "VBModel.h"
 
 @interface VBNewsParser : VBModel <NSXMLParserDelegate>
-@property (nonatomic, readonly) NSArray *allNews;
 
 - (instancetype)initWithURL:(NSURL *)URL;
 
