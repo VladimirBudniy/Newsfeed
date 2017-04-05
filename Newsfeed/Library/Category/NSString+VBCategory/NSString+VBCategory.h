@@ -24,4 +24,6 @@ extern const NSUInteger kVBStringLength;
 + (instancetype)randomStringWithAlphabet:(VBAlphabet *)alphabet;
 + (instancetype)randomStringWithLenght:(NSUInteger)length alphabet:(VBAlphabet *)alphabet;
 
++ (instancetype)replaceIn:(NSString *)string strings:(NSArray *)strings onStrings:(NSArray *)onStrings;
+
 @end

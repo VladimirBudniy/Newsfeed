@@ -20,13 +20,13 @@ static NSInteger const loadAmount = 550;
 @property (nonatomic, strong) NSURL          *URL;
 @property (nonatomic, strong) NSMutableArray *newsArray;
 @property (nonatomic, strong) NSXMLParser    *parser;
-@property (nonatomic, strong) NSString       *element;
+@property (nonatomic,copy)    NSString       *element;
 
-@property (nonatomic, strong) NSString  *currentTitle;
-@property (nonatomic, strong) NSString  *currentUrlString;
-@property (nonatomic, strong) NSString  *currentFullText;
+@property (nonatomic, copy)   NSString  *currentTitle;
+@property (nonatomic, copy)   NSString  *currentUrlString;
+@property (nonatomic, copy)   NSString  *currentFullText;
 @property (nonatomic, strong) NSDate    *currentPubDate;
-@property (nonatomic, strong) NSString  *currentCategory;
+@property (nonatomic, copy)   NSString  *currentCategory;
 
 - (void)addNewsCharacters:(NSString *)string;
 
@@ -87,18 +87,6 @@ static NSInteger const loadAmount = 550;
 
 - (void)addNewsCharacters:(NSString *)string {
     @synchronized (self) {
-        if ([self.element isEqualToString:kVBTitleKey]) {
-            self.currentTitle = string;
-        }
-        
-        if ([self.element isEqualToString:kVBFulltextKey]) {
-            self.currentFullText = string;
-        }
-        
-        if ([self.element isEqualToString:kVBCategoryKey]) {
-            self.currentCategory = string;
-        }
-        
         if ([self.element isEqualToString:kVBPubDateKey]) {
             self.currentPubDate = [NSDate convertDateFromString:string];
         }
@@ -123,9 +111,28 @@ didStartElement:(NSString *)elementName
     }
 }
 
+- (void)parser:(NSXMLParser *)parser foundCDATA:(NSData *)CDATABlock {
+    @synchronized (self) {
+        NSArray *removingStrings = [[NSArray alloc] initWithObjects:kVBDoubleQuote, kVBSingleQuote, kVBLineFeed, nil];
+        NSArray *addingStrings = [[NSArray alloc] initWithObjects:kVBDoubleQuoteKey, kVBSingleQuoteKey, kVBLineFeedKey, nil];
+        NSString *string = [[NSString alloc] initWithData:CDATABlock encoding:NSUTF8StringEncoding];
+        
+        if ([self.element isEqualToString:kVBTitleKey]) {
+            self.currentTitle = [NSString replaceIn:string strings:removingStrings onStrings:addingStrings];
+        }
+        
+        if ([self.element isEqualToString:kVBFulltextKey]) {
+            self.currentFullText = [NSString replaceIn:string strings:removingStrings onStrings:addingStrings];
+        }
+        
+        if ([self.element isEqualToString:kVBCategoryKey]) {
+            self.currentCategory = [NSString replaceIn:string strings:removingStrings onStrings:addingStrings];
+        }
+    }
+}
+
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
     @synchronized (self) {
-        
         [self addNewsCharacters:string];
         
         if (newsCount == loadAmount) {  // This block needs for stop the parser at a certain quantity of news

@@ -35,16 +35,16 @@ static NSUInteger const kVBNewsCount        = 550;
 
 //constants for VBLeftSlideViewController, categories names for VBLSVC
 static NSString * const kVBAllNewsCategoryName              = @"Всі новини";
-static NSString * const kVBUkraineNewsCategoryName          = @"Новини України";
-static NSString * const kVBATOCategoryName                  = @"Новини АТО";
-static NSString * const kVCityCategoryName                 = @"Новини Києва";
-static NSString * const kVBWorldNewsCategoryName            = @"Новини світу";
+static NSString * const kVBUkraineNewsCategoryName          = @"Події";
+static NSString * const kVBATOCategoryName                  = @"АТО";
+static NSString * const kVCityCategoryName                  = @"Київ";
+static NSString * const kVBWorldNewsCategoryName            = @"За кордоном";
 static NSString * const kVBPoliticsCategoryName             = @"Політика";
-static NSString * const kVBEconomicCategoryName             = @"Фінанси";
-static NSString * const kVBTechnologiesNewsCategoryName     = @"Новини науки та IT";
-static NSString * const kVBGlamourCategoryName              = @"Світськи новини";
+static NSString * const kVBEconomicCategoryName             = @"Економіка";
+static NSString * const kVBTechnologiesNewsCategoryName     = @"Технологія";
+static NSString * const kVBGlamourCategoryName              = @"Гламур";
 static NSString * const kVBSportCategoryName                = @"Спорт";
-static NSString * const kVBInterestingCategoryName          = @"Цікавинки";
+static NSString * const kVBInterestingCategoryName          = @"Курйози";
 static NSString * const kVBHelpCategoryName                 = @"Допомога";
 
 //constants for VBLeftSlideViewController, categories images names for VBLSVC
@@ -77,16 +77,16 @@ static NSString * const kVBHelpActionImageName                 = @"health_action
 
 //constants for VBLeftSlideViewController, sort with original categories names
 static NSString * const kVBAllNewsOriginalCategoryName              = @"Всі новини";
-static NSString * const kVBUkraineNewsOriginalCategoryName          = @"Новини України на 1+1";
-static NSString * const kVBATOOriginalCategoryName                  = @"Новини АТО - всі подробиці війни у Донецькій та Луганській областях";
-static NSString * const kVCitymOriginalCategoryName                 = @"Новини Києва на 1+1";
-static NSString * const kVBWorldNewsOriginalCategoryName            = @"Новини світу на 1+1";
+static NSString * const kVBUkraineNewsOriginalCategoryName          = @"Події";
+static NSString * const kVBATOOriginalCategoryName                  = @"АТО";
+static NSString * const kVCitymOriginalCategoryName                 = @"Київ";
+static NSString * const kVBWorldNewsOriginalCategoryName            = @"За кордоном";
 static NSString * const kVBPoliticsOriginalCategoryName             = @"Політика";
-static NSString * const kVBEconomicOriginalCategoryName             = @"Гроші, фінансові новини на 1+1";
-static NSString * const kVBTechnologiesOriginalNewsCategoryName     = @"Новини технологій, науки та IT на 1+1";
-static NSString * const kVBGlamourOriginalCategoryName              = @"Світські новини - гламур на 1+1";
-static NSString * const kVBSportOriginalCategoryName                = @"Про спорт - новини спорту, все про спорт в Україні";
-static NSString * const kVBInterestingOriginalCategoryName          = @"Все цікаве онлайн на 1+1";
+static NSString * const kVBEconomicOriginalCategoryName             = @"Економіка";
+static NSString * const kVBTechnologiesOriginalNewsCategoryName     = @"Технологія";
+static NSString * const kVBGlamourOriginalCategoryName              = @"Гламур";
+static NSString * const kVBSportOriginalCategoryName                = @"Спорт";
+static NSString * const kVBInterestingOriginalCategoryName          = @"Курйози";
 static NSString * const kVBHelpOriginalCategoryName                 = @"Допомога";
 
 typedef enum {
@@ -103,5 +103,13 @@ typedef enum {
     kVBInterestingCategory,
     kVBHelpCategory
 } kVBCategoryType;
+
+//constants for clean NSString
+static NSString * const kVBDoubleQuote        = @"&quot;";
+static NSString * const kVBSingleQuote        = @"&#039;";
+static NSString * const kVBLineFeed           = @"&#13;";
+static NSString * const kVBDoubleQuoteKey     = @"\"";
+static NSString * const kVBSingleQuoteKey     = @"\'";
+static NSString * const kVBLineFeedKey        = @"\n";
 
 #endif /* VBConstants_h */

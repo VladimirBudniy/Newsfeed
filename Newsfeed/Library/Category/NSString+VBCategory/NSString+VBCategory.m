@@ -38,4 +38,13 @@ const NSUInteger kVBStringLength = 4;
     return [string mutableCopy];
 }
 
++ (instancetype)replaceIn:(NSString *)string strings:(NSArray *)strings onStrings:(NSArray *)onStrings {
+    NSMutableString *mutableString = [string mutableCopy];
+    for (NSUInteger index; index < onStrings.count; index++) {
+        [mutableString stringByReplacingOccurrencesOfString:strings[index] withString:onStrings[index]];
+    }
+    
+    return [mutableString copy];
+}
+
 @end
